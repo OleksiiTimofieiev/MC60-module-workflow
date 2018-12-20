@@ -81,11 +81,14 @@ s32		response_callback(char* line, u32 len, void* userData);
 void	CallBack_UART_Hdlr(Enum_SerialPort port, Enum_UARTEventType msg, bool level, void* customizedPara);
 s32		ReadSerialPort(Enum_SerialPort port, /*[out]*/u8* pBuffer, /*[in]*/u32 bufLen);
 
-/* active slot manipulations */
+/* slot manipulations */
 void    get_list_of_supported_slots(void);
 void    get_active_slot(void);
 void    change_active_slot(u8 slot);
+void    get_SIM_state(void);
 
+
+/* simultaneously works only with one slot */
 void    proc_main_task(s32 taskId)
 {
     ST_MSG  msg;
@@ -124,12 +127,24 @@ void    proc_main_task(s32 taskId)
 
                 Ql_RIL_Initialize();
 
+
+
+
                 get_list_of_supported_slots();
+
+
+                APP_DEBUG("SIM state:\r\n");
+                get_SIM_state();
+
                 get_active_slot();
+
                 change_active_slot(1);
                 get_active_slot();
+
                 change_active_slot(0);
                 get_active_slot();
+                APP_DEBUG("SIM state:\r\n");
+                get_SIM_state();
 
 				break ;
             }
@@ -228,7 +243,7 @@ s32 	ReadSerialPort(Enum_SerialPort port, /*[out]*/u8* pBuffer, /*[in]*/u32 bufL
         // Continue to read...
     }
     
-    APP_DEBUG("Input to the port -> %s\r\n", pBuffer);
+    // APP_DEBUG("Input to the port -> %s\r\n", pBuffer);
 
     if (rdLen < 0) // Serial Port Error!
     {
@@ -319,15 +334,67 @@ void    change_active_slot(u8 slot)
 {
     s32     func_result = RIL_AT_FAILED;
 
-    u8  cmd[20];
+    u8  cmd[14];
 
-    Ql_memset(cmd, 0x0, Ql_strlen(cmd));
+    Ql_memset(cmd, '\0', Ql_strlen(cmd));
     Ql_sprintf(cmd, "AT+QDSIM=%d\0", slot);
 
-    APP_DEBUG("Change active slot to -> %d \r\n", slot);
+    APP_DEBUG("Change active slot to -> %d\r\n", slot);
     if ((func_result = send_AT_cmd(cmd, &func_result)) != RIL_AT_SUCCESS)
     {
         dianostics(func_result);
+    }
+}
+
+void    get_SIM_state(void)
+{
+    s32 ret = RIL_AT_FAILED;
+    s32 state = 0;
+    
+    /* only for debug -> needs to be removed */
+    while (ret != RIL_AT_SUCCESS)
+    {
+        ret = RIL_SIM_GetSimState(&state);
+        APP_DEBUG("Error\r\n");
+        dianostics(ret);
+        Ql_Sleep(500);
+    }
+
+    if (state == SIM_STAT_NOT_INSERTED)
+    {
+        APP_DEBUG("SIM_STAT_NOT_INSERTED\r\n");
+    }
+    else if (state == SIM_STAT_READY)
+    {
+        APP_DEBUG("SIM_STAT_READY\r\n");
+    }
+    else if (state == SIM_STAT_PIN_REQ)
+    {
+        APP_DEBUG("SIM_STAT_PIN_REQ\r\n");
+    }
+    else if (state == SIM_STAT_PUK_REQ)
+    {
+        APP_DEBUG("SIM_STAT_PUK_REQ\r\n");
+    }
+    else if (state == SIM_STAT_PIN2_REQ)
+    {
+        APP_DEBUG("SIM_STAT_PIN2_REQ\r\n");
+    }
+    else if (state == SIM_STAT_PUK2_REQ)
+    {
+        APP_DEBUG("SIM_STAT_PUK2_REQ\r\n");
+    }
+    else if (state == SIM_STAT_BUSY)
+    {
+        APP_DEBUG("SIM_STAT_BUSY\r\n");
+    }
+    else if (state == SIM_STAT_NOT_READY)
+    {
+        APP_DEBUG("SIM_STAT_NOT_READY\r\n");
+    }
+    else if (state == SIM_STAT_UNSPECIFIED)
+    {
+        APP_DEBUG("SIM_STAT_UNSPECIFIED\r\n");
     }
 }
 
