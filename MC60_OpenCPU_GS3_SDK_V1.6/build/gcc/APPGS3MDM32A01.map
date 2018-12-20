@@ -1528,329 +1528,329 @@ text            0x102db070      0x420
                 0x102debf4                get_active_slot
 
 .text.change_active_slot
-                0x102dec98       0xd8
+                0x102dec98       0xdc
  .text.change_active_slot
-                0x102dec98       0xd8 build\gcc\obj/custom/dual_sim.o
+                0x102dec98       0xdc build\gcc\obj/custom/dual_sim.o
                 0x102dec98                change_active_slot
 
 .text.proc_main_task
-                0x102ded70      0x170
+                0x102ded74      0x170
  .text.proc_main_task
-                0x102ded70      0x170 build\gcc\obj/custom/dual_sim.o
-                0x102ded70                proc_main_task
+                0x102ded74      0x170 build\gcc\obj/custom/dual_sim.o
+                0x102ded74                proc_main_task
 
 .text.Ql_MEM_Alloc
-                0x102deee0       0x78
+                0x102deee4       0x78
  .text.Ql_MEM_Alloc
-                0x102deee0       0x78 libs/gcc/app_start.lib(memory.o)
-                0x102deee0                Ql_MEM_Alloc
+                0x102deee4       0x78 libs/gcc/app_start.lib(memory.o)
+                0x102deee4                Ql_MEM_Alloc
 
 .text.Ql_MEM_Free
-                0x102def58       0x74
+                0x102def5c       0x74
  .text.Ql_MEM_Free
-                0x102def58       0x74 libs/gcc/app_start.lib(memory.o)
-                0x102def58                Ql_MEM_Free
+                0x102def5c       0x74 libs/gcc/app_start.lib(memory.o)
+                0x102def5c                Ql_MEM_Free
 
 .text.ql_InitVFunc
-                0x102defcc      0x104
+                0x102defd0      0x104
  .text.ql_InitVFunc
-                0x102defcc      0x104 libs/gcc/app_start.lib(ql_main.o)
-                0x102defcc                ql_InitVFunc
+                0x102defd0      0x104 libs/gcc/app_start.lib(ql_main.o)
+                0x102defd0                ql_InitVFunc
 
 .text.ocpu_main
-                0x102df0d0       0xf0
+                0x102df0d4       0xf0
  .text.ocpu_main
-                0x102df0d0       0xf0 libs/gcc/app_start.lib(ql_main.o)
-                0x102df0d0                ocpu_main
+                0x102df0d4       0xf0 libs/gcc/app_start.lib(ql_main.o)
+                0x102df0d4                ocpu_main
 
 .text.proc_reserved2
-                0x102df1c0       0x70
+                0x102df1c4       0x70
  .text.proc_reserved2
-                0x102df1c0       0x70 libs/gcc/app_start.lib(ril_aux.o)
-                0x102df1c0                proc_reserved2
+                0x102df1c4       0x70 libs/gcc/app_start.lib(ril_aux.o)
+                0x102df1c4                proc_reserved2
 
 .text.ril_StopATTimer
-                0x102df230       0x34
+                0x102df234       0x34
  .text.ril_StopATTimer
-                0x102df230       0x34 libs/gcc/app_start.lib(ril_main.o)
+                0x102df234       0x34 libs/gcc/app_start.lib(ril_main.o)
 
 .text.Callback_OnATTimer
-                0x102df264       0x4c
+                0x102df268       0x4c
  .text.Callback_OnATTimer
-                0x102df264       0x4c libs/gcc/app_start.lib(ril_main.o)
+                0x102df268       0x4c libs/gcc/app_start.lib(ril_main.o)
 
 .text.CallBack_SerialPort_Hdlr
-                0x102df2b0      0x384
+                0x102df2b4      0x384
  .text.CallBack_SerialPort_Hdlr
-                0x102df2b0      0x384 libs/gcc/app_start.lib(ril_main.o)
+                0x102df2b4      0x384 libs/gcc/app_start.lib(ril_main.o)
 
 .text.proc_reserved1
-                0x102df634      0x200
+                0x102df638      0x200
  .text.proc_reserved1
-                0x102df634      0x200 libs/gcc/app_start.lib(ril_main.o)
-                0x102df634                proc_reserved1
+                0x102df638      0x200 libs/gcc/app_start.lib(ril_main.o)
+                0x102df638                proc_reserved1
 
 .text.Ql_RIL_Initialize
-                0x102df834       0xd4
+                0x102df838       0xd4
  .text.Ql_RIL_Initialize
-                0x102df834       0xd4 libs/gcc/app_start.lib(ril_main.o)
-                0x102df834                Ql_RIL_Initialize
+                0x102df838       0xd4 libs/gcc/app_start.lib(ril_main.o)
+                0x102df838                Ql_RIL_Initialize
 
 .text.Ql_RIL_SendATCmd
-                0x102df908      0x260
+                0x102df90c      0x260
  .text.Ql_RIL_SendATCmd
-                0x102df908      0x260 libs/gcc/app_start.lib(ril_main.o)
-                0x102df908                Ql_RIL_SendATCmd
+                0x102df90c      0x260 libs/gcc/app_start.lib(ril_main.o)
+                0x102df90c                Ql_RIL_SendATCmd
 
-.text.Ql_atof   0x102dfb68       0x98
- .text.Ql_atof  0x102dfb68       0x98 libs/gcc/app_start.lib(stdlib_func.o)
-                0x102dfb68                Ql_atof
+.text.Ql_atof   0x102dfb6c       0x98
+ .text.Ql_atof  0x102dfb6c       0x98 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102dfb6c                Ql_atof
 
 .text.Ql_strcpy
-                0x102dfc00       0xa0
+                0x102dfc04       0xa0
  .text.Ql_strcpy
-                0x102dfc00       0xa0 libs/gcc/app_start.lib(stdlib_func.o)
-                0x102dfc00                Ql_strcpy
+                0x102dfc04       0xa0 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102dfc04                Ql_strcpy
 
 .text.Ql_strncpy
-                0x102dfca0       0x88
+                0x102dfca4       0x88
  .text.Ql_strncpy
-                0x102dfca0       0x88 libs/gcc/app_start.lib(stdlib_func.o)
-                0x102dfca0                Ql_strncpy
+                0x102dfca4       0x88 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102dfca4                Ql_strncpy
 
 .text.Ql_strlen
-                0x102dfd28       0x78
+                0x102dfd2c       0x78
  .text.Ql_strlen
-                0x102dfd28       0x78 libs/gcc/app_start.lib(stdlib_func.o)
-                0x102dfd28                Ql_strlen
+                0x102dfd2c       0x78 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102dfd2c                Ql_strlen
 
 .text.Ql_strcmp
-                0x102dfda0       0x68
+                0x102dfda4       0x68
  .text.Ql_strcmp
-                0x102dfda0       0x68 libs/gcc/app_start.lib(stdlib_func.o)
-                0x102dfda0                Ql_strcmp
+                0x102dfda4       0x68 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102dfda4                Ql_strcmp
 
 .text.Ql_strncmp
-                0x102dfe08       0x70
+                0x102dfe0c       0x70
  .text.Ql_strncmp
-                0x102dfe08       0x70 libs/gcc/app_start.lib(stdlib_func.o)
-                0x102dfe08                Ql_strncmp
+                0x102dfe0c       0x70 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102dfe0c                Ql_strncmp
 
 .text.Ql_memset
-                0x102dfe78       0x88
+                0x102dfe7c       0x88
  .text.Ql_memset
-                0x102dfe78       0x88 libs/gcc/app_start.lib(stdlib_func.o)
-                0x102dfe78                Ql_memset
+                0x102dfe7c       0x88 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102dfe7c                Ql_memset
 
 .text.Ql_memcpy
-                0x102dff00       0x88
+                0x102dff04       0x88
  .text.Ql_memcpy
-                0x102dff00       0x88 libs/gcc/app_start.lib(stdlib_func.o)
-                0x102dff00                Ql_memcpy
+                0x102dff04       0x88 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102dff04                Ql_memcpy
 
 .text.Ql_strstr
-                0x102dff88       0x80
+                0x102dff8c       0x80
  .text.Ql_strstr
-                0x102dff88       0x80 libs/gcc/app_start.lib(stdlib_func.o)
-                0x102dff88                Ql_strstr
+                0x102dff8c       0x80 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102dff8c                Ql_strstr
 
 .text.Ql_toupper
-                0x102e0008        0x8
+                0x102e000c        0x8
  .text.Ql_toupper
-                0x102e0008        0x8 libs/gcc/app_start.lib(stdlib_func.o)
-                0x102e0008                Ql_toupper
+                0x102e000c        0x8 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102e000c                Ql_toupper
 
-.text.Ql_atoi   0x102e0010       0x84
- .text.Ql_atoi  0x102e0010       0x84 libs/gcc/app_start.lib(stdlib_func.o)
-                0x102e0010                Ql_atoi
+.text.Ql_atoi   0x102e0014       0x84
+ .text.Ql_atoi  0x102e0014       0x84 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102e0014                Ql_atoi
 
 .text.Ql_GetCoreVer
-                0x102e0094       0x6c
+                0x102e0098       0x6c
  .text.Ql_GetCoreVer
-                0x102e0094       0x6c libs/gcc/app_start.lib(system.o)
-                0x102e0094                Ql_GetCoreVer
+                0x102e0098       0x6c libs/gcc/app_start.lib(system.o)
+                0x102e0098                Ql_GetCoreVer
 
 .text.Ql_GetSDKVer
-                0x102e0100       0x64
+                0x102e0104       0x64
  .text.Ql_GetSDKVer
-                0x102e0100       0x64 libs/gcc/app_start.lib(system.o)
-                0x102e0100                Ql_GetSDKVer
+                0x102e0104       0x64 libs/gcc/app_start.lib(system.o)
+                0x102e0104                Ql_GetSDKVer
 
 .text.Ql_OS_GetMessage
-                0x102e0164       0x60
+                0x102e0168       0x60
  .text.Ql_OS_GetMessage
-                0x102e0164       0x60 libs/gcc/app_start.lib(taskMngt.o)
-                0x102e0164                Ql_OS_GetMessage
+                0x102e0168       0x60 libs/gcc/app_start.lib(taskMngt.o)
+                0x102e0168                Ql_OS_GetMessage
 
 .text.Ql_OS_SendMessage
-                0x102e01c4       0x78
+                0x102e01c8       0x78
  .text.Ql_OS_SendMessage
-                0x102e01c4       0x78 libs/gcc/app_start.lib(taskMngt.o)
-                0x102e01c4                Ql_OS_SendMessage
+                0x102e01c8       0x78 libs/gcc/app_start.lib(taskMngt.o)
+                0x102e01c8                Ql_OS_SendMessage
 
 .text.Ql_OS_CreateMutex
-                0x102e023c       0x54
+                0x102e0240       0x54
  .text.Ql_OS_CreateMutex
-                0x102e023c       0x54 libs/gcc/app_start.lib(taskMngt.o)
-                0x102e023c                Ql_OS_CreateMutex
+                0x102e0240       0x54 libs/gcc/app_start.lib(taskMngt.o)
+                0x102e0240                Ql_OS_CreateMutex
 
 .text.Ql_OS_TakeMutex
-                0x102e0290       0x54
+                0x102e0294       0x54
  .text.Ql_OS_TakeMutex
-                0x102e0290       0x54 libs/gcc/app_start.lib(taskMngt.o)
-                0x102e0290                Ql_OS_TakeMutex
+                0x102e0294       0x54 libs/gcc/app_start.lib(taskMngt.o)
+                0x102e0294                Ql_OS_TakeMutex
 
 .text.Ql_OS_GiveMutex
-                0x102e02e4       0x54
+                0x102e02e8       0x54
  .text.Ql_OS_GiveMutex
-                0x102e02e4       0x54 libs/gcc/app_start.lib(taskMngt.o)
-                0x102e02e4                Ql_OS_GiveMutex
+                0x102e02e8       0x54 libs/gcc/app_start.lib(taskMngt.o)
+                0x102e02e8                Ql_OS_GiveMutex
 
 .text.Ql_OS_CreateEvent
-                0x102e0338       0x54
+                0x102e033c       0x54
  .text.Ql_OS_CreateEvent
-                0x102e0338       0x54 libs/gcc/app_start.lib(taskMngt.o)
-                0x102e0338                Ql_OS_CreateEvent
+                0x102e033c       0x54 libs/gcc/app_start.lib(taskMngt.o)
+                0x102e033c                Ql_OS_CreateEvent
 
 .text.Ql_OS_WaitEvent
-                0x102e038c       0x68
+                0x102e0390       0x68
  .text.Ql_OS_WaitEvent
-                0x102e038c       0x68 libs/gcc/app_start.lib(taskMngt.o)
-                0x102e038c                Ql_OS_WaitEvent
+                0x102e0390       0x68 libs/gcc/app_start.lib(taskMngt.o)
+                0x102e0390                Ql_OS_WaitEvent
 
 .text.Ql_OS_SetEvent
-                0x102e03f4       0x68
+                0x102e03f8       0x68
  .text.Ql_OS_SetEvent
-                0x102e03f4       0x68 libs/gcc/app_start.lib(taskMngt.o)
-                0x102e03f4                Ql_OS_SetEvent
+                0x102e03f8       0x68 libs/gcc/app_start.lib(taskMngt.o)
+                0x102e03f8                Ql_OS_SetEvent
 
 .text.Ql_Timer_Register
-                0x102e045c       0x70
+                0x102e0460       0x70
  .text.Ql_Timer_Register
-                0x102e045c       0x70 libs/gcc/app_start.lib(timer.o)
-                0x102e045c                Ql_Timer_Register
+                0x102e0460       0x70 libs/gcc/app_start.lib(timer.o)
+                0x102e0460                Ql_Timer_Register
 
 .text.Ql_Timer_Start
-                0x102e04cc       0x70
+                0x102e04d0       0x70
  .text.Ql_Timer_Start
-                0x102e04cc       0x70 libs/gcc/app_start.lib(timer.o)
-                0x102e04cc                Ql_Timer_Start
+                0x102e04d0       0x70 libs/gcc/app_start.lib(timer.o)
+                0x102e04d0                Ql_Timer_Start
 
 .text.Ql_Timer_Stop
-                0x102e053c       0x60
+                0x102e0540       0x60
  .text.Ql_Timer_Stop
-                0x102e053c       0x60 libs/gcc/app_start.lib(timer.o)
-                0x102e053c                Ql_Timer_Stop
+                0x102e0540       0x60 libs/gcc/app_start.lib(timer.o)
+                0x102e0540                Ql_Timer_Stop
 
 .text.Ql_UART_Register
-                0x102e059c       0x70
+                0x102e05a0       0x70
  .text.Ql_UART_Register
-                0x102e059c       0x70 libs/gcc/app_start.lib(uart.o)
-                0x102e059c                Ql_UART_Register
+                0x102e05a0       0x70 libs/gcc/app_start.lib(uart.o)
+                0x102e05a0                Ql_UART_Register
 
 .text.Ql_UART_Open
-                0x102e060c       0x70
+                0x102e0610       0x70
  .text.Ql_UART_Open
-                0x102e060c       0x70 libs/gcc/app_start.lib(uart.o)
-                0x102e060c                Ql_UART_Open
+                0x102e0610       0x70 libs/gcc/app_start.lib(uart.o)
+                0x102e0610                Ql_UART_Open
 
 .text.Ql_UART_Write
-                0x102e067c       0x70
+                0x102e0680       0x70
  .text.Ql_UART_Write
-                0x102e067c       0x70 libs/gcc/app_start.lib(uart.o)
-                0x102e067c                Ql_UART_Write
+                0x102e0680       0x70 libs/gcc/app_start.lib(uart.o)
+                0x102e0680                Ql_UART_Write
 
 .text.Ql_UART_Read
-                0x102e06ec       0x70
+                0x102e06f0       0x70
  .text.Ql_UART_Read
-                0x102e06ec       0x70 libs/gcc/app_start.lib(uart.o)
-                0x102e06ec                Ql_UART_Read
+                0x102e06f0       0x70 libs/gcc/app_start.lib(uart.o)
+                0x102e06f0                Ql_UART_Read
 
 .text.Ql_UART_GetPinStatus
-                0x102e075c       0x68
+                0x102e0760       0x68
  .text.Ql_UART_GetPinStatus
-                0x102e075c       0x68 libs/gcc/app_start.lib(uart.o)
-                0x102e075c                Ql_UART_GetPinStatus
+                0x102e0760       0x68 libs/gcc/app_start.lib(uart.o)
+                0x102e0760                Ql_UART_GetPinStatus
 
 .text.Ql_UART_SendEscap
-                0x102e07c4       0x60
+                0x102e07c8       0x60
  .text.Ql_UART_SendEscap
-                0x102e07c4       0x60 libs/gcc/app_start.lib(uart.o)
-                0x102e07c4                Ql_UART_SendEscap
+                0x102e07c8       0x60 libs/gcc/app_start.lib(uart.o)
+                0x102e07c8                Ql_UART_SendEscap
 
-.rodata         0x102e0824      0xc80
+.rodata         0x102e0828      0xc80
  *(.rodata)
- .rodata        0x102e0824       0x48 build\gcc\obj/custom/config/custom_sys_cfg.o
-                0x102e0828                SystemCfg
- .rodata        0x102e086c       0x54 build\gcc\obj/custom/config/sys_config.o
-                0x102e086c                GpioConfigTbl
-                0x102e0870                TaskConfig
- .rodata        0x102e08c0      0x100 build\gcc\obj/ril/src/ril_bluetooth.o
- .rodata        0x102e09c0       0x1a build\gcc\obj/ril/src/Ril_dtmf.o
- .rodata        0x102e09da       0x4c build\gcc\obj/ril/src/ril_gps.o
- .rodata        0x102e0a26        0xe build\gcc\obj/ril/src/ril_location.o
- .rodata        0x102e0a34        0xa build\gcc\obj/ril/src/ril_ntp.o
- *fill*         0x102e0a3e        0x2 
- .rodata        0x102e0a40      0xa10 build\gcc\obj/ril/src/ril_urc.o
- .rodata        0x102e1450       0x24 build\gcc\obj/custom/dual_sim.o
- .rodata        0x102e1474       0x16 libs/gcc/app_start.lib(ql_main.o)
- .rodata        0x102e148a        0x4 libs/gcc/app_start.lib(ril_main.o)
- .rodata        0x102e148e       0x16 libs/gcc/app_start.lib(system.o)
+ .rodata        0x102e0828       0x48 build\gcc\obj/custom/config/custom_sys_cfg.o
+                0x102e082c                SystemCfg
+ .rodata        0x102e0870       0x54 build\gcc\obj/custom/config/sys_config.o
+                0x102e0870                GpioConfigTbl
+                0x102e0874                TaskConfig
+ .rodata        0x102e08c4      0x100 build\gcc\obj/ril/src/ril_bluetooth.o
+ .rodata        0x102e09c4       0x1a build\gcc\obj/ril/src/Ril_dtmf.o
+ .rodata        0x102e09de       0x4c build\gcc\obj/ril/src/ril_gps.o
+ .rodata        0x102e0a2a        0xe build\gcc\obj/ril/src/ril_location.o
+ .rodata        0x102e0a38        0xa build\gcc\obj/ril/src/ril_ntp.o
+ *fill*         0x102e0a42        0x2 
+ .rodata        0x102e0a44      0xa10 build\gcc\obj/ril/src/ril_urc.o
+ .rodata        0x102e1454       0x24 build\gcc\obj/custom/dual_sim.o
+ .rodata        0x102e1478       0x16 libs/gcc/app_start.lib(ql_main.o)
+ .rodata        0x102e148e        0x4 libs/gcc/app_start.lib(ril_main.o)
+ .rodata        0x102e1492       0x16 libs/gcc/app_start.lib(system.o)
 
-.rodata.str1.1  0x102e14a4     0x115a
+.rodata.str1.1  0x102e14a8     0x1164
  .rodata.str1.1
-                0x102e14a4       0x28 build\gcc\obj/ril/src/ril_atResponse.o
+                0x102e14a8       0x28 build\gcc\obj/ril/src/ril_atResponse.o
                                  0x2e (size before relaxing)
  .rodata.str1.1
-                0x102e14cc      0x491 build\gcc\obj/ril/src/ril_ble.o
+                0x102e14d0      0x491 build\gcc\obj/ril/src/ril_ble.o
                                 0x53e (size before relaxing)
  .rodata.str1.1
-                0x102e195d      0x3ad build\gcc\obj/ril/src/ril_bluetooth.o
+                0x102e1961      0x3ad build\gcc\obj/ril/src/ril_bluetooth.o
                                 0x4e3 (size before relaxing)
  .rodata.str1.1
-                0x102e1d0a       0xb7 build\gcc\obj/ril/src/Ril_dtmf.o
+                0x102e1d0e       0xb7 build\gcc\obj/ril/src/Ril_dtmf.o
                                  0xcc (size before relaxing)
  .rodata.str1.1
-                0x102e1dc1       0x52 build\gcc\obj/ril/src/ril_init.o
+                0x102e1dc5       0x52 build\gcc\obj/ril/src/ril_init.o
  .rodata.str1.1
-                0x102e1e13       0x8a build\gcc\obj/ril/src/ril_location.o
+                0x102e1e17       0x8a build\gcc\obj/ril/src/ril_location.o
                                  0xca (size before relaxing)
  .rodata.str1.1
-                0x102e1e9d       0x79 build\gcc\obj/ril/src/ril_sim.o
+                0x102e1ea1       0x79 build\gcc\obj/ril/src/ril_sim.o
                                  0xaf (size before relaxing)
  .rodata.str1.1
-                0x102e1f16      0x164 build\gcc\obj/ril/src/ril_urc.o
+                0x102e1f1a      0x164 build\gcc\obj/ril/src/ril_urc.o
                                 0x16b (size before relaxing)
  .rodata.str1.1
-                0x102e207a       0x11 build\gcc\obj/ril/src/ril_util.o
+                0x102e207e       0x11 build\gcc\obj/ril/src/ril_util.o
                                  0x16 (size before relaxing)
  .rodata.str1.1
-                0x102e208b      0x180 build\gcc\obj/custom/dual_sim.o
-                                0x1a0 (size before relaxing)
+                0x102e208f      0x18a build\gcc\obj/custom/dual_sim.o
+                                0x1aa (size before relaxing)
  .rodata.str1.1
-                0x102e220b       0x19 libs/gcc/app_start.lib(memory.o)
+                0x102e2219       0x19 libs/gcc/app_start.lib(memory.o)
  .rodata.str1.1
-                0x102e2224       0x51 libs/gcc/app_start.lib(ql_main.o)
+                0x102e2232       0x51 libs/gcc/app_start.lib(ql_main.o)
                                  0x56 (size before relaxing)
  .rodata.str1.1
-                0x102e2275       0x1e libs/gcc/app_start.lib(ril_main.o)
+                0x102e2283       0x1e libs/gcc/app_start.lib(ril_main.o)
                                  0x25 (size before relaxing)
  .rodata.str1.1
-                0x102e2293       0xa1 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102e22a1       0xa1 libs/gcc/app_start.lib(stdlib_func.o)
  .rodata.str1.1
-                0x102e2334       0x3d libs/gcc/app_start.lib(system.o)
+                0x102e2342       0x3d libs/gcc/app_start.lib(system.o)
  .rodata.str1.1
-                0x102e2371      0x140 libs/gcc/app_start.lib(taskMngt.o)
+                0x102e237f      0x140 libs/gcc/app_start.lib(taskMngt.o)
  .rodata.str1.1
-                0x102e24b1       0x45 libs/gcc/app_start.lib(timer.o)
+                0x102e24bf       0x45 libs/gcc/app_start.lib(timer.o)
  .rodata.str1.1
-                0x102e24f6      0x108 libs/gcc/app_start.lib(uart.o)
+                0x102e2504      0x108 libs/gcc/app_start.lib(uart.o)
 
-.rel.dyn        0x102e2600        0x0
+.rel.dyn        0x102e260c        0x0
  .rel.iplt      0x00000000        0x0 build\gcc\obj/custom/config/custom_sys_cfg.o
 
-.data           0xf03d2000       0x50 load address 0x102e2600
-                0x102e2600                PROVIDE (__data_load, LOADADDR (.data))
+.data           0xf03d2000       0x50 load address 0x102e2610
+                0x102e2610                PROVIDE (__data_load, LOADADDR (.data))
                 0xf03d2000                PROVIDE (__data_start, .)
  *(.data)
  .data          0xf03d2000        0x1 build\gcc\obj/ril/src/ril_bluetooth.o
@@ -1866,10 +1866,10 @@ text            0x102db070      0x420
                 0xf03d2050                . = ALIGN (0x8)
                 0xf03d2050                PROVIDE (_edata, .)
 
-.igot.plt       0xf03d2050        0x0 load address 0x102e2650
+.igot.plt       0xf03d2050        0x0 load address 0x102e2660
  .igot.plt      0x00000000        0x0 build\gcc\obj/custom/config/custom_sys_cfg.o
 
-.bss            0xf03d2050     0x1980 load address 0x102e2650
+.bss            0xf03d2050     0x1980 load address 0x102e2660
                 0xf03d2050                PROVIDE (__bss_start__, .)
  *(.bss)
  .bss           0xf03d2050        0x4 build\gcc\obj/ril/src/ril_atResponse.o

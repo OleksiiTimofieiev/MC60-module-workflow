@@ -324,7 +324,7 @@ void    change_active_slot(u8 slot)
     Ql_memset(cmd, 0x0, Ql_strlen(cmd));
     Ql_sprintf(cmd, "AT+QDSIM=%d\0", slot);
 
-    APP_DEBUG("Change active slot:\r\n");
+    APP_DEBUG("Change active slot to -> %d \r\n", slot);
     if ((func_result = send_AT_cmd(cmd, &func_result)) != RIL_AT_SUCCESS)
     {
         dianostics(func_result);
