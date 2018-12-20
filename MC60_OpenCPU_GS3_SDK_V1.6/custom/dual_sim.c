@@ -81,6 +81,11 @@ s32		response_callback(char* line, u32 len, void* userData);
 void	CallBack_UART_Hdlr(Enum_SerialPort port, Enum_UARTEventType msg, bool level, void* customizedPara);
 s32		ReadSerialPort(Enum_SerialPort port, /*[out]*/u8* pBuffer, /*[in]*/u32 bufLen);
 
+/* active slot manipulations */
+void    get_list_of_supported_slots(void);
+void    get_active_slot(void);
+void    change_active_slot(u8 slot);
+
 void    proc_main_task(s32 taskId)
 {
     ST_MSG  msg;
@@ -116,10 +121,15 @@ void    proc_main_task(s32 taskId)
 			case MSG_ID_RIL_READY:
             {
 				APP_DEBUG("<-- RIL is ready -->\r\n");
+
                 Ql_RIL_Initialize();
 
                 get_list_of_supported_slots();
-                get_sim_inserted();
+                get_active_slot();
+                change_active_slot(1);
+                get_active_slot();
+                change_active_slot(0);
+                get_active_slot();
 
 				break ;
             }
@@ -294,12 +304,28 @@ void    get_list_of_supported_slots(void)
     }
 }
 
-void    get_sim_inserted(void)
+void    get_active_slot(void)
 {
     s32     func_result = RIL_AT_FAILED;
 
-    APP_DEBUG("SIM slot test:\r\n");
+    APP_DEBUG("Active slot:\r\n");
     if ((func_result = send_AT_cmd("AT+QDSIM?\0", &func_result)) != RIL_AT_SUCCESS)
+    {
+        dianostics(func_result);
+    }
+}
+
+void    change_active_slot(u8 slot)
+{
+    s32     func_result = RIL_AT_FAILED;
+
+    u8  cmd[20];
+
+    Ql_memset(cmd, 0x0, Ql_strlen(cmd));
+    Ql_sprintf(cmd, "AT+QDSIM=%d\0", slot);
+
+    APP_DEBUG("Change active slot:\r\n");
+    if ((func_result = send_AT_cmd(cmd, &func_result)) != RIL_AT_SUCCESS)
     {
         dianostics(func_result);
     }

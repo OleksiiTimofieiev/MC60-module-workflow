@@ -24,6 +24,7 @@ GCC_VERSION=4.7.2
 #GCC_INSTALL_PATH=C:\Program Files\CodeSourcery\Sourcery_CodeBench_Lite_for_ARM_EABI 
 
 C_PREDEF=-D __DUAL_SIM__
+
 #-------------------------------------------------------------------------------
 # Configure the Cloud Solution
 #-------------------------------------------------------------------------------
