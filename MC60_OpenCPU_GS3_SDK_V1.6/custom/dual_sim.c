@@ -396,6 +396,10 @@ void    get_SIM_state(void)
     {
         APP_DEBUG("SIM_STAT_UNSPECIFIED\r\n");
     }
+    else
+    {
+        APP_DEBUG("UNKNOWN BUG\r\n");
+    }
 }
 
 #endif // __CUSTOMER_CODE__
