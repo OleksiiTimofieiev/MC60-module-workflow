@@ -8,7 +8,7 @@
 #define SERIAL_RX_BUFFER_LEN  2048
 static  u8  m_RxBuf_Uart[SERIAL_RX_BUFFER_LEN];
 
-/* system configuration */
+/* system information */
 void    get_core(void);
 void    get_SDK(void);
 
@@ -48,7 +48,6 @@ void    proc_main_task(s32 taskId)
     //     Ql_Debug_Trace("Fail to open virtual port[%d], ret=%d\r\n", UART_PORT1, ret);
     // }
 
-    /* system information */
     get_core();
     get_SDK();
 
