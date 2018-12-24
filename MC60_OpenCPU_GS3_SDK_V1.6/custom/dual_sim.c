@@ -87,6 +87,8 @@ void    get_active_slot(void);
 void    change_active_slot(u8 slot);
 void    get_SIM_state(void);
 
+/* diagnostics API */
+bool    signal_quality(void);
 
 /* simultaneously works only with one slot */
 void    proc_main_task(s32 taskId)
@@ -127,11 +129,7 @@ void    proc_main_task(s32 taskId)
 
                 Ql_RIL_Initialize();
 
-
-
-
                 get_list_of_supported_slots();
-
 
                 APP_DEBUG("SIM state:\r\n");
                 get_SIM_state();
@@ -145,6 +143,8 @@ void    proc_main_task(s32 taskId)
                 get_active_slot();
                 APP_DEBUG("SIM state:\r\n");
                 get_SIM_state();
+
+                signal_quality();
 
 				break ;
             }
@@ -399,6 +399,50 @@ void    get_SIM_state(void)
     else
     {
         APP_DEBUG("UNKNOWN BUG\r\n");
+    }
+}
+
+bool    signal_quality(void)
+{
+    // <rssi> 0 -113 dBm or less
+    // 1      -111 dBm
+    // 2...30 -109... -53 dBm
+    // 31 -51 dBm or greater
+    // 99 Not known or not detectable
+
+    // <ber> (in percent):
+    // 0...7 As RXQUAL values in the table in GSM 05.08 subclause 8.2.4
+    // 99 Not known or not detectable
+
+    s32     func_result = RIL_AT_FAILED;
+    u32     rssi;
+    u32     ber;
+
+    APP_DEBUG("signal quality:\r\n");
+    if ((func_result = RIL_NW_GetSignalQuality(&rssi, &ber)) != QL_RET_OK)
+    {
+        APP_DEBUG("RIL_NW_GetSignalQuality ERROR\r\n");
+        return ;
+    }
+
+    APP_DEBUG("rssi -> %d\r\n", rssi);
+    APP_DEBUG("ber -> %d\r\n", ber);
+
+    if (rssi >= 0 && rssi <= 31)
+    {
+        return (FALSE);
+    }
+    else if (rssi == 99) // Not known or not detactable;
+    {
+        return (FALSE);
+    }
+    else if (ber == 99) // Not known or not detactable;
+    {
+        return (FALSE);
+    }
+    else
+    {
+        return (TRUE);
     }
 }
 
