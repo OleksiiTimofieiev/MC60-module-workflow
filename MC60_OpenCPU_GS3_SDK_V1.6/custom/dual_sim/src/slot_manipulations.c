@@ -3,13 +3,6 @@
 
 /* slot manipulations */
 
-void    dianostics(s32 code_of_error);
-void    get_list_of_supported_slots(void);
-void    get_active_slot(void);
-void    change_active_slot(u8 slot);
-void    get_SIM_state(void);
-
-
 void	dianostics(s32 code_of_error)
 {
 	if (code_of_error == RIL_AT_FAILED)
@@ -34,10 +27,11 @@ void	dianostics(s32 code_of_error)
 	}
 }
 
-s32     send_AT_cmd(u8 *cmd, s32 *fun)
+s32     send_AT_cmd(u8 *cmd, s32 *userData)
 {
-    *fun = 0;
-    return Ql_RIL_SendATCmd(cmd, Ql_strlen(cmd), response_callback, NULL, 0);
+    // *data = 0;
+    APP_DEBUG("input AT -> %d\r\n", *(s32 *)userData);
+    return Ql_RIL_SendATCmd(cmd, Ql_strlen(cmd), response_callback, userData, 0); // &user data
 }
 
 void    get_list_of_supported_slots(void)
@@ -51,15 +45,17 @@ void    get_list_of_supported_slots(void)
     }
 }
 
-void    get_active_slot(void)
+u8	    get_active_slot(void)
 {
     s32     func_result = RIL_AT_FAILED;
+    s32		slot_number = 78;
 
-    APP_DEBUG("Active slot:\r\n");
-    if ((func_result = send_AT_cmd("AT+QDSIM?\0", &func_result)) != RIL_AT_SUCCESS)
+    if ((func_result = send_AT_cmd("AT+QDSIM?\0", &slot_number)) != RIL_AT_SUCCESS)
     {
         dianostics(func_result);
     }
+    APP_DEBUG("slot_number -> %d\r\n", slot_number);
+    return (slot_number);
 }
 
 void    change_active_slot(u8 slot)

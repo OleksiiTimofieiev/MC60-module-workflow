@@ -13,7 +13,7 @@ void    proc_main_task(s32 taskId)
 {
     ST_MSG  msg;
 
-	APP_DEBUG("\n<--Open Debug Session.-->\r\n");
+	APP_DEBUG("\n<--Open Debug Session.-->\r\n\0");
 
     Ql_UART_Register(UART_PORT1, CallBack_UART_Hdlr, NULL);
     Ql_UART_Open(UART_PORT1, 115200, FC_NONE);
@@ -42,9 +42,7 @@ void    proc_main_task(s32 taskId)
 			case MSG_ID_RIL_READY:
             {
 				APP_DEBUG("<-- RIL is ready -->\r\n");
-
                 Ql_RIL_Initialize();
-
 				break ;
             }
             case MSG_ID_URC_INDICATION:
@@ -53,12 +51,10 @@ void    proc_main_task(s32 taskId)
                 {
                     case URC_GPRS_NW_STATE_IND:
                     {
-                        APP_DEBUG("<-- GPRS Network Status: waiting for the connection -->\r\n");
-
+                   //     APP_DEBUG("<-- GPRS Network Status: waiting for the connection -->\r\n\0");
                         if (msg.param2 == NW_STAT_REGISTERED)
                         {
-                            APP_DEBUG("<-- GPRS Network Registered:%d -->\r\n", msg.param2);
-
+                            // APP_DEBUG("<-- GPRS Network Registered:%d -->\r\n\0", msg.param2);
                             init_and_start_dual_sim_diagnostics_timer();
                         }
                         break ;

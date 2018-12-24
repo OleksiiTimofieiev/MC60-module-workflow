@@ -1,6 +1,7 @@
 #include "general.h"
 
 /* input buffer params */
+
 #define SERIAL_RX_BUFFER_LEN  2048
 static  u8  m_RxBuf_Uart[SERIAL_RX_BUFFER_LEN];
 
@@ -8,10 +9,24 @@ s32		response_callback(char* line, u32 len, void* userData) // el costello in fu
 {
     Ql_UART_Write(UART_PORT1, (u8*)line, len);
 
-    // APP_DEBUG("line in callback -> %s\r\n", line);
+    // APP_DEBUG("line in callback -> %s\r\n\0", line);
+    APP_DEBUG("input AT -> %d\r\n", *(s32 *)userData);
     
     if (Ql_RIL_FindLine(line, len, "OK"))
     {  
+    	// if (Ql_RIL_FindLine(line, len, "QDSIM"))
+    	// {
+	    // 	if (Ql_RIL_FindLine(line, len, "1"))
+	    // 	{
+	    // 		APP_DEBUG("here1\r\n");
+	    // 		*(u8*)userData = 1;
+	    // 	}
+	    // 	else if (Ql_RIL_FindLine(line, len, "0"))
+	    // 	{
+	    // 		APP_DEBUG("here0\r\n");
+	    // 		*(u8*)userData = 0;
+	    // 	}
+	    // }
         return  RIL_ATRSP_SUCCESS;
     }
     else if (Ql_RIL_FindLine(line, len, "ERROR"))

@@ -6,8 +6,6 @@ libs/gcc/app_start.lib(fota.o)
                               build\gcc\obj/custom/fota/src/fota_main.o (Ql_FOTA_Init)
 libs/gcc/app_start.lib(gprs.o)
                               build\gcc\obj/custom/fota/src/fota_main.o (Ql_GPRS_GetPDPContextId)
-libs/gcc/app_start.lib(iic.o)
-                              build\gcc\obj/example/nema_pro.o (Ql_IIC_Write)
 libs/gcc/app_start.lib(lib_ril_sms.o)
                               build\gcc\obj/ril/src/ril_sms.o (LIB_SMS_IsValidHexStr)
 libs/gcc/app_start.lib(memory.o)
@@ -55,21 +53,11 @@ Ql_sprintf          0x4               libs/gcc/app_start.lib(ql_main.o)
 Ql_Debug_Trace      0x4               libs/gcc/app_start.lib(ql_main.o)
 SecureDataStringLen
                     0x4               build\gcc\obj/ril/src/ril_system.o
-u4OverflowPkt       0x4               build\gcc\obj/example/nema_pro.o
 Ql_vsprintf         0x4               libs/gcc/app_start.lib(ql_main.o)
 Ql_sscanf           0x4               libs/gcc/app_start.lib(ql_main.o)
-rx_state            0x1               build\gcc\obj/example/nema_pro.o
 g_comingCall        0x124             build\gcc\obj/ril/src/ril_telephony.o
 Fota_gprsCfg        0xb0              build\gcc\obj/custom/fota/src/fota_main.o
 FotaConfig          0x10              build\gcc\obj/custom/fota/src/fota_main.o
-id_que              0x600             build\gcc\obj/example/nema_pro.o
-u4PktInQueue        0x4               build\gcc\obj/example/nema_pro.o
-id_que_tail         0x2               build\gcc\obj/example/nema_pro.o
-id_que_head         0x2               build\gcc\obj/example/nema_pro.o
-rx_que              0x8000            build\gcc\obj/example/nema_pro.o
-rd_buf              0x100             build\gcc\obj/example/nema_pro.o
-rx_que_head         0x2               build\gcc\obj/example/nema_pro.o
-u4SyncPkt           0x4               build\gcc\obj/example/nema_pro.o
 
 Discarded input sections
 
@@ -520,277 +508,6 @@ Discarded input sections
  .bss           0x00000000        0x0 build\gcc\obj/ril/src/ril_util.o
  .text.Ql_HexStrToInt
                 0x00000000       0x8c build\gcc\obj/ril/src/ril_util.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_adc.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_adc.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_adc.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_adc.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_adc.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_alarm.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_alarm.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_alarm.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_alarm.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_alarm.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_audio.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_audio.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_audio.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_audio.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_audio.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_ble.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_ble.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_ble.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_ble.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_ble.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_bluetooth.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_bluetooth.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_bluetooth.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_bluetooth.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_bluetooth.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_call.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_call.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_call.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_call.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_call.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_clk.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_clk.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_clk.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_clk.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_clk.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_csd.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_csd.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_csd.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_csd.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_csd.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_download_epo.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_download_epo.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_download_epo.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_download_epo.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_download_epo.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_dtmf.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_dtmf.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_dtmf.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_dtmf.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_dtmf.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_eint.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_eint.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_eint.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_eint.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_eint.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_epo_callback.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_epo_callback.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_epo_callback.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_epo_callback.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_epo_callback.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_file.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_file.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_file.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_file.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_file.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_float_math.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_float_math.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_float_math.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_float_math.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_float_math.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_fota_ftp.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_fota_ftp.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_fota_ftp.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_fota_ftp.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_fota_ftp.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_fota_http.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_fota_http.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_fota_http.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_fota_http.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_fota_http.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_ftp.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_ftp.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_ftp.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_ftp.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_ftp.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_gpio.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_gpio.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_gpio.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_gpio.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_gpio.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_gps.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_gps.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_gps.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_gps.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_gps.o
- .text          0x00000000        0x0 build\gcc\obj/example/Example_gps_iic.o
- .data          0x00000000        0x0 build\gcc\obj/example/Example_gps_iic.o
- .bss           0x00000000        0x0 build\gcc\obj/example/Example_gps_iic.o
- .comment       0x00000000       0x31 build\gcc\obj/example/Example_gps_iic.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/Example_gps_iic.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_http.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_http.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_http.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_http.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_http.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_iic.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_iic.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_iic.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_iic.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_iic.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_location.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_location.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_location.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_location.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_location.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_memory.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_memory.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_memory.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_memory.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_memory.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_multitask.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_multitask.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_multitask.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_multitask.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_multitask.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_multitask_port.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_multitask_port.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_multitask_port.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_multitask_port.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_multitask_port.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_pwm.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_pwm.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_pwm.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_pwm.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_pwm.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_sms.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_sms.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_sms.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_sms.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_sms.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_spi.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_spi.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_spi.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_spi.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_spi.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_system.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_system.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_system.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_system.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_system.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_tcp_demo.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_tcp_demo.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_tcp_demo.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_tcp_demo.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_tcp_demo.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_tcpclient.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_tcpclient.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_tcpclient.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_tcpclient.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_tcpclient.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_tcpserver.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_tcpserver.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_tcpserver.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_tcpserver.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_tcpserver.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_time.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_time.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_time.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_time.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_time.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_timer.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_timer.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_timer.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_timer.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_timer.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_transpass.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_transpass.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_transpass.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_transpass.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_transpass.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_udpclient.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_udpclient.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_udpclient.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_udpclient.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_udpclient.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_udpserver.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_udpserver.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_udpserver.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_udpserver.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_udpserver.o
- .text          0x00000000        0x0 build\gcc\obj/example/example_watchdog.o
- .data          0x00000000        0x0 build\gcc\obj/example/example_watchdog.o
- .bss           0x00000000        0x0 build\gcc\obj/example/example_watchdog.o
- .comment       0x00000000       0x31 build\gcc\obj/example/example_watchdog.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/example_watchdog.o
- .text          0x00000000        0x0 build\gcc\obj/example/nema_pro.o
- .data          0x00000000        0x0 build\gcc\obj/example/nema_pro.o
- .bss           0x00000000      0xa08 build\gcc\obj/example/nema_pro.o
- .text.IIC_ReadBytes
-                0x00000000      0x1e8 build\gcc\obj/example/nema_pro.o
- .text.IIC_WriteBytyes
-                0x00000000       0xc0 build\gcc\obj/example/nema_pro.o
- .text.read_gps_I2C_buffer
-                0x00000000       0xc0 build\gcc\obj/example/nema_pro.o
- .text.iop_init_pcrx
-                0x00000000       0x94 build\gcc\obj/example/nema_pro.o
- .text.iop_inst_avail
-                0x00000000       0xa4 build\gcc\obj/example/nema_pro.o
- .text.iop_get_inst
-                0x00000000       0x3c build\gcc\obj/example/nema_pro.o
- .text.iop_pcrx_nmea
-                0x00000000      0x1bc build\gcc\obj/example/nema_pro.o
- .text.extract_nmea
-                0x00000000      0x1f0 build\gcc\obj/example/nema_pro.o
- .text.get_nmea
-                0x00000000      0x15c build\gcc\obj/example/nema_pro.o
- .rodata.str1.1
-                0x00000000      0x1a1 build\gcc\obj/example/nema_pro.o
- .comment       0x00000000       0x31 build\gcc\obj/example/nema_pro.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/nema_pro.o
- COMMON         0x00000000     0x8718 build\gcc\obj/example/nema_pro.o
- .text          0x00000000        0x0 build\gcc\obj/example/utility.o
- .data          0x00000000        0x0 build\gcc\obj/example/utility.o
- .bss           0x00000000        0x0 build\gcc\obj/example/utility.o
- .text.Analyse_Command
-                0x00000000      0x198 build\gcc\obj/example/utility.o
- .rodata.str1.1
-                0x00000000        0xb build\gcc\obj/example/utility.o
- .comment       0x00000000       0x31 build\gcc\obj/example/utility.o
- .ARM.attributes
-                0x00000000       0x2b build\gcc\obj/example/utility.o
  .text          0x00000000        0x0 build\gcc\obj/custom/main.o
  .data          0x00000000        0x0 build\gcc\obj/custom/main.o
  .bss           0x00000000        0x0 build\gcc\obj/custom/main.o
@@ -846,6 +563,8 @@ Discarded input sections
  .data          0x00000000        0x0 build\gcc\obj/custom/dual_sim/src/slot_manipulations.o
  .text.get_list_of_supported_slots
                 0x00000000       0xa4 build\gcc\obj/custom/dual_sim/src/slot_manipulations.o
+ .text.change_active_slot
+                0x00000000       0xdc build\gcc\obj/custom/dual_sim/src/slot_manipulations.o
  .text.get_SIM_state
                 0x00000000      0x274 build\gcc\obj/custom/dual_sim/src/slot_manipulations.o
  .text          0x00000000        0x0 build\gcc\obj/custom/dual_sim/src/timer.o
@@ -958,26 +677,6 @@ Discarded input sections
  .comment       0x00000000       0x31 libs/gcc/app_start.lib(gprs.o)
  .ARM.attributes
                 0x00000000       0x2b libs/gcc/app_start.lib(gprs.o)
- .text          0x00000000        0x0 libs/gcc/app_start.lib(iic.o)
- .data          0x00000000        0x0 libs/gcc/app_start.lib(iic.o)
- .bss           0x00000000       0x18 libs/gcc/app_start.lib(iic.o)
- .text.Ql_IIC_Init
-                0x00000000       0x78 libs/gcc/app_start.lib(iic.o)
- .text.Ql_IIC_Config
-                0x00000000       0x78 libs/gcc/app_start.lib(iic.o)
- .text.Ql_IIC_Write
-                0x00000000       0x78 libs/gcc/app_start.lib(iic.o)
- .text.Ql_IIC_Read
-                0x00000000       0x78 libs/gcc/app_start.lib(iic.o)
- .text.Ql_IIC_Write_Read
-                0x00000000       0x88 libs/gcc/app_start.lib(iic.o)
- .text.Ql_IIC_Uninit
-                0x00000000       0x60 libs/gcc/app_start.lib(iic.o)
- .rodata.str1.1
-                0x00000000       0x53 libs/gcc/app_start.lib(iic.o)
- .comment       0x00000000       0x31 libs/gcc/app_start.lib(iic.o)
- .ARM.attributes
-                0x00000000       0x2b libs/gcc/app_start.lib(iic.o)
  .text          0x00000000        0x0 libs/gcc/app_start.lib(lib_ril_sms.o)
  .data          0x00000000        0x0 libs/gcc/app_start.lib(lib_ril_sms.o)
  .bss           0x00000000        0x0 libs/gcc/app_start.lib(lib_ril_sms.o)
@@ -1539,389 +1238,385 @@ text            0x102db070      0x420
                 0x102deea0                get_SDK
 
 .text.proc_main_task
-                0x102def5c      0x1fc
+                0x102def5c      0x170
  .text.proc_main_task
-                0x102def5c      0x1fc build\gcc\obj/custom/dual_sim/src/dual_sim.o
+                0x102def5c      0x170 build\gcc\obj/custom/dual_sim/src/dual_sim.o
                 0x102def5c                proc_main_task
 
 .text.dianostics
-                0x102df158      0x140
+                0x102df0cc      0x140
  .text.dianostics
-                0x102df158      0x140 build\gcc\obj/custom/dual_sim/src/slot_manipulations.o
-                0x102df158                dianostics
+                0x102df0cc      0x140 build\gcc\obj/custom/dual_sim/src/slot_manipulations.o
+                0x102df0cc                dianostics
 
 .text.send_AT_cmd
-                0x102df298       0x44
+                0x102df20c       0xa8
  .text.send_AT_cmd
-                0x102df298       0x44 build\gcc\obj/custom/dual_sim/src/slot_manipulations.o
-                0x102df298                send_AT_cmd
+                0x102df20c       0xa8 build\gcc\obj/custom/dual_sim/src/slot_manipulations.o
+                0x102df20c                send_AT_cmd
 
 .text.get_active_slot
-                0x102df2dc       0xa4
+                0x102df2b4       0xa4
  .text.get_active_slot
-                0x102df2dc       0xa4 build\gcc\obj/custom/dual_sim/src/slot_manipulations.o
-                0x102df2dc                get_active_slot
-
-.text.change_active_slot
-                0x102df380       0xdc
- .text.change_active_slot
-                0x102df380       0xdc build\gcc\obj/custom/dual_sim/src/slot_manipulations.o
-                0x102df380                change_active_slot
+                0x102df2b4       0xa4 build\gcc\obj/custom/dual_sim/src/slot_manipulations.o
+                0x102df2b4                get_active_slot
 
 .text.dual_sim_diagnostics_timer_handler
-                0x102df45c       0xa0
+                0x102df358       0x30
  .text.dual_sim_diagnostics_timer_handler
-                0x102df45c       0xa0 build\gcc\obj/custom/dual_sim/src/timer.o
-                0x102df45c                dual_sim_diagnostics_timer_handler
+                0x102df358       0x30 build\gcc\obj/custom/dual_sim/src/timer.o
+                0x102df358                dual_sim_diagnostics_timer_handler
 
 .text.init_and_start_dual_sim_diagnostics_timer
-                0x102df4fc      0x1a0
+                0x102df388      0x18c
  .text.init_and_start_dual_sim_diagnostics_timer
-                0x102df4fc      0x1a0 build\gcc\obj/custom/dual_sim/src/timer.o
-                0x102df4fc                init_and_start_dual_sim_diagnostics_timer
+                0x102df388      0x18c build\gcc\obj/custom/dual_sim/src/timer.o
+                0x102df388                init_and_start_dual_sim_diagnostics_timer
 
 .text.response_callback
-                0x102df69c       0xbc
+                0x102df514      0x11c
  .text.response_callback
-                0x102df69c       0xbc build\gcc\obj/custom/dual_sim/src/UART_callbacks.o
-                0x102df69c                response_callback
+                0x102df514      0x11c build\gcc\obj/custom/dual_sim/src/UART_callbacks.o
+                0x102df514                response_callback
 
 .text.ReadSerialPort
-                0x102df758       0xd4
+                0x102df630       0xd4
  .text.ReadSerialPort
-                0x102df758       0xd4 build\gcc\obj/custom/dual_sim/src/UART_callbacks.o
-                0x102df758                ReadSerialPort
+                0x102df630       0xd4 build\gcc\obj/custom/dual_sim/src/UART_callbacks.o
+                0x102df630                ReadSerialPort
 
 .text.CallBack_UART_Hdlr
-                0x102df82c       0x28
+                0x102df704       0x28
  .text.CallBack_UART_Hdlr
-                0x102df82c       0x28 build\gcc\obj/custom/dual_sim/src/UART_callbacks.o
-                0x102df82c                CallBack_UART_Hdlr
+                0x102df704       0x28 build\gcc\obj/custom/dual_sim/src/UART_callbacks.o
+                0x102df704                CallBack_UART_Hdlr
 
 .text.Ql_MEM_Alloc
-                0x102df854       0x78
+                0x102df72c       0x78
  .text.Ql_MEM_Alloc
-                0x102df854       0x78 libs/gcc/app_start.lib(memory.o)
-                0x102df854                Ql_MEM_Alloc
+                0x102df72c       0x78 libs/gcc/app_start.lib(memory.o)
+                0x102df72c                Ql_MEM_Alloc
 
 .text.Ql_MEM_Free
-                0x102df8cc       0x74
+                0x102df7a4       0x74
  .text.Ql_MEM_Free
-                0x102df8cc       0x74 libs/gcc/app_start.lib(memory.o)
-                0x102df8cc                Ql_MEM_Free
+                0x102df7a4       0x74 libs/gcc/app_start.lib(memory.o)
+                0x102df7a4                Ql_MEM_Free
 
 .text.ql_InitVFunc
-                0x102df940      0x104
+                0x102df818      0x104
  .text.ql_InitVFunc
-                0x102df940      0x104 libs/gcc/app_start.lib(ql_main.o)
-                0x102df940                ql_InitVFunc
+                0x102df818      0x104 libs/gcc/app_start.lib(ql_main.o)
+                0x102df818                ql_InitVFunc
 
 .text.ocpu_main
-                0x102dfa44       0xf0
+                0x102df91c       0xf0
  .text.ocpu_main
-                0x102dfa44       0xf0 libs/gcc/app_start.lib(ql_main.o)
-                0x102dfa44                ocpu_main
+                0x102df91c       0xf0 libs/gcc/app_start.lib(ql_main.o)
+                0x102df91c                ocpu_main
 
 .text.proc_reserved2
-                0x102dfb34       0x70
+                0x102dfa0c       0x70
  .text.proc_reserved2
-                0x102dfb34       0x70 libs/gcc/app_start.lib(ril_aux.o)
-                0x102dfb34                proc_reserved2
+                0x102dfa0c       0x70 libs/gcc/app_start.lib(ril_aux.o)
+                0x102dfa0c                proc_reserved2
 
 .text.ril_StopATTimer
-                0x102dfba4       0x34
+                0x102dfa7c       0x34
  .text.ril_StopATTimer
-                0x102dfba4       0x34 libs/gcc/app_start.lib(ril_main.o)
+                0x102dfa7c       0x34 libs/gcc/app_start.lib(ril_main.o)
 
 .text.Callback_OnATTimer
-                0x102dfbd8       0x4c
+                0x102dfab0       0x4c
  .text.Callback_OnATTimer
-                0x102dfbd8       0x4c libs/gcc/app_start.lib(ril_main.o)
+                0x102dfab0       0x4c libs/gcc/app_start.lib(ril_main.o)
 
 .text.CallBack_SerialPort_Hdlr
-                0x102dfc24      0x384
+                0x102dfafc      0x384
  .text.CallBack_SerialPort_Hdlr
-                0x102dfc24      0x384 libs/gcc/app_start.lib(ril_main.o)
+                0x102dfafc      0x384 libs/gcc/app_start.lib(ril_main.o)
 
 .text.proc_reserved1
-                0x102dffa8      0x200
+                0x102dfe80      0x200
  .text.proc_reserved1
-                0x102dffa8      0x200 libs/gcc/app_start.lib(ril_main.o)
-                0x102dffa8                proc_reserved1
+                0x102dfe80      0x200 libs/gcc/app_start.lib(ril_main.o)
+                0x102dfe80                proc_reserved1
 
 .text.Ql_RIL_Initialize
-                0x102e01a8       0xd4
+                0x102e0080       0xd4
  .text.Ql_RIL_Initialize
-                0x102e01a8       0xd4 libs/gcc/app_start.lib(ril_main.o)
-                0x102e01a8                Ql_RIL_Initialize
+                0x102e0080       0xd4 libs/gcc/app_start.lib(ril_main.o)
+                0x102e0080                Ql_RIL_Initialize
 
 .text.Ql_RIL_SendATCmd
-                0x102e027c      0x260
+                0x102e0154      0x260
  .text.Ql_RIL_SendATCmd
-                0x102e027c      0x260 libs/gcc/app_start.lib(ril_main.o)
-                0x102e027c                Ql_RIL_SendATCmd
+                0x102e0154      0x260 libs/gcc/app_start.lib(ril_main.o)
+                0x102e0154                Ql_RIL_SendATCmd
 
-.text.Ql_atof   0x102e04dc       0x98
- .text.Ql_atof  0x102e04dc       0x98 libs/gcc/app_start.lib(stdlib_func.o)
-                0x102e04dc                Ql_atof
+.text.Ql_atof   0x102e03b4       0x98
+ .text.Ql_atof  0x102e03b4       0x98 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102e03b4                Ql_atof
 
 .text.Ql_strcpy
-                0x102e0574       0xa0
+                0x102e044c       0xa0
  .text.Ql_strcpy
-                0x102e0574       0xa0 libs/gcc/app_start.lib(stdlib_func.o)
-                0x102e0574                Ql_strcpy
+                0x102e044c       0xa0 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102e044c                Ql_strcpy
 
 .text.Ql_strncpy
-                0x102e0614       0x88
+                0x102e04ec       0x88
  .text.Ql_strncpy
-                0x102e0614       0x88 libs/gcc/app_start.lib(stdlib_func.o)
-                0x102e0614                Ql_strncpy
+                0x102e04ec       0x88 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102e04ec                Ql_strncpy
 
 .text.Ql_strlen
-                0x102e069c       0x78
+                0x102e0574       0x78
  .text.Ql_strlen
-                0x102e069c       0x78 libs/gcc/app_start.lib(stdlib_func.o)
-                0x102e069c                Ql_strlen
+                0x102e0574       0x78 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102e0574                Ql_strlen
 
 .text.Ql_strcmp
-                0x102e0714       0x68
+                0x102e05ec       0x68
  .text.Ql_strcmp
-                0x102e0714       0x68 libs/gcc/app_start.lib(stdlib_func.o)
-                0x102e0714                Ql_strcmp
+                0x102e05ec       0x68 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102e05ec                Ql_strcmp
 
 .text.Ql_strncmp
-                0x102e077c       0x70
+                0x102e0654       0x70
  .text.Ql_strncmp
-                0x102e077c       0x70 libs/gcc/app_start.lib(stdlib_func.o)
-                0x102e077c                Ql_strncmp
+                0x102e0654       0x70 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102e0654                Ql_strncmp
 
 .text.Ql_memset
-                0x102e07ec       0x88
+                0x102e06c4       0x88
  .text.Ql_memset
-                0x102e07ec       0x88 libs/gcc/app_start.lib(stdlib_func.o)
-                0x102e07ec                Ql_memset
+                0x102e06c4       0x88 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102e06c4                Ql_memset
 
 .text.Ql_memcpy
-                0x102e0874       0x88
+                0x102e074c       0x88
  .text.Ql_memcpy
-                0x102e0874       0x88 libs/gcc/app_start.lib(stdlib_func.o)
-                0x102e0874                Ql_memcpy
+                0x102e074c       0x88 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102e074c                Ql_memcpy
 
 .text.Ql_strstr
-                0x102e08fc       0x80
+                0x102e07d4       0x80
  .text.Ql_strstr
-                0x102e08fc       0x80 libs/gcc/app_start.lib(stdlib_func.o)
-                0x102e08fc                Ql_strstr
+                0x102e07d4       0x80 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102e07d4                Ql_strstr
 
 .text.Ql_toupper
-                0x102e097c        0x8
+                0x102e0854        0x8
  .text.Ql_toupper
-                0x102e097c        0x8 libs/gcc/app_start.lib(stdlib_func.o)
-                0x102e097c                Ql_toupper
+                0x102e0854        0x8 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102e0854                Ql_toupper
 
-.text.Ql_atoi   0x102e0984       0x84
- .text.Ql_atoi  0x102e0984       0x84 libs/gcc/app_start.lib(stdlib_func.o)
-                0x102e0984                Ql_atoi
+.text.Ql_atoi   0x102e085c       0x84
+ .text.Ql_atoi  0x102e085c       0x84 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102e085c                Ql_atoi
 
 .text.Ql_GetCoreVer
-                0x102e0a08       0x6c
+                0x102e08e0       0x6c
  .text.Ql_GetCoreVer
-                0x102e0a08       0x6c libs/gcc/app_start.lib(system.o)
-                0x102e0a08                Ql_GetCoreVer
+                0x102e08e0       0x6c libs/gcc/app_start.lib(system.o)
+                0x102e08e0                Ql_GetCoreVer
 
 .text.Ql_GetSDKVer
-                0x102e0a74       0x64
+                0x102e094c       0x64
  .text.Ql_GetSDKVer
-                0x102e0a74       0x64 libs/gcc/app_start.lib(system.o)
-                0x102e0a74                Ql_GetSDKVer
+                0x102e094c       0x64 libs/gcc/app_start.lib(system.o)
+                0x102e094c                Ql_GetSDKVer
 
 .text.Ql_OS_GetMessage
-                0x102e0ad8       0x60
+                0x102e09b0       0x60
  .text.Ql_OS_GetMessage
-                0x102e0ad8       0x60 libs/gcc/app_start.lib(taskMngt.o)
-                0x102e0ad8                Ql_OS_GetMessage
+                0x102e09b0       0x60 libs/gcc/app_start.lib(taskMngt.o)
+                0x102e09b0                Ql_OS_GetMessage
 
 .text.Ql_OS_SendMessage
-                0x102e0b38       0x78
+                0x102e0a10       0x78
  .text.Ql_OS_SendMessage
-                0x102e0b38       0x78 libs/gcc/app_start.lib(taskMngt.o)
-                0x102e0b38                Ql_OS_SendMessage
+                0x102e0a10       0x78 libs/gcc/app_start.lib(taskMngt.o)
+                0x102e0a10                Ql_OS_SendMessage
 
 .text.Ql_OS_CreateMutex
-                0x102e0bb0       0x54
+                0x102e0a88       0x54
  .text.Ql_OS_CreateMutex
-                0x102e0bb0       0x54 libs/gcc/app_start.lib(taskMngt.o)
-                0x102e0bb0                Ql_OS_CreateMutex
+                0x102e0a88       0x54 libs/gcc/app_start.lib(taskMngt.o)
+                0x102e0a88                Ql_OS_CreateMutex
 
 .text.Ql_OS_TakeMutex
-                0x102e0c04       0x54
+                0x102e0adc       0x54
  .text.Ql_OS_TakeMutex
-                0x102e0c04       0x54 libs/gcc/app_start.lib(taskMngt.o)
-                0x102e0c04                Ql_OS_TakeMutex
+                0x102e0adc       0x54 libs/gcc/app_start.lib(taskMngt.o)
+                0x102e0adc                Ql_OS_TakeMutex
 
 .text.Ql_OS_GiveMutex
-                0x102e0c58       0x54
+                0x102e0b30       0x54
  .text.Ql_OS_GiveMutex
-                0x102e0c58       0x54 libs/gcc/app_start.lib(taskMngt.o)
-                0x102e0c58                Ql_OS_GiveMutex
+                0x102e0b30       0x54 libs/gcc/app_start.lib(taskMngt.o)
+                0x102e0b30                Ql_OS_GiveMutex
 
 .text.Ql_OS_CreateEvent
-                0x102e0cac       0x54
+                0x102e0b84       0x54
  .text.Ql_OS_CreateEvent
-                0x102e0cac       0x54 libs/gcc/app_start.lib(taskMngt.o)
-                0x102e0cac                Ql_OS_CreateEvent
+                0x102e0b84       0x54 libs/gcc/app_start.lib(taskMngt.o)
+                0x102e0b84                Ql_OS_CreateEvent
 
 .text.Ql_OS_WaitEvent
-                0x102e0d00       0x68
+                0x102e0bd8       0x68
  .text.Ql_OS_WaitEvent
-                0x102e0d00       0x68 libs/gcc/app_start.lib(taskMngt.o)
-                0x102e0d00                Ql_OS_WaitEvent
+                0x102e0bd8       0x68 libs/gcc/app_start.lib(taskMngt.o)
+                0x102e0bd8                Ql_OS_WaitEvent
 
 .text.Ql_OS_SetEvent
-                0x102e0d68       0x68
+                0x102e0c40       0x68
  .text.Ql_OS_SetEvent
-                0x102e0d68       0x68 libs/gcc/app_start.lib(taskMngt.o)
-                0x102e0d68                Ql_OS_SetEvent
+                0x102e0c40       0x68 libs/gcc/app_start.lib(taskMngt.o)
+                0x102e0c40                Ql_OS_SetEvent
 
 .text.Ql_Timer_Register
-                0x102e0dd0       0x70
+                0x102e0ca8       0x70
  .text.Ql_Timer_Register
-                0x102e0dd0       0x70 libs/gcc/app_start.lib(timer.o)
-                0x102e0dd0                Ql_Timer_Register
+                0x102e0ca8       0x70 libs/gcc/app_start.lib(timer.o)
+                0x102e0ca8                Ql_Timer_Register
 
 .text.Ql_Timer_Start
-                0x102e0e40       0x70
+                0x102e0d18       0x70
  .text.Ql_Timer_Start
-                0x102e0e40       0x70 libs/gcc/app_start.lib(timer.o)
-                0x102e0e40                Ql_Timer_Start
+                0x102e0d18       0x70 libs/gcc/app_start.lib(timer.o)
+                0x102e0d18                Ql_Timer_Start
 
 .text.Ql_Timer_Stop
-                0x102e0eb0       0x60
+                0x102e0d88       0x60
  .text.Ql_Timer_Stop
-                0x102e0eb0       0x60 libs/gcc/app_start.lib(timer.o)
-                0x102e0eb0                Ql_Timer_Stop
+                0x102e0d88       0x60 libs/gcc/app_start.lib(timer.o)
+                0x102e0d88                Ql_Timer_Stop
 
 .text.Ql_UART_Register
-                0x102e0f10       0x70
+                0x102e0de8       0x70
  .text.Ql_UART_Register
-                0x102e0f10       0x70 libs/gcc/app_start.lib(uart.o)
-                0x102e0f10                Ql_UART_Register
+                0x102e0de8       0x70 libs/gcc/app_start.lib(uart.o)
+                0x102e0de8                Ql_UART_Register
 
 .text.Ql_UART_Open
-                0x102e0f80       0x70
+                0x102e0e58       0x70
  .text.Ql_UART_Open
-                0x102e0f80       0x70 libs/gcc/app_start.lib(uart.o)
-                0x102e0f80                Ql_UART_Open
+                0x102e0e58       0x70 libs/gcc/app_start.lib(uart.o)
+                0x102e0e58                Ql_UART_Open
 
 .text.Ql_UART_Write
-                0x102e0ff0       0x70
+                0x102e0ec8       0x70
  .text.Ql_UART_Write
-                0x102e0ff0       0x70 libs/gcc/app_start.lib(uart.o)
-                0x102e0ff0                Ql_UART_Write
+                0x102e0ec8       0x70 libs/gcc/app_start.lib(uart.o)
+                0x102e0ec8                Ql_UART_Write
 
 .text.Ql_UART_Read
-                0x102e1060       0x70
+                0x102e0f38       0x70
  .text.Ql_UART_Read
-                0x102e1060       0x70 libs/gcc/app_start.lib(uart.o)
-                0x102e1060                Ql_UART_Read
+                0x102e0f38       0x70 libs/gcc/app_start.lib(uart.o)
+                0x102e0f38                Ql_UART_Read
 
 .text.Ql_UART_GetPinStatus
-                0x102e10d0       0x68
+                0x102e0fa8       0x68
  .text.Ql_UART_GetPinStatus
-                0x102e10d0       0x68 libs/gcc/app_start.lib(uart.o)
-                0x102e10d0                Ql_UART_GetPinStatus
+                0x102e0fa8       0x68 libs/gcc/app_start.lib(uart.o)
+                0x102e0fa8                Ql_UART_GetPinStatus
 
 .text.Ql_UART_SendEscap
-                0x102e1138       0x60
+                0x102e1010       0x60
  .text.Ql_UART_SendEscap
-                0x102e1138       0x60 libs/gcc/app_start.lib(uart.o)
-                0x102e1138                Ql_UART_SendEscap
+                0x102e1010       0x60 libs/gcc/app_start.lib(uart.o)
+                0x102e1010                Ql_UART_SendEscap
 
-.rodata         0x102e1198      0xcdc
+.rodata         0x102e1070      0xd37
  *(.rodata)
- .rodata        0x102e1198       0x48 build\gcc\obj/custom/config/custom_sys_cfg.o
-                0x102e119c                SystemCfg
- .rodata        0x102e11e0       0x54 build\gcc\obj/custom/config/sys_config.o
-                0x102e11e0                GpioConfigTbl
-                0x102e11e4                TaskConfig
- .rodata        0x102e1234      0x100 build\gcc\obj/ril/src/ril_bluetooth.o
- .rodata        0x102e1334       0x1a build\gcc\obj/ril/src/Ril_dtmf.o
- .rodata        0x102e134e       0x4c build\gcc\obj/ril/src/ril_gps.o
- .rodata        0x102e139a        0xe build\gcc\obj/ril/src/ril_location.o
- .rodata        0x102e13a8       0x5d build\gcc\obj/ril/src/ril_network.o
- .rodata        0x102e1405        0xa build\gcc\obj/ril/src/ril_ntp.o
- *fill*         0x102e140f        0x1 
- .rodata        0x102e1410      0xa10 build\gcc\obj/ril/src/ril_urc.o
- .rodata        0x102e1e20       0x24 build\gcc\obj/custom/dual_sim/src/slot_manipulations.o
- .rodata        0x102e1e44       0x16 libs/gcc/app_start.lib(ql_main.o)
- .rodata        0x102e1e5a        0x4 libs/gcc/app_start.lib(ril_main.o)
- .rodata        0x102e1e5e       0x16 libs/gcc/app_start.lib(system.o)
+ .rodata        0x102e1070       0x48 build\gcc\obj/custom/config/custom_sys_cfg.o
+                0x102e1074                SystemCfg
+ .rodata        0x102e10b8       0x54 build\gcc\obj/custom/config/sys_config.o
+                0x102e10b8                GpioConfigTbl
+                0x102e10bc                TaskConfig
+ .rodata        0x102e110c      0x100 build\gcc\obj/ril/src/ril_bluetooth.o
+ .rodata        0x102e120c       0x1a build\gcc\obj/ril/src/Ril_dtmf.o
+ .rodata        0x102e1226       0x4c build\gcc\obj/ril/src/ril_gps.o
+ .rodata        0x102e1272        0xe build\gcc\obj/ril/src/ril_location.o
+ .rodata        0x102e1280       0x5d build\gcc\obj/ril/src/ril_network.o
+ .rodata        0x102e12dd        0xa build\gcc\obj/ril/src/ril_ntp.o
+ *fill*         0x102e12e7        0x1 
+ .rodata        0x102e12e8      0xa10 build\gcc\obj/ril/src/ril_urc.o
+ .rodata        0x102e1cf8       0x3d build\gcc\obj/custom/dual_sim/src/diagnostics.o
+ .rodata        0x102e1d35       0x1e build\gcc\obj/custom/dual_sim/src/dual_sim.o
+ .rodata        0x102e1d53       0x24 build\gcc\obj/custom/dual_sim/src/slot_manipulations.o
+ .rodata        0x102e1d77       0x16 libs/gcc/app_start.lib(ql_main.o)
+ .rodata        0x102e1d8d        0x4 libs/gcc/app_start.lib(ril_main.o)
+ .rodata        0x102e1d91       0x16 libs/gcc/app_start.lib(system.o)
 
-.rodata.str1.1  0x102e1e74     0x14e3
+.rodata.str1.1  0x102e1da7     0x13fb
  .rodata.str1.1
-                0x102e1e74       0x25 build\gcc\obj/ril/src/ril_atResponse.o
+                0x102e1da7       0x25 build\gcc\obj/ril/src/ril_atResponse.o
                                  0x2e (size before relaxing)
  .rodata.str1.1
-                0x102e1e99      0x491 build\gcc\obj/ril/src/ril_ble.o
+                0x102e1dcc      0x491 build\gcc\obj/ril/src/ril_ble.o
                                 0x53e (size before relaxing)
  .rodata.str1.1
-                0x102e232a      0x3ad build\gcc\obj/ril/src/ril_bluetooth.o
+                0x102e225d      0x3ad build\gcc\obj/ril/src/ril_bluetooth.o
                                 0x4e3 (size before relaxing)
  .rodata.str1.1
-                0x102e26d7       0xb7 build\gcc\obj/ril/src/Ril_dtmf.o
+                0x102e260a       0xb7 build\gcc\obj/ril/src/Ril_dtmf.o
                                  0xcc (size before relaxing)
  .rodata.str1.1
-                0x102e278e       0x52 build\gcc\obj/ril/src/ril_init.o
+                0x102e26c1       0x52 build\gcc\obj/ril/src/ril_init.o
  .rodata.str1.1
-                0x102e27e0       0x8a build\gcc\obj/ril/src/ril_location.o
+                0x102e2713       0x8a build\gcc\obj/ril/src/ril_location.o
                                  0xca (size before relaxing)
  .rodata.str1.1
-                0x102e286a       0xf8 build\gcc\obj/ril/src/ril_network.o
+                0x102e279d       0xf8 build\gcc\obj/ril/src/ril_network.o
                                 0x112 (size before relaxing)
  .rodata.str1.1
-                0x102e2962       0x79 build\gcc\obj/ril/src/ril_sim.o
+                0x102e2895       0x79 build\gcc\obj/ril/src/ril_sim.o
                                  0xaf (size before relaxing)
  .rodata.str1.1
-                0x102e29db      0x164 build\gcc\obj/ril/src/ril_urc.o
+                0x102e290e      0x164 build\gcc\obj/ril/src/ril_urc.o
                                 0x16b (size before relaxing)
  .rodata.str1.1
-                0x102e2b3f       0x11 build\gcc\obj/ril/src/ril_util.o
+                0x102e2a72       0x11 build\gcc\obj/ril/src/ril_util.o
                                  0x16 (size before relaxing)
  .rodata.str1.1
-                0x102e2b50       0x82 build\gcc\obj/custom/dual_sim/src/diagnostics.o
+                0x102e2a83       0x62 build\gcc\obj/custom/dual_sim/src/diagnostics.o
  .rodata.str1.1
-                0x102e2bd2      0x106 build\gcc\obj/custom/dual_sim/src/dual_sim.o
+                0x102e2ae5       0x8a build\gcc\obj/custom/dual_sim/src/dual_sim.o
  .rodata.str1.1
-                0x102e2cd8      0x16e build\gcc\obj/custom/dual_sim/src/slot_manipulations.o
+                0x102e2b6f      0x184 build\gcc\obj/custom/dual_sim/src/slot_manipulations.o
  .rodata.str1.1
-                0x102e2e46       0xfb build\gcc\obj/custom/dual_sim/src/timer.o
+                0x102e2cf3       0x99 build\gcc\obj/custom/dual_sim/src/timer.o
  .rodata.str1.1
-                0x102e2f41       0x23 build\gcc\obj/custom/dual_sim/src/UART_callbacks.o
-                                 0x43 (size before relaxing)
+                0x102e2d8c       0x23 build\gcc\obj/custom/dual_sim/src/UART_callbacks.o
+                                 0x54 (size before relaxing)
  .rodata.str1.1
-                0x102e2f64       0x19 libs/gcc/app_start.lib(memory.o)
+                0x102e2daf       0x19 libs/gcc/app_start.lib(memory.o)
  .rodata.str1.1
-                0x102e2f7d       0x51 libs/gcc/app_start.lib(ql_main.o)
+                0x102e2dc8       0x51 libs/gcc/app_start.lib(ql_main.o)
                                  0x56 (size before relaxing)
  .rodata.str1.1
-                0x102e2fce       0x1e libs/gcc/app_start.lib(ril_main.o)
+                0x102e2e19       0x1e libs/gcc/app_start.lib(ril_main.o)
                                  0x25 (size before relaxing)
  .rodata.str1.1
-                0x102e2fec       0xa1 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102e2e37       0xa1 libs/gcc/app_start.lib(stdlib_func.o)
  .rodata.str1.1
-                0x102e308d       0x3d libs/gcc/app_start.lib(system.o)
+                0x102e2ed8       0x3d libs/gcc/app_start.lib(system.o)
  .rodata.str1.1
-                0x102e30ca      0x140 libs/gcc/app_start.lib(taskMngt.o)
+                0x102e2f15      0x140 libs/gcc/app_start.lib(taskMngt.o)
  .rodata.str1.1
-                0x102e320a       0x45 libs/gcc/app_start.lib(timer.o)
+                0x102e3055       0x45 libs/gcc/app_start.lib(timer.o)
  .rodata.str1.1
-                0x102e324f      0x108 libs/gcc/app_start.lib(uart.o)
+                0x102e309a      0x108 libs/gcc/app_start.lib(uart.o)
 
-.rel.dyn        0x102e3358        0x0
+.rel.dyn        0x102e31a4        0x0
  .rel.iplt      0x00000000        0x0 build\gcc\obj/custom/config/custom_sys_cfg.o
 
-.data           0xf03d2000       0x50 load address 0x102e3358
-                0x102e3358                PROVIDE (__data_load, LOADADDR (.data))
+.data           0xf03d2000       0x50 load address 0x102e31a8
+                0x102e31a8                PROVIDE (__data_load, LOADADDR (.data))
                 0xf03d2000                PROVIDE (__data_start, .)
  *(.data)
  .data          0xf03d2000        0x1 build\gcc\obj/ril/src/ril_bluetooth.o
@@ -1937,10 +1632,10 @@ text            0x102db070      0x420
                 0xf03d2050                . = ALIGN (0x8)
                 0xf03d2050                PROVIDE (_edata, .)
 
-.igot.plt       0xf03d2050        0x0 load address 0x102e33a8
+.igot.plt       0xf03d2050        0x0 load address 0x102e31f8
  .igot.plt      0x00000000        0x0 build\gcc\obj/custom/config/custom_sys_cfg.o
 
-.bss            0xf03d2050     0x21c0 load address 0x102e33a8
+.bss            0xf03d2050     0x21c0 load address 0x102e31f8
                 0xf03d2050                PROVIDE (__bss_start__, .)
  *(.bss)
  .bss           0xf03d2050        0x4 build\gcc\obj/ril/src/ril_atResponse.o
@@ -2022,47 +1717,6 @@ LOAD build\gcc\obj/ril/src/ril_system.o
 LOAD build\gcc\obj/ril/src/ril_telephony.o
 LOAD build\gcc\obj/ril/src/ril_urc.o
 LOAD build\gcc\obj/ril/src/ril_util.o
-LOAD build\gcc\obj/example/example_adc.o
-LOAD build\gcc\obj/example/example_alarm.o
-LOAD build\gcc\obj/example/example_audio.o
-LOAD build\gcc\obj/example/example_ble.o
-LOAD build\gcc\obj/example/example_bluetooth.o
-LOAD build\gcc\obj/example/example_call.o
-LOAD build\gcc\obj/example/example_clk.o
-LOAD build\gcc\obj/example/example_csd.o
-LOAD build\gcc\obj/example/example_download_epo.o
-LOAD build\gcc\obj/example/example_dtmf.o
-LOAD build\gcc\obj/example/example_eint.o
-LOAD build\gcc\obj/example/example_epo_callback.o
-LOAD build\gcc\obj/example/example_file.o
-LOAD build\gcc\obj/example/example_float_math.o
-LOAD build\gcc\obj/example/example_fota_ftp.o
-LOAD build\gcc\obj/example/example_fota_http.o
-LOAD build\gcc\obj/example/example_ftp.o
-LOAD build\gcc\obj/example/example_gpio.o
-LOAD build\gcc\obj/example/example_gps.o
-LOAD build\gcc\obj/example/Example_gps_iic.o
-LOAD build\gcc\obj/example/example_http.o
-LOAD build\gcc\obj/example/example_iic.o
-LOAD build\gcc\obj/example/example_location.o
-LOAD build\gcc\obj/example/example_memory.o
-LOAD build\gcc\obj/example/example_multitask.o
-LOAD build\gcc\obj/example/example_multitask_port.o
-LOAD build\gcc\obj/example/example_pwm.o
-LOAD build\gcc\obj/example/example_sms.o
-LOAD build\gcc\obj/example/example_spi.o
-LOAD build\gcc\obj/example/example_system.o
-LOAD build\gcc\obj/example/example_tcp_demo.o
-LOAD build\gcc\obj/example/example_tcpclient.o
-LOAD build\gcc\obj/example/example_tcpserver.o
-LOAD build\gcc\obj/example/example_time.o
-LOAD build\gcc\obj/example/example_timer.o
-LOAD build\gcc\obj/example/example_transpass.o
-LOAD build\gcc\obj/example/example_udpclient.o
-LOAD build\gcc\obj/example/example_udpserver.o
-LOAD build\gcc\obj/example/example_watchdog.o
-LOAD build\gcc\obj/example/nema_pro.o
-LOAD build\gcc\obj/example/utility.o
 LOAD build\gcc\obj/custom/main.o
 LOAD build\gcc\obj/custom/fota/src/fota_ftp.o
 LOAD build\gcc\obj/custom/fota/src/fota_http.o

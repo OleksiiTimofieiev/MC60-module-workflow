@@ -21,7 +21,7 @@ bool    signal_quality(void)
     // APP_DEBUG("signal quality:\r\n");
     if ((func_result = RIL_NW_GetSignalQuality(&rssi, &ber)) != RIL_AT_SUCCESS)
     {
-        APP_DEBUG("RIL_NW_GetSignalQuality ERROR\r\n");
+        APP_DEBUG("RIL_NW_GetSignalQuality ERROR\r\n\0");
         return (FALSE);
     }
 
@@ -47,7 +47,7 @@ bool    GSM_status(void)
     // APP_DEBUG("GSM reg status:\r\n");
     if ((func_result = RIL_NW_GetGSMState(&state)) != RIL_AT_SUCCESS)
     {
-        APP_DEBUG("RIL_NW_GetGSMState ERROR\r\n");
+        APP_DEBUG("RIL_NW_GetGSMState ERROR\r\n\0");
         return (FALSE);
     }
 
