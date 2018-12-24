@@ -1,15 +1,15 @@
 ##==========================================================================
- #                   Quectel OpenCPU
- #
- #              Copyright(c) 2012-2013 Quectel Ltd. All rights reserved.
- #
- #--------------------------------------------------------------------------
- # File Description
- # ----------------
- #      OpenCPU makefile for GCC.
- #
- #--------------------------------------------------------------------------
- #==========================================================================
+#                   Quectel OpenCPU
+#
+#              Copyright(c) 2012-2013 Quectel Ltd. All rights reserved.
+#
+#--------------------------------------------------------------------------
+# File Description
+# ----------------
+#      OpenCPU makefile for GCC.
+#
+#--------------------------------------------------------------------------
+#==========================================================================
 
 #-------------------------------------------------------------------------------
 # Configure GCC installation path, and GCC version.
@@ -70,7 +70,6 @@ SRC_CUS=$(wildcard custom/*.c)
 SRC_FOTA=$(wildcard custom/fota/src/*.c)
 SRC_DUAL_SIM=$(wildcard custom/dual_sim/src/*.c)
 
-
 OBJS=\
 	 $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_SYS))        \
 	 $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_SYS_RIL))    \
@@ -78,8 +77,6 @@ OBJS=\
 	 $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_CUS))        \
 	 $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_FOTA))      \
 	 $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_DUAL_SIM))      \
-
-
 
 ifeq ($(strip $(CLOUD_SOLUTION)),GITWIZS_SOLUTION)
      INCS +=-I cloud/entity/gitwizs/inc

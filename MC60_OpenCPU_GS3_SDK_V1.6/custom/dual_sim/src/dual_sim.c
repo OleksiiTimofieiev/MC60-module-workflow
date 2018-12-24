@@ -8,6 +8,10 @@
 #define SERIAL_RX_BUFFER_LEN  2048
 static  u8  m_RxBuf_Uart[SERIAL_RX_BUFFER_LEN];
 
+/* system configuration */
+void    get_core(void);
+void    get_SDK(void);
+
 /* send_AT_cmd */
 void    dianostics(s32 code_of_error);
 s32		response_callback(char* line, u32 len, void* userData);
@@ -26,7 +30,6 @@ void    get_SIM_state(void);
 void    proc_main_task(s32 taskId)
 {
     ST_MSG  msg;
-    s32     ret;
 
 	APP_DEBUG("\n<--Open Debug Session.-->\r\n");
 
@@ -75,7 +78,7 @@ void    proc_main_task(s32 taskId)
                         {
                             APP_DEBUG("<-- GPRS Network Registered:%d -->\r\n", msg.param2);
 
-                            network_test();
+                            init_and_start_dual_sim_diagnostics_timer();
                         }
                         break ;
                     }

@@ -1,10 +1,6 @@
 #include "general.h"
 
 /* diagnostics API */
-bool    signal_quality(void);
-bool    GSM_status(void);
-bool    GPRS_status(void);
-bool    network_test(void);
 
 bool    signal_quality(void)
 {
@@ -22,15 +18,15 @@ bool    signal_quality(void)
     u32     rssi;
     u32     ber;
 
-    APP_DEBUG("signal quality:\r\n");
+    // APP_DEBUG("signal quality:\r\n");
     if ((func_result = RIL_NW_GetSignalQuality(&rssi, &ber)) != RIL_AT_SUCCESS)
     {
         APP_DEBUG("RIL_NW_GetSignalQuality ERROR\r\n");
-        return ;
+        return (FALSE);
     }
 
-    APP_DEBUG("rssi -> %d\r\n", rssi);
-    APP_DEBUG("ber -> %d\r\n", ber);
+    // APP_DEBUG("rssi -> %d\r\n", rssi);
+    // APP_DEBUG("ber -> %d\r\n", ber);
 
     if (rssi >= 0 && rssi <= 31)
     {
@@ -40,10 +36,7 @@ bool    signal_quality(void)
     {
         return (FALSE);
     }
-    else
-    {
-        return (TRUE);
-    }
+    return (TRUE);
 }
 
 bool    GSM_status(void)
@@ -51,21 +44,20 @@ bool    GSM_status(void)
     s32     func_result = RIL_AT_FAILED;
     s32     state;
 
-    APP_DEBUG("GSM reg status:\r\n");
+    // APP_DEBUG("GSM reg status:\r\n");
     if ((func_result = RIL_NW_GetGSMState(&state)) != RIL_AT_SUCCESS)
     {
         APP_DEBUG("RIL_NW_GetGSMState ERROR\r\n");
-        return ;
+        return (FALSE);
     }
 
-    APP_DEBUG("state -> %d\r\n", state);
-
+    // APP_DEBUG("state -> %d\r\n", state);
     if (state == NW_STAT_REGISTERED)
     {
         return (TRUE);
     }
     else if (state == NW_STAT_UNKNOWN || state == NW_STAT_REG_DENIED
-            || NW_STAT_NOT_REGISTERED || NW_STAT_SEARCHING || NW_STAT_REGISTERED_ROAMING)
+        || NW_STAT_NOT_REGISTERED || NW_STAT_SEARCHING || NW_STAT_REGISTERED_ROAMING)
     {
         return (FALSE);
     }
@@ -76,14 +68,14 @@ bool    GPRS_status(void)
     s32     func_result = RIL_AT_FAILED;
     s32     state;
 
-    APP_DEBUG("GPRS reg status:\r\n");
+    // APP_DEBUG("GPRS reg status:\r\n");
     if ((func_result = RIL_NW_GetGPRSState(&state)) != RIL_AT_SUCCESS)
     {
         APP_DEBUG("RIL_NW_GetGSMState ERROR\r\n");
-        return ;
+        return (FALSE);
     }
 
-    APP_DEBUG("state -> %d\r\n", state);
+    // APP_DEBUG("state -> %d\r\n", state);
 
     if (state == NW_STAT_REGISTERED)
     {
