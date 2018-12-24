@@ -1,32 +1,34 @@
+custom/dual_sim.c: In function 'GSM_status':
+custom/dual_sim.c:101:9: warning: 'return' with no value, in function returning non-void [enabled by default]
 custom/dual_sim.c: In function 'proc_main_task':
-custom/dual_sim.c:117:5: warning: implicit declaration of function 'get_core' [-Wimplicit-function-declaration]
-custom/dual_sim.c:118:5: warning: implicit declaration of function 'get_SDK' [-Wimplicit-function-declaration]
-custom/dual_sim.c:97:13: warning: unused variable 'ret' [-Wunused-variable]
+custom/dual_sim.c:141:5: warning: implicit declaration of function 'get_core' [-Wimplicit-function-declaration]
+custom/dual_sim.c:142:5: warning: implicit declaration of function 'get_SDK' [-Wimplicit-function-declaration]
+custom/dual_sim.c:121:13: warning: unused variable 'ret' [-Wunused-variable]
 custom/dual_sim.c: In function 'CallBack_UART_Hdlr':
-custom/dual_sim.c:262:16: warning: unused variable 'totalBytes' [-Wunused-variable]
+custom/dual_sim.c:286:16: warning: unused variable 'totalBytes' [-Wunused-variable]
 custom/dual_sim.c: At top level:
-custom/dual_sim.c:272:9: warning: conflicting types for 'get_core' [enabled by default]
-custom/dual_sim.c:117:5: note: previous implicit declaration of 'get_core' was here
-custom/dual_sim.c:289:9: warning: conflicting types for 'get_SDK' [enabled by default]
-custom/dual_sim.c:118:5: note: previous implicit declaration of 'get_SDK' was here
+custom/dual_sim.c:296:9: warning: conflicting types for 'get_core' [enabled by default]
+custom/dual_sim.c:141:5: note: previous implicit declaration of 'get_core' was here
+custom/dual_sim.c:313:9: warning: conflicting types for 'get_SDK' [enabled by default]
+custom/dual_sim.c:142:5: note: previous implicit declaration of 'get_SDK' was here
 custom/dual_sim.c: In function 'send_AT_cmd':
-custom/dual_sim.c:308:5: warning: pointer targets in passing argument 1 of 'Ql_strlen' differ in signedness [-Wpointer-sign]
+custom/dual_sim.c:332:5: warning: pointer targets in passing argument 1 of 'Ql_strlen' differ in signedness [-Wpointer-sign]
 In file included from custom/dual_sim.c:31:0:
 include/ql_stdlib.h:54:7: note: expected 'const char *' but argument is of type 'u8 *'
-custom/dual_sim.c:308:5: warning: pointer targets in passing argument 1 of 'Ql_RIL_SendATCmd' differ in signedness [-Wpointer-sign]
+custom/dual_sim.c:332:5: warning: pointer targets in passing argument 1 of 'Ql_RIL_SendATCmd' differ in signedness [-Wpointer-sign]
 In file included from custom/dual_sim.c:42:0:
 ril/inc/ril.h:163:12: note: expected 'char *' but argument is of type 'u8 *'
 custom/dual_sim.c: In function 'get_list_of_supported_slots':
-custom/dual_sim.c:316:5: warning: pointer targets in passing argument 1 of 'send_AT_cmd' differ in signedness [-Wpointer-sign]
-custom/dual_sim.c:305:9: note: expected 'u8 *' but argument is of type 'char *'
+custom/dual_sim.c:340:5: warning: pointer targets in passing argument 1 of 'send_AT_cmd' differ in signedness [-Wpointer-sign]
+custom/dual_sim.c:329:9: note: expected 'u8 *' but argument is of type 'char *'
 custom/dual_sim.c: In function 'get_active_slot':
-custom/dual_sim.c:327:5: warning: pointer targets in passing argument 1 of 'send_AT_cmd' differ in signedness [-Wpointer-sign]
-custom/dual_sim.c:305:9: note: expected 'u8 *' but argument is of type 'char *'
+custom/dual_sim.c:351:5: warning: pointer targets in passing argument 1 of 'send_AT_cmd' differ in signedness [-Wpointer-sign]
+custom/dual_sim.c:329:9: note: expected 'u8 *' but argument is of type 'char *'
 custom/dual_sim.c: In function 'change_active_slot':
-custom/dual_sim.c:339:5: warning: pointer targets in passing argument 1 of 'Ql_strlen' differ in signedness [-Wpointer-sign]
+custom/dual_sim.c:363:5: warning: pointer targets in passing argument 1 of 'Ql_strlen' differ in signedness [-Wpointer-sign]
 In file included from custom/dual_sim.c:31:0:
 include/ql_stdlib.h:54:7: note: expected 'const char *' but argument is of type 'u8 *'
-custom/dual_sim.c:340:5: warning: pointer targets in passing argument 1 of 'Ql_sprintf' differ in signedness [-Wpointer-sign]
-custom/dual_sim.c:340:5: note: expected 'char *' but argument is of type 'u8 *'
+custom/dual_sim.c:364:5: warning: pointer targets in passing argument 1 of 'Ql_sprintf' differ in signedness [-Wpointer-sign]
+custom/dual_sim.c:364:5: note: expected 'char *' but argument is of type 'u8 *'
 custom/dual_sim.c: In function 'signal_quality':
-custom/dual_sim.c:425:9: warning: 'return' with no value, in function returning non-void [enabled by default]
+custom/dual_sim.c:449:9: warning: 'return' with no value, in function returning non-void [enabled by default]

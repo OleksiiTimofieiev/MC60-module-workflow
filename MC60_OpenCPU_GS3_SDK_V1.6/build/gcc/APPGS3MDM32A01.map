@@ -796,6 +796,8 @@ Discarded input sections
                 0x00000000       0x2b build\gcc\obj/example/utility.o
  .text          0x00000000        0x0 build\gcc\obj/custom/dual_sim.o
  .data          0x00000000        0x0 build\gcc\obj/custom/dual_sim.o
+ .text.GSM_status
+                0x00000000      0x108 build\gcc\obj/custom/dual_sim.o
  .text          0x00000000        0x0 build\gcc\obj/custom/main.o
  .data          0x00000000        0x0 build\gcc\obj/custom/main.o
  .bss           0x00000000        0x0 build\gcc\obj/custom/main.o
@@ -1820,7 +1822,7 @@ text            0x102db070      0x420
  .rodata        0x102e1d06        0x4 libs/gcc/app_start.lib(ril_main.o)
  .rodata        0x102e1d0a       0x16 libs/gcc/app_start.lib(system.o)
 
-.rodata.str1.1  0x102e1d20     0x135f
+.rodata.str1.1  0x102e1d20     0x139a
  .rodata.str1.1
                 0x102e1d20       0x25 build\gcc\obj/ril/src/ril_atResponse.o
                                  0x2e (size before relaxing)
@@ -1851,32 +1853,32 @@ text            0x102db070      0x420
                 0x102e29eb       0x11 build\gcc\obj/ril/src/ril_util.o
                                  0x16 (size before relaxing)
  .rodata.str1.1
-                0x102e29fc      0x290 build\gcc\obj/custom/dual_sim.o
-                                0x2b0 (size before relaxing)
+                0x102e29fc      0x2cb build\gcc\obj/custom/dual_sim.o
+                                0x2eb (size before relaxing)
  .rodata.str1.1
-                0x102e2c8c       0x19 libs/gcc/app_start.lib(memory.o)
+                0x102e2cc7       0x19 libs/gcc/app_start.lib(memory.o)
  .rodata.str1.1
-                0x102e2ca5       0x51 libs/gcc/app_start.lib(ql_main.o)
+                0x102e2ce0       0x51 libs/gcc/app_start.lib(ql_main.o)
                                  0x56 (size before relaxing)
  .rodata.str1.1
-                0x102e2cf6       0x1e libs/gcc/app_start.lib(ril_main.o)
+                0x102e2d31       0x1e libs/gcc/app_start.lib(ril_main.o)
                                  0x25 (size before relaxing)
  .rodata.str1.1
-                0x102e2d14       0xa1 libs/gcc/app_start.lib(stdlib_func.o)
+                0x102e2d4f       0xa1 libs/gcc/app_start.lib(stdlib_func.o)
  .rodata.str1.1
-                0x102e2db5       0x3d libs/gcc/app_start.lib(system.o)
+                0x102e2df0       0x3d libs/gcc/app_start.lib(system.o)
  .rodata.str1.1
-                0x102e2df2      0x140 libs/gcc/app_start.lib(taskMngt.o)
+                0x102e2e2d      0x140 libs/gcc/app_start.lib(taskMngt.o)
  .rodata.str1.1
-                0x102e2f32       0x45 libs/gcc/app_start.lib(timer.o)
+                0x102e2f6d       0x45 libs/gcc/app_start.lib(timer.o)
  .rodata.str1.1
-                0x102e2f77      0x108 libs/gcc/app_start.lib(uart.o)
+                0x102e2fb2      0x108 libs/gcc/app_start.lib(uart.o)
 
-.rel.dyn        0x102e3080        0x0
+.rel.dyn        0x102e30bc        0x0
  .rel.iplt      0x00000000        0x0 build\gcc\obj/custom/config/custom_sys_cfg.o
 
-.data           0xf03d2000       0x50 load address 0x102e3080
-                0x102e3080                PROVIDE (__data_load, LOADADDR (.data))
+.data           0xf03d2000       0x50 load address 0x102e30c0
+                0x102e30c0                PROVIDE (__data_load, LOADADDR (.data))
                 0xf03d2000                PROVIDE (__data_start, .)
  *(.data)
  .data          0xf03d2000        0x1 build\gcc\obj/ril/src/ril_bluetooth.o
@@ -1892,10 +1894,10 @@ text            0x102db070      0x420
                 0xf03d2050                . = ALIGN (0x8)
                 0xf03d2050                PROVIDE (_edata, .)
 
-.igot.plt       0xf03d2050        0x0 load address 0x102e30d0
+.igot.plt       0xf03d2050        0x0 load address 0x102e3110
  .igot.plt      0x00000000        0x0 build\gcc\obj/custom/config/custom_sys_cfg.o
 
-.bss            0xf03d2050     0x1980 load address 0x102e30d0
+.bss            0xf03d2050     0x1980 load address 0x102e3110
                 0xf03d2050                PROVIDE (__bss_start__, .)
  *(.bss)
  .bss           0xf03d2050        0x4 build\gcc\obj/ril/src/ril_atResponse.o

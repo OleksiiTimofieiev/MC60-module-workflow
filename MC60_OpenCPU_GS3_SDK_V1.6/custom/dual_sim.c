@@ -89,6 +89,30 @@ void    get_SIM_state(void);
 
 /* diagnostics API */
 bool    signal_quality(void);
+bool    GSM_status(void)
+{
+    s32     func_result = RIL_AT_FAILED;
+    s32     state;
+
+    APP_DEBUG("GSM reg status:\r\n");
+    if ((func_result = RIL_NW_GetGSMState(&state)) != QL_RET_OK)
+    {
+        APP_DEBUG("RIL_NW_GetGSMState ERROR\r\n");
+        return ;
+    }
+
+    APP_DEBUG("state -> %d\r\n", state);
+
+    if (state == NW_STAT_REGISTERED)
+    {
+        return (TRUE);
+    }
+    else if (state == NW_STAT_UNKNOWN || state == NW_STAT_REG_DENIED
+            || NW_STAT_NOT_REGISTERED || NW_STAT_SEARCHING || NW_STAT_REGISTERED_ROAMING)
+    {
+        return (FALSE);
+    }
+}
 
 /* simultaneously works only with one slot */
 void    proc_main_task(s32 taskId)
@@ -432,11 +456,7 @@ bool    signal_quality(void)
     {
         return (FALSE);
     }
-    else if (rssi == 99) // Not known or not detactable;
-    {
-        return (FALSE);
-    }
-    else if (ber == 99) // Not known or not detactable;
+    else if (rssi == 99 || ber == 99) // Not known or not detactable;
     {
         return (FALSE);
     }
