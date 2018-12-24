@@ -5,6 +5,7 @@
 
 #define	REPEAT_PERIOD			1
 #define	DUAL_SIM_TIMER_ID		0x102
+static  bool slot_check = FALSE;
 
 void	dual_sim_diagnostics_timer_handler(u32 timerId, void* param);
 u32		minutes_to_milliseconds_converter(u32	minutes);
@@ -35,6 +36,13 @@ void	dual_sim_diagnostics_timer_handler(u32 timerId, void* param)
     {
         APP_DEBUG("<-- stack dual_sim_diagnostics_timer_handler -->\r\n");
         network_test();
+  		// get_list_of_supported_slots();
+		// get_active_slot();
+		if (slot_check == FALSE)
+			change_active_slot(1);
+		get_active_slot();
+
+
         // DUAL_SIM_TIMER_ID repeat 
             // s32 ret;
             // ret = Ql_Timer_Stop(DUAL_SIM_TIMER_ID);
