@@ -48,10 +48,7 @@ INCS += -I ./           \
         -I ril/inc      \
         -I custom/config   \
         -I custom/fota/inc \
-
-		
-
-
+        -I custom/dual_sim/inc \
 
 #-------------------------------------------------------------------------------
 # Configure source code dirctories
@@ -61,8 +58,7 @@ SRC_DIRS=example    \
 		 custom\config     \
          custom\fota\src   \
 		 ril\src    \
-
-
+		 custom\dual_sim\src \
 
 #-------------------------------------------------------------------------------
 # Configure source code files to compile in the source code directories
@@ -72,6 +68,7 @@ SRC_SYS_RIL=$(wildcard ril/src/*.c)
 SRC_EXAMPLE=$(wildcard example/*.c)
 SRC_CUS=$(wildcard custom/*.c)
 SRC_FOTA=$(wildcard custom/fota/src/*.c)
+SRC_DUAL_SIM=$(wildcard custom/dual_sim/src/*.c)
 
 
 OBJS=\
@@ -80,6 +77,7 @@ OBJS=\
 	 $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_EXAMPLE))    \
 	 $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_CUS))        \
 	 $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_FOTA))      \
+	 $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_DUAL_SIM))      \
 
 
 

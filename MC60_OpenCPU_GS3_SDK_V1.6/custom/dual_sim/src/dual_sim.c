@@ -1,73 +1,8 @@
-
-/*****************************************************************************
-*  Copyright Statement:
-*  --------------------
-*  This software is protected by Copyright and the information contained
-*  herein is confidential. The software may not be copied and the information
-*  contained herein may not be used or disclosed except with the written
-*  permission of Quectel Co., Ltd. 2013
-*
-*****************************************************************************/
-/*****************************************************************************
- *
- * Filename:
- * ---------
- *   main.c
- *
- * Project:
- * --------
- *   OpenCPU
- *
- * Description:
- * ------------
- *   This app demonstrates how to send AT command with RIL API, and transparently
- *   transfer the response through MAIN UART. And how to use UART port.
- *   Developer can program the application based on this example.
- * 
- ****************************************************************************/
 #ifdef __DUAL_SIM__
 
-#include "custom_feature_def.h"
-#include "ql_stdlib.h"
-#include "ql_common.h"
-#include "ql_type.h"
-#include "ql_trace.h"
-#include "ql_error.h"
-#include "ql_uart.h"
-#include "ql_gprs.h"
-#include "ql_socket.h"
-#include "ql_timer.h"
-#include "ril_sim.h"
-#include "ril_network.h"
-#include "ril.h"
-#include "ril_util.h"
-#include "ril_telephony.h"
-#include "ql_spi.h"
-#include "ql_system.h"
-#include "ql_gpio.h"
-
-#define DEBUG_ENABLE 1
-#if DEBUG_ENABLE > 0
-#define DEBUG_PORT UART_PORT1
-#define DBG_BUF_LEN 528
-static char DBG_BUFFER[DBG_BUF_LEN];
-
-#define APP_DEBUG(FORMAT, ...)                                                                                       \
-{                                                                                                                \
-    Ql_memset(DBG_BUFFER, 0, DBG_BUF_LEN);                                                                       \
-    Ql_sprintf(DBG_BUFFER, FORMAT, ##__VA_ARGS__);                                                               \
-    if (UART_PORT2 == (DEBUG_PORT))                                                                              \
-    {                                                                                                            \
-        Ql_Debug_Trace(DBG_BUFFER);                                                                              \
-    }                                                                                                            \
-    else                                                                                                         \
-    {                                                                                                            \
-        Ql_UART_Write((Enum_SerialPort)(DEBUG_PORT), (u8 *)(DBG_BUFFER), Ql_strlen((const char *)(DBG_BUFFER))); \
-    }                                                                                                            \
-}
-#else
-#define APP_DEBUG(FORMAT, ...)
-#endif
+/* libs and debug */
+#include "general.h"
+#include "project.h"
 
 /* input buffer params */
 #define SERIAL_RX_BUFFER_LEN  2048
@@ -86,33 +21,6 @@ void    get_list_of_supported_slots(void);
 void    get_active_slot(void);
 void    change_active_slot(u8 slot);
 void    get_SIM_state(void);
-
-/* diagnostics API */
-bool    signal_quality(void);
-bool    GSM_status(void)
-{
-    s32     func_result = RIL_AT_FAILED;
-    s32     state;
-
-    APP_DEBUG("GSM reg status:\r\n");
-    if ((func_result = RIL_NW_GetGSMState(&state)) != QL_RET_OK)
-    {
-        APP_DEBUG("RIL_NW_GetGSMState ERROR\r\n");
-        return ;
-    }
-
-    APP_DEBUG("state -> %d\r\n", state);
-
-    if (state == NW_STAT_REGISTERED)
-    {
-        return (TRUE);
-    }
-    else if (state == NW_STAT_UNKNOWN || state == NW_STAT_REG_DENIED
-            || NW_STAT_NOT_REGISTERED || NW_STAT_SEARCHING || NW_STAT_REGISTERED_ROAMING)
-    {
-        return (FALSE);
-    }
-}
 
 /* simultaneously works only with one slot */
 void    proc_main_task(s32 taskId)
@@ -153,44 +61,28 @@ void    proc_main_task(s32 taskId)
 
                 Ql_RIL_Initialize();
 
-                get_list_of_supported_slots();
-
-                APP_DEBUG("SIM state:\r\n");
-                get_SIM_state();
-
-                get_active_slot();
-
-                change_active_slot(1);
-                get_active_slot();
-
-                change_active_slot(0);
-                get_active_slot();
-                APP_DEBUG("SIM state:\r\n");
-                get_SIM_state();
-
-                signal_quality();
-
 				break ;
             }
-            // case MSG_ID_URC_INDICATION:
-            // {
-            //     switch(msg.param1)
-            //     {
-            //         case URC_GPRS_NW_STATE_IND:
-            //         {
-            //             APP_DEBUG("<-- GPRS Network Status: waiting for the connection -->\r\n");
+            case MSG_ID_URC_INDICATION:
+            {
+                switch(msg.param1)
+                {
+                    case URC_GPRS_NW_STATE_IND:
+                    {
+                        APP_DEBUG("<-- GPRS Network Status: waiting for the connection -->\r\n");
 
-            //             if (msg.param2 == NW_STAT_REGISTERED)
-            //             {
-            //                 APP_DEBUG("<-- GPRS Network Registered:%d -->\r\n", msg.param2);
-                            
-            //             }
-            //             break ;
-            //         }
-            //         default:
-            //             break ;
-            //     }
-            // }
+                        if (msg.param2 == NW_STAT_REGISTERED)
+                        {
+                            APP_DEBUG("<-- GPRS Network Registered:%d -->\r\n", msg.param2);
+
+                            network_test();
+                        }
+                        break ;
+                    }
+                    default:
+                        break ;
+                }
+            }
             default:
                 break ;
 		}
@@ -423,46 +315,6 @@ void    get_SIM_state(void)
     else
     {
         APP_DEBUG("UNKNOWN BUG\r\n");
-    }
-}
-
-bool    signal_quality(void)
-{
-    // <rssi> 0 -113 dBm or less
-    // 1      -111 dBm
-    // 2...30 -109... -53 dBm
-    // 31 -51 dBm or greater
-    // 99 Not known or not detectable
-
-    // <ber> (in percent):
-    // 0...7 As RXQUAL values in the table in GSM 05.08 subclause 8.2.4
-    // 99 Not known or not detectable
-
-    s32     func_result = RIL_AT_FAILED;
-    u32     rssi;
-    u32     ber;
-
-    APP_DEBUG("signal quality:\r\n");
-    if ((func_result = RIL_NW_GetSignalQuality(&rssi, &ber)) != QL_RET_OK)
-    {
-        APP_DEBUG("RIL_NW_GetSignalQuality ERROR\r\n");
-        return ;
-    }
-
-    APP_DEBUG("rssi -> %d\r\n", rssi);
-    APP_DEBUG("ber -> %d\r\n", ber);
-
-    if (rssi >= 0 && rssi <= 31)
-    {
-        return (FALSE);
-    }
-    else if (rssi == 99 || ber == 99) // Not known or not detactable;
-    {
-        return (FALSE);
-    }
-    else
-    {
-        return (TRUE);
     }
 }
 
