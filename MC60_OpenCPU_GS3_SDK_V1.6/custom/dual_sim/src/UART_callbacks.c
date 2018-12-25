@@ -5,30 +5,65 @@
 #define SERIAL_RX_BUFFER_LEN  2048
 static  u8  m_RxBuf_Uart[SERIAL_RX_BUFFER_LEN];
 
+u8    *ft_strstr(const u8 *haystack, const u8 *needle)
+{
+    int i;
+    int j;
+    int length;
+
+    i = 0;
+    if (needle[i] == '\0')
+        return ((u8 *)haystack);
+    j = 0;
+    length = Ql_strlen(needle);
+    while (haystack[i])
+    {
+        while (needle[j] == haystack[i + j])
+        {
+            if (j == length - 1)
+                return ((u8 *)haystack + i);
+            j++;
+        }
+        j = 0;
+        i++;
+    }
+    return (NULL);
+}
+
 s32		response_callback(char* line, u32 len, void* userData) // el costello in func;
 {
+    // APP_DEBUG("Write to the port\r\n");
     Ql_UART_Write(UART_PORT1, (u8*)line, len);
 
-    // APP_DEBUG("line in callback -> %s\r\n\0", line);
-    APP_DEBUG("input AT -> %d\r\n", *(s32 *)userData);
-    
+    if (ft_strstr(line, "QDSIM") && ft_strstr(line, "0"))
+         *(s32 *)userData = 0;
+     else if (ft_strstr(line, "QDSIM") && ft_strstr(line, "1"))
+         *(s32 *)userData = 1;
+
+
+    // APP_DEBUG("line in callback -> %s\r\n", line);
+    // APP_DEBUG("input AT -> %d\r\n", *(s32 *)userData);
+
     if (Ql_RIL_FindLine(line, len, "OK"))
     {  
-    	// if (Ql_RIL_FindLine(line, len, "QDSIM"))
-    	// {
-	    // 	if (Ql_RIL_FindLine(line, len, "1"))
-	    // 	{
-	    // 		APP_DEBUG("here1\r\n");
-	    // 		*(u8*)userData = 1;
-	    // 	}
-	    // 	else if (Ql_RIL_FindLine(line, len, "0"))
-	    // 	{
-	    // 		APP_DEBUG("here0\r\n");
-	    // 		*(u8*)userData = 0;
-	    // 	}
-	    // }
         return  RIL_ATRSP_SUCCESS;
     }
+    // else if (Ql_RIL_FindLine(line, len, "QDSIM"))
+    // {
+    //     APP_DEBUG("QDSIM found here\r\n");
+
+    //     if (Ql_RIL_FindLine(line, len, "1"))
+    //     {
+    //         APP_DEBUG("here1\r\n");
+    //         *(s32 *)userData = 1;
+    //     }
+    //     else if (Ql_RIL_FindLine(line, len, "0"))
+    //     {
+    //         APP_DEBUG("here0\r\n");
+    //         *(s32 *)userData = 0;
+    //     }
+    //      return  RIL_ATRSP_CONTINUE;
+    // }
     else if (Ql_RIL_FindLine(line, len, "ERROR"))
     {  
         return  RIL_ATRSP_FAILED;

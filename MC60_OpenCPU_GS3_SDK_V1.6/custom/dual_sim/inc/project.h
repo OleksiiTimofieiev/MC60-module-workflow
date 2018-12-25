@@ -7,7 +7,7 @@ bool    network_test(void);
 
 void    init_and_start_dual_sim_diagnostics_timer(void);
 void    get_list_of_supported_slots(void);
-u8	    get_active_slot(void);
+s32	    get_active_slot(void);
 void    change_active_slot(u8 slot);
 void    get_SIM_state(void);
 

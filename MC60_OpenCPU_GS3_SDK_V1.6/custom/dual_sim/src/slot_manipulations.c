@@ -30,7 +30,7 @@ void	dianostics(s32 code_of_error)
 s32     send_AT_cmd(u8 *cmd, s32 *userData)
 {
     // *data = 0;
-    APP_DEBUG("input AT -> %d\r\n", *(s32 *)userData);
+    // APP_DEBUG("input AT -> %d\r\n", *(s32 *)userData);
     return Ql_RIL_SendATCmd(cmd, Ql_strlen(cmd), response_callback, userData, 0); // &user data
 }
 
@@ -45,7 +45,7 @@ void    get_list_of_supported_slots(void)
     }
 }
 
-u8	    get_active_slot(void)
+s32	    get_active_slot(void)
 {
     s32     func_result = RIL_AT_FAILED;
     s32		slot_number = 78;
@@ -54,7 +54,6 @@ u8	    get_active_slot(void)
     {
         dianostics(func_result);
     }
-    APP_DEBUG("slot_number -> %d\r\n", slot_number);
     return (slot_number);
 }
 
