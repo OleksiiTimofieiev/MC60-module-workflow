@@ -31,20 +31,13 @@ void    init_and_start_dual_sim_diagnostics_timer(void)
 
 void	dual_sim_diagnostics_timer_handler(u32 timerId, void* param)
 {
-	s32	active_slot;
+	bool	connection_status;	
 
     if (DUAL_SIM_TIMER_ID == timerId)
     {
-        network_test(); // add if bad network logic;
-
-        active_slot = get_active_slot();
-
-    	APP_DEBUG("slot_number -> %d\r\n", active_slot);
-	
-		if (active_slot == 0)
-			change_active_slot(1);
-		else if (active_slot == 1)
-			change_active_slot(0);    
+        connection_status = network_test(); // add if bad network logic;
+        if (connection_status == FALSE)
+        	Ql_OS_SendMessage(main_task_id, BAD_CONNECTION, 0, 0);
     }    
 }
 

@@ -128,3 +128,17 @@ void    get_SIM_state(void)
         APP_DEBUG("UNKNOWN BUG\r\n");
     }
 }
+
+void	slot_change(void)
+{
+	s32		active_slot;
+
+    active_slot = get_active_slot();
+
+	APP_DEBUG("slot_number -> %d\r\n", active_slot);
+
+	if (active_slot == 0)
+		change_active_slot(1);
+	else if (active_slot == 1)
+		change_active_slot(0);    
+}

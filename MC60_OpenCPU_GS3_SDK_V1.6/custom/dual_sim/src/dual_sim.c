@@ -39,6 +39,12 @@ void    proc_main_task(s32 taskId)
 
 		switch (msg.message)
 		{
+            case BAD_CONNECTION:
+            {
+                APP_DEBUG("BAD_CONNECTION\r\n");
+                slot_change();
+                break ;
+            }
 			case MSG_ID_RIL_READY:
             {
 				APP_DEBUG("<-- RIL is ready -->\r\n");
@@ -51,10 +57,8 @@ void    proc_main_task(s32 taskId)
                 {
                     case URC_GPRS_NW_STATE_IND:
                     {
-                   //     APP_DEBUG("<-- GPRS Network Status: waiting for the connection -->\r\n\0");
                         if (msg.param2 == NW_STAT_REGISTERED)
                         {
-                            // APP_DEBUG("<-- GPRS Network Registered:%d -->\r\n\0", msg.param2);
                             init_and_start_dual_sim_diagnostics_timer();
                         }
                         break ;
