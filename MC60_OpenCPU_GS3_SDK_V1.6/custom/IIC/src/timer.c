@@ -7,8 +7,7 @@ u64    get_square_root(float *processed_data)
 {
     u64     sum = 0;
     u64     result = 0;
-
-    int i = 0;
+    u8      i = 0;
 
     while (i < 3)
         sum += pow(processed_data[i++], 2);
