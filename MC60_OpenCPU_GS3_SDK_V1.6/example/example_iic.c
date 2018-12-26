@@ -133,7 +133,7 @@ static void CallBack_UART_Hdlr(Enum_SerialPort port, Enum_UARTEventType msg, boo
             Ql_memset(m_Read_Buffer, 0x0, sizeof(m_Read_Buffer));
             rdLen = Ql_UART_Read(port, m_Read_Buffer, sizeof(m_Read_Buffer));
 
-            //command-->Init the IIC , type 0 »òÕß 1.
+            //command-->Init the IIC , type 0 Â»Ã²Ã•ÃŸ 1.
             p = Ql_strstr(m_Read_Buffer,"Ql_IIC_Init=");
             if(p)
             {
@@ -157,7 +157,7 @@ static void CallBack_UART_Hdlr(Enum_SerialPort port, Enum_UARTEventType msg, boo
                     APP_DEBUG("\r\n<--pins(%d & %d) Ql_IIC_Init channel 0 ret=%d-->\r\n",PINNAME_CTS,PINNAME_RTS,ret);
                     break;
                 }
-                else if(1 == IIC_type)// IIC controller
+                else if(1 == IIC_type) // IIC controller
                 {
                     ret = Ql_IIC_Init(1,PINNAME_RI,PINNAME_DCD,1);
                     if(ret < 0)
@@ -176,7 +176,7 @@ static void CallBack_UART_Hdlr(Enum_SerialPort port, Enum_UARTEventType msg, boo
                 }
 
             }
-	     //command-->IIC config,  IIC controller interface
+	       //command-->IIC config,  IIC controller interface
             Ql_memset(m_buffer, 0x0, sizeof(m_buffer));
             Ql_sprintf(m_buffer, "Ql_IIC_Config=0\r\n");//   simultion IIC  (channel 0)
             ret = Ql_strncmp(m_Read_Buffer, m_buffer, Ql_strlen(m_buffer));                
