@@ -3,15 +3,15 @@
 #define	REPEAT          25
 #define	XYZ		        0x104
 
-u64    get_square_root(float *processed_data)
+double    get_square_root(float *processed_data)
 {
-    u64     sum = 0;
-    u64     result = 0;
+    double     sum = 0;
+    double     result = 0;
     u8      i = 0;
 
     while (i < 3)
         sum += pow(processed_data[i++], 2);
-    result = sqrt(sum);
+    result = sqrt(sum) / 1000;
     return (result);
 }
 
@@ -46,11 +46,15 @@ void    xyz(u32 timerId, void* param) // use FIFO ?
             i++;
         }
 
-        APP_DEBUG("processed_data[0] -> %f\r\n", processed_data[0]);
-        APP_DEBUG("processed_data[1] -> %f\r\n", processed_data[1]);
-        APP_DEBUG("processed_data[2] -> %f\r\n", processed_data[2]);
-
-        APP_DEBUG("square root -> %lf\r\n", get_square_root(processed_data));
+      //  APP_DEBUG("processed_data[0] -> %f\r\n", processed_data[0]);
+      //  APP_DEBUG("processed_data[1] -> %f\r\n", processed_data[1]);
+      //  APP_DEBUG("processed_data[2] -> %f\r\n", processed_data[2]);
+        double tmp;
+        tmp=get_square_root(processed_data);
+        if(tmp<0.905 || tmp>1.1) 
+        {
+            APP_DEBUG("\r\n square root -> %lf\r\n", tmp);
+        }
     }
 }
 

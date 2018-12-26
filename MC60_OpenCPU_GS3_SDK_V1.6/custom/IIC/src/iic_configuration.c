@@ -49,7 +49,7 @@ u8		lis_RD(u8 reg) // RD data from specified register;
 	// APP_DEBUG("A%d=%d\r\n", (s32)__LINE__, ret);
 	if (ret == 1)
 	{
-		APP_DEBUG("RD success\r\n") 
+	//	APP_DEBUG("RD success\r\n") 
 	}
 	else
 	{
@@ -65,7 +65,7 @@ void	lis_WR(u8 reg, u8 data) // configure register;
 	lisbuf[0] = reg;
 	lisbuf[1] = data;
 	ret = Ql_IIC_Write(1, LIS_ADDR, lisbuf, 2); //u32 chnnlNo,u8 slaveAddr,u8 *pData,u32 len
-	APP_DEBUG("A%d=%d", (s32)__LINE__, ret);
+	//APP_DEBUG("A%d=%d", (s32)__LINE__, ret);
 }
 
 void    power_on_via_reg(void) // power register activate;
