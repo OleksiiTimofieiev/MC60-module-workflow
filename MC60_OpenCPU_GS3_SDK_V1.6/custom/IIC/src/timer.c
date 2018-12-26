@@ -50,7 +50,7 @@ void    xyz(u32 timerId, void* param) // use FIFO ?
         APP_DEBUG("processed_data[1] -> %f\r\n", processed_data[1]);
         APP_DEBUG("processed_data[2] -> %f\r\n", processed_data[2]);
 
-        APP_DEBUG("square root -> %d\r\n", get_square_root(processed_data));
+        APP_DEBUG("square root -> %lf\r\n", get_square_root(processed_data));
     }
 }
 
