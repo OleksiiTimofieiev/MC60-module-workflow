@@ -13,13 +13,13 @@
 #define LIS_INT_COUNTER_REG 0x0E
 #define LIS_WHO_AM_I 0x0F // id of device
 #define LIS_TEMP_CFG_REG 0x1F
-#define LIS_CTRL_REG1 0x20 // XYZ enable;
+#define LIS_CTRL_REG1 0x20 // XYZ enable by default;
 #define LIS_CTRL_REG2 0x21 // filtering
 #define LIS_CTRL_REG3 0x22 // interrupt configuration
 #define LIS_CTRL_REG4 0x23 // block data update, endian,  
 #define LIS_CTRL_REG5 0x24 // FIFO enable, default -> disable (bypass mode);
 #define LIS_CTRL_REG6 0x25 // additional interrupts;
-#define LIS_REFERENCE 0x26 // maybe used for mic number ;)
+#define LIS_REFERENCE 0x26 // maybe used for magic number ;)
 #define LIS_STATUS_REG2 0x27 // ZYXDA, ZDA, YDA;
 #define LIS_OUT_X_L 0x28 // read address for any digital block type
 #define LIS_OUT_X_H 0x29 // read address for any digital block type
