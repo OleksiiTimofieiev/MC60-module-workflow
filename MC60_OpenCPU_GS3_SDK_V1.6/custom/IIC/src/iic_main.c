@@ -8,6 +8,8 @@
 #include "ql_iic.h"
 #include "ql_error.h"
 
+#include "lis.h"
+
 #define DEBUG_ENABLE 1
 #if DEBUG_ENABLE > 0
 #define DEBUG_PORT  UART_PORT1
@@ -27,25 +29,52 @@ static char DBG_BUFFER[DBG_BUF_LEN];
 #define APP_DEBUG(FORMAT,...) 
 #endif
 
-void	init_iic(...)
-{
+static u8 m_Read_Buffer[1024];
+static u8 lisbuf[2];
 
+int		i2c_Init(void)
+{
+	int ret;
+
+	//u32 chnnlNo,PinName pinSCL,PinName pinSDA, u32 IICtype=HW
+	ret = Ql_IIC_Init(1, PINNAME_RI, PINNAME_DCD, 1);
+	APP_DEBUG("A%d=%d", (s32)__LINE__, ret); 
+	return ret;
 }
 
-void	read_iic(...)
+int 	i2c_Config(u8 ad) // 032
 {
+   int ret;
 
+   //u32 chnnlNo, bool isHost, u8 slaveAddr, u32 speed
+   ret = Ql_IIC_Config(1, TRUE, ad, 10);
+   APP_DEBUG("A%d=%d", (s32)__LINE__, ret);
+   return ret;
 }
 
-void	write(...)
+u8		lis_RD(u8 reg) // what data ?
 {
+	int ret;
 
+	//ret = Ql_IIC_Read(1, LIS_ADDR, lisbuf, 1); //u32 chnnlNo,u8 slaveAddr,u8 *pBuffer,u32 len
+	lisbuf[0] = 0;
+	// s32 Ql_IIC_Write_Read(u32 chnnlNo,u8 slaveAddr,u8 * pData,u32 wrtLen,u8 * pBuffer,u32 rdLen)
+	ret = Ql_IIC_Write_Read(1, LIS_ADDR, &reg, 1, lisbuf, 1); 
+	APP_DEBUG("A%d=%d", (s32)__LINE__, ret);
+	return lisbuf[0];
 }
 
-void	read_x_y_z(...)
+void	lisWR(u8 reg, u8 data)
 {
+	int ret;
 
+	lisbuf[0] = reg;
+	lisbuf[1] = data;
+	ret = Ql_IIC_Write(1, LIS_ADDR, lisbuf, 2); //u32 chnnlNo,u8 slaveAddr,u8 *pData,u32 len
+	APP_DEBUG("A%d=%d", (s32)__LINE__, ret);
 }
+
+static void CallBack_UART_Hdlr(Enum_SerialPort port, Enum_UARTEventType msg, bool level, void* customizedPara);
 
 void	proc_main_task(s32 taskId)
 {
@@ -74,15 +103,230 @@ void	proc_main_task(s32 taskId)
     }
 }
 
+static void CallBack_UART_Hdlr(Enum_SerialPort port, Enum_UARTEventType msg, bool level, void* customizedPara)
+{
+    u32 rdLen=0;
+    s32 ret;
+    char *p=NULL;
+    char *p1=NULL;
+    char *p2=NULL;
+    u8 write_buffer[4]={'a','b','c','D'};
+    u8 read_buffer[6]={0x00,0x00,0x00,0x00,0x00,0x00};
+    u8 registerAdrr[2]={0x01,0x45};
 
+    switch (msg)
+    {
+        case EVENT_UART_READY_TO_READ:
+        {
+            Ql_memset(m_Read_Buffer, 0x0, sizeof(m_Read_Buffer));
+            rdLen = Ql_UART_Read(port, m_Read_Buffer, sizeof(m_Read_Buffer));
 
+            //command-->Init the IIC , type 0 »òÕß 1.
+            p = Ql_strstr(m_Read_Buffer,"Ql_IIC_Init=");
+            if(p)
+            {
+                char* p1 = NULL;
+                char* p2 = NULL;
+                u8 NumberBuf[10];
+                s8 IIC_type=0;
+                p1 = Ql_strstr(m_Read_Buffer, "=");
+                p2 = Ql_strstr(m_Read_Buffer, "\r\n");
+                Ql_memset(NumberBuf, 0x0, sizeof(NumberBuf));
+                Ql_memcpy(NumberBuf, p1 + 1, p2 - p1 -1);
+                IIC_type = Ql_atoi(NumberBuf);
+                if(0 == IIC_type)// simultion iic test, and we choose PINNAME_GPIO4, PINNAME_GPIO5 for IIC SCL and SDA pins
+                {                    
+                    ret = Ql_IIC_Init(0,PINNAME_CTS,PINNAME_RTS,0);
+                    if(ret < 0)
+                    {
+                        APP_DEBUG("\r\n<--Failed!! Ql_IIC_Init channel 0 fail ret=%d-->\r\n",ret);
+                        break;
+                    }
+                    APP_DEBUG("\r\n<--pins(%d & %d) Ql_IIC_Init channel 0 ret=%d-->\r\n",PINNAME_CTS,PINNAME_RTS,ret);
+                    break;
+                }
+                else if(1 == IIC_type) // IIC controller
+                {
+                    ret = Ql_IIC_Init(1,PINNAME_RI,PINNAME_DCD,1);
+                    if(ret < 0)
+                    {
+                        APP_DEBUG("\r\n<--Failed!! IIC controller Ql_IIC_Init channel 1 fail ret=%d-->\r\n",ret);
+                        break;
+                    }
+                    APP_DEBUG("\r\n<--pins(SCL=%d,SDA=%d) IIC controller Ql_IIC_Init channel 1 ret=%d-->\r\n",PINNAME_RI,PINNAME_DCD,ret);
+                    break;
 
+                }
+                else
+                {
+                    APP_DEBUG("\r\n<--IIC type error!!!!-->\r\n");
+                    break;
+                }
 
+            }
+	       //command-->IIC config,  IIC controller interface
+            Ql_memset(m_buffer, 0x0, sizeof(m_buffer));
+            Ql_sprintf(m_buffer, "Ql_IIC_Config=0\r\n");//   simultion IIC  (channel 0)
+            ret = Ql_strncmp(m_Read_Buffer, m_buffer, Ql_strlen(m_buffer));                
+            if(0 == ret)
+            {
+                ret = Ql_IIC_Config(0,TRUE, 0x07, 0);// simultion IIC interface ,do not care the IicSpeed.
+                if(ret < 0)
+                {
+                    APP_DEBUG("\r\n<--Failed !!Ql_IIC_Config channel 0 fail ret=%d-->\r\n",ret);
+                    break;
+                }
+                APP_DEBUG("\r\n<--Ql_IIC_Config channel 0 ret=%d-->\r\n",ret);
+                break;
+            }
+            
+            //command-->IIC config,  IIC controller interface
+            Ql_memset(m_buffer, 0x0, sizeof(m_buffer));
+            Ql_sprintf(m_buffer, "Ql_IIC_Config=1\r\n");//   IIC controller  (channel 1)
+            ret = Ql_strncmp(m_Read_Buffer, m_buffer, Ql_strlen(m_buffer));                
+            if(0 == ret)
+            {
+                ret = Ql_IIC_Config(1,TRUE, 0x07, 300);// just for the IIC controller
+                if(ret < 0)
+                {
+                    APP_DEBUG("\r\n<--Failed !! IIC controller Ql_IIC_Config channel 1 fail ret=%d-->\r\n",ret);
+                    break;
+                }
+                APP_DEBUG("\r\n<--IIC controller Ql_IIC_Config channel 1 ret=%d-->\r\n",ret);
+                break;
+            }
+            
+            //command-->IIC write  
+            Ql_memset(m_buffer, 0x0, sizeof(m_buffer));
+            Ql_sprintf(m_buffer, "Ql_IIC_Write=0\r\n");//  channel 0 
+            ret = Ql_strncmp(m_Read_Buffer, m_buffer, Ql_strlen(m_buffer));                
+            if(0 == ret)
+            {
+                ret = Ql_IIC_Write(0, 0x07, write_buffer, 4);
+                if(ret < 0)
+                {
+                    APP_DEBUG("\r\n<--Failed !! Ql_IIC_Write channel 0 fail ret=%d-->\r\n",ret);
+                    break;               
+                }
+                APP_DEBUG("\r\n<--channel 0 Ql_IIC_Write ret=%d-->\r\n",ret);
+                break;
+            }
 
+            Ql_memset(m_buffer, 0x0, sizeof(m_buffer));
+            Ql_sprintf(m_buffer, "Ql_IIC_Write=1\r\n");//  channel 1 
+            ret = Ql_strncmp(m_Read_Buffer, m_buffer, Ql_strlen(m_buffer));                
+            if(0 == ret)
+            {
+                ret = Ql_IIC_Write(1, 0x07, write_buffer,4);
+                if(ret < 0)
+                {
+                    APP_DEBUG("\r\n<--Failed !! IIC controller Ql_IIC_Write channel 1 fail ret=%d-->\r\n",ret);
+                    break;
+                }
+                APP_DEBUG("\r\n<--IIC controller Ql_IIC_Write ret=%d-->\r\n",ret);
+                break;
+            }
 
+            //command-->IIC read  
+            Ql_memset(m_buffer, 0x0, sizeof(m_buffer));
+            Ql_sprintf(m_buffer, "Ql_IIC_Read=0\r\n");//  channel 0 
+            ret = Ql_strncmp(m_Read_Buffer, m_buffer, Ql_strlen(m_buffer));                
+            if(0 == ret)
+            {
+                ret = Ql_IIC_Read(0, 0x07, read_buffer, 6);
+                if(ret < 0)
+                {
+                    APP_DEBUG("\r\n<--Failed !! Ql_IIC_Read channel 0 fail ret=%d-->\r\n",ret);
+                    break;               
+                }
+                APP_DEBUG("\r\n<--channel 0 Ql_IIC_Read ret=%d-->\r\n",ret);
+                break;
+            }
 
+            Ql_memset(m_buffer, 0x0, sizeof(m_buffer));
+            Ql_sprintf(m_buffer, "Ql_IIC_Read=1\r\n");//  channel 1 
+            ret = Ql_strncmp(m_Read_Buffer, m_buffer, Ql_strlen(m_buffer));                
+            if(0 == ret)
+            {
+                ret = Ql_IIC_Read(1, 0x07, write_buffer, 6);
+                if(ret < 0)
+                {
+                    APP_DEBUG("\r\n<--Failed !! IIC controller Ql_IIC_Read channel 1 fail ret=%d-->\r\n",ret);
+                    break;
+                }
+                APP_DEBUG("\r\n<--IIC controller Ql_IIC_Read ret=%d-->\r\n",ret);
+                break;
+            }
 
+            //command-->IIC write then read  
+            Ql_memset(m_buffer, 0x0, sizeof(m_buffer));
+            Ql_sprintf(m_buffer, "Ql_IIC_Write_Read=0\r\n");//  channel 0 
+            ret = Ql_strncmp(m_Read_Buffer, m_buffer, Ql_strlen(m_buffer));                
+            if(0 == ret)
+            {
+                ret = Ql_IIC_Write_Read(0, 0x07, registerAdrr, 2,read_buffer, 6);
+                if(ret < 0)
+                {
+                    APP_DEBUG("\r\n<--Failed !! Ql_IIC_Write_Read channel 0 fail ret=%d-->\r\n",ret);
+                    break;               
+                }
+                APP_DEBUG("\r\n<--channel 0 Ql_IIC_Write_Read ret=%d-->\r\n",ret);
+                break;
+            }
 
+            Ql_memset(m_buffer, 0x0, sizeof(m_buffer));
+            Ql_sprintf(m_buffer, "Ql_IIC_Write_Read=1\r\n");//  channel 1 
+            ret = Ql_strncmp(m_Read_Buffer, m_buffer, Ql_strlen(m_buffer));                
+            if(0 == ret)
+            {
+                ret = Ql_IIC_Write_Read(1, 0x07, registerAdrr, 2,read_buffer, 6);
+                if(ret < 0)
+                {
+                    APP_DEBUG("\r\n<--Failed !! IIC controller Ql_IIC_Write_Read channel 1 fail ret=%d-->\r\n",ret);
+                    break;
+                }
+                APP_DEBUG("\r\n<--IIC controller Ql_IIC_Write_Read ret=%d-->\r\n",ret);
+                break;
+            }
 
+                
+            
+            //command-->IIC write then read  
+            Ql_memset(m_buffer, 0x0, sizeof(m_buffer));
+            Ql_sprintf(m_buffer, "Ql_IIC_Uninit=0\r\n");//  channel 0 
+            ret = Ql_strncmp(m_Read_Buffer, m_buffer, Ql_strlen(m_buffer));                
+            if(0 == ret)
+            {
+                ret = Ql_IIC_Uninit(0);
+                if(ret < 0)
+                {
+                    APP_DEBUG("\r\n<--Failed !! Ql_IIC_Uninit channel 0 fail ret=%d-->\r\n",ret);
+                    break;               
+                }
+                APP_DEBUG("\r\n<--channel 0 Ql_IIC_Uninit ret=%d-->\r\n",ret);
+                break;
+            }
+
+            Ql_memset(m_buffer, 0x0, sizeof(m_buffer));
+            Ql_sprintf(m_buffer, "Ql_IIC_Uninit=1\r\n");//  channel 1 
+            ret = Ql_strncmp(m_Read_Buffer, m_buffer, Ql_strlen(m_buffer));                
+            if(0 == ret)
+            {
+                ret = Ql_IIC_Uninit(1);
+                if(ret < 0)
+                {
+                    APP_DEBUG("\r\n<--Failed !! IIC controller Ql_IIC_Uninit channel 1 fail ret=%d-->\r\n",ret);
+                    break;
+                }
+                 APP_DEBUG("\r\n<--IIC controller (chnnlNo 1) Ql_IIC_Uninit  ret=%d-->\r\n",ret);
+                break;
+            }
+            
+        APP_DEBUG("\r\n<--Not found this command, please check you command-->\r\n");
+        }
+    default:
+        break;
+    }
+}
 
 #endif
