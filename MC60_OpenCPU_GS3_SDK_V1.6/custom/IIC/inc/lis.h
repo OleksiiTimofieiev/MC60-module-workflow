@@ -11,26 +11,26 @@
 #define LIS_OUT_ADC3_H 0x0D
 
 #define LIS_INT_COUNTER_REG 0x0E
-#define LIS_WHO_AM_I 0x0F
+#define LIS_WHO_AM_I 0x0F // id of device
 #define LIS_TEMP_CFG_REG 0x1F
-#define LIS_CTRL_REG1 0x20
-#define LIS_CTRL_REG2 0x21
-#define LIS_CTRL_REG3 0x22
-#define LIS_CTRL_REG4 0x23
-#define LIS_CTRL_REG5 0x24
-#define LIS_CTRL_REG6 0x25
-#define LIS_REFERENCE 0x26
-#define LIS_STATUS_REG2 0x27
-#define LIS_OUT_X_L 0x28
-#define LIS_OUT_X_H 0x29
-#define LIS_OUT_Y_L 0x2A
-#define LIS_OUT_Y_H 0x2B
-#define LIS_OUT_Z_L 0x2C
-#define LIS_OUT_Z_H 0x2D
-#define LIS_FIFO_CTRL_REG 0x2E
-#define LIS_FIFO_SRC_REG 0x2F
-#define LIS_INT1_CFG 0x30
-#define LIS_INT1_SOURCE 0x31
+#define LIS_CTRL_REG1 0x20 // XYZ enable;
+#define LIS_CTRL_REG2 0x21 // filtering
+#define LIS_CTRL_REG3 0x22 // interrupt configuration
+#define LIS_CTRL_REG4 0x23 // block data update, endian,  
+#define LIS_CTRL_REG5 0x24 // FIFO enable, default -> disable (bypass mode);
+#define LIS_CTRL_REG6 0x25 // additional interrupts;
+#define LIS_REFERENCE 0x26 // maybe used for mic number ;)
+#define LIS_STATUS_REG2 0x27 // ZYXDA, ZDA, YDA;
+#define LIS_OUT_X_L 0x28 // read address for any digital block type
+#define LIS_OUT_X_H 0x29 // read address for any digital block type
+#define LIS_OUT_Y_L 0x2A // read address for any digital block type
+#define LIS_OUT_Y_H 0x2B // read address for any digital block type
+#define LIS_OUT_Z_L 0x2C // read address for any digital block type
+#define LIS_OUT_Z_H 0x2D // read address for any digital block type
+#define LIS_FIFO_CTRL_REG 0x2E // FIFO mode selection
+#define LIS_FIFO_SRC_REG 0x2F // FIFO status read register;
+#define LIS_INT1_CFG 0x30 // low/high recognition config;
+#define LIS_INT1_SOURCE 0x31 // low / high read;
 #define LIS_INT1_THS 0x32
 #define LIS_INT1_DURATION 0x33
 

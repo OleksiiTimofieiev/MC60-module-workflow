@@ -1,6 +1,10 @@
 #ifndef __IIC_PROJECT__
 #define __IIC_PROJECT__
 
+/*
+************************************************** libs ********************************************************
+*/
+
 #include "ql_type.h"
 #include "ql_stdlib.h"
 #include "ql_trace.h"
@@ -11,6 +15,10 @@
 
 /* device information */
 #include "lis.h"
+
+/*
+************************************************** UART ********************************************************
+*/
 
 /* input buffer params */
 #define SERIAL_RX_BUFFER_LEN  2048
@@ -36,5 +44,14 @@ static char DBG_BUFFER[DBG_BUF_LEN];
 #endif
 
 static void CallBack_UART_Hdlr(Enum_SerialPort port, Enum_UARTEventType msg, bool level, void* customizedPara);
+
+/*
+************************************************** I2C ********************************************************
+*/
+
+int		i2c_Init(void);
+int 	i2c_Config(u8 ad); // 032
+u8		lis_RD(u8 reg); // RD data from specified register;
+void	lis_WR(u8 reg, u8 data); // configure register
 
 #endif
