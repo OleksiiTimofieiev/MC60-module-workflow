@@ -26,6 +26,7 @@ void	proc_main_task(s32 taskId)
 			{
 				APP_DEBUG("<-- RIL is ready -->\r\n");
 				Ql_RIL_Initialize();
+				
 				i2c_init_and_config();
 				xyz_timer_int_and_start();
 				break ;

@@ -17,7 +17,7 @@
 #include "lis.h"
 
 /* float data type */
-#include "math.h"
+#include <math.h>
 
 /* sensitivity constants */
 #include "sensitivity_conversion.h"
@@ -59,10 +59,6 @@ u8		lis_RD(u8 reg); // RD data from specified register;
 void	lis_WR(u8 reg, u8 data); // configure register
 
 void    xyz_timer_int_and_start(void);
-// typedef	struct 	xyz_hardware
-// {
-
-// }				xyz_hardware_data
 
 #define STATUS_AUX_321DA 0x08
 
