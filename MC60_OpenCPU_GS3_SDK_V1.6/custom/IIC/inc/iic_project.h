@@ -55,8 +55,6 @@ static void CallBack_UART_Hdlr(Enum_SerialPort port, Enum_UARTEventType msg, boo
 ************************************************** I2C ********************************************************
 */
 
-int		i2c_Init(void);
-int 	i2c_Config(u8 ad); // 032
 u8		lis_RD(u8 reg); // RD data from specified register;
 void	lis_WR(u8 reg, u8 data); // configure register
 
