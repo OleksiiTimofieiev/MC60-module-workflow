@@ -1,8 +1,109 @@
+ril/src/ril_atResponse.c: In function 'Ql_RIL_AT_SetErrCode':
+ril/src/ril_atResponse.c:50:1: warning: control reaches end of non-void function [-Wreturn-type]
+ril/src/ril_audio.c: In function 'ATResponse_AUD_handler':
+ril/src/ril_audio.c:398:5: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+ril/src/ril_ble.c: In function 'RIL_BT_Gatsreg':
+ril/src/ril_ble.c:120:9: warning: variable 'ret' set but not used [-Wunused-but-set-variable]
+ril/src/ril_ble.c: In function 'RIL_BT_Gatss':
+ril/src/ril_ble.c:168:10: warning: variable 'ret' set but not used [-Wunused-but-set-variable]
+ril/src/ril_ble.c: In function 'RIL_BT_Gatsc':
+ril/src/ril_ble.c:245:9: warning: variable 'ret' set but not used [-Wunused-but-set-variable]
+ril/src/ril_ble.c: In function 'RIL_BT_Gatsd':
+ril/src/ril_ble.c:311:9: warning: variable 'ret' set but not used [-Wunused-but-set-variable]
+ril/src/ril_ble.c: In function 'RIL_BT_Gatsst':
+ril/src/ril_ble.c:381:9: warning: variable 'ret' set but not used [-Wunused-but-set-variable]
+ril/src/ril_ble.c: In function 'RIL_BT_Gatsind':
+ril/src/ril_ble.c:461:9: warning: unused variable 'result' [-Wunused-variable]
+ril/src/ril_ble.c: In function 'RIL_BT_Gatsrsp':
+ril/src/ril_ble.c:513:9: warning: unused variable 'result' [-Wunused-variable]
+ril/src/ril_ble.c: In function 'RIL_BT_Gatsl':
+ril/src/ril_ble.c:559:9: warning: unused variable 'result' [-Wunused-variable]
+ril/src/ril_ble.c: In function 'RIL_BT_SetLeTxPwr':
+ril/src/ril_ble.c:597:9: warning: unused variable 'result' [-Wunused-variable]
+ril/src/ril_ble.c: In function 'OnURCHandler_BTGatscon':
+ril/src/ril_ble.c:832:9: warning: unused variable 'err_code' [-Wunused-variable]
+ril/src/ril_ble.c: In function 'RIL_BT_GetLeLocalAddr':
+ril/src/ril_ble.c:891:5: warning: passing argument 3 of 'Ql_RIL_SendATCmd' from incompatible pointer type [enabled by default]
+In file included from ril/src/ril_ble.c:45:0:
+ril/inc/ril.h:163:12: note: expected 'Callback_ATResponse' but argument is of type 'void (*)(char *, u32,  void *)'
+ril/src/ril_ble.c: In function 'OnURCHandler_BTGatwreq':
+ril/src/ril_ble.c:914:9: warning: unused variable 'err_code' [-Wunused-variable]
+ril/src/ril_ble.c: In function 'OnURCHandler_BTGatewreq':
+ril/src/ril_ble.c:946:9: warning: unused variable 'err_code' [-Wunused-variable]
+ril/src/ril_ble.c: In function 'OnURCHandler_BTGatrreq':
+ril/src/ril_ble.c:976:9: warning: unused variable 'err_code' [-Wunused-variable]
+ril/src/ril_ble.c: In function 'OnURCHandler_BTpxpscon':
+ril/src/ril_ble.c:1005:9: warning: unused variable 'err_code' [-Wunused-variable]
+ril/src/ril_ble.c: In function 'OnURCHandler_BTfmpscon':
+ril/src/ril_ble.c:1027:9: warning: unused variable 'err_code' [-Wunused-variable]
+ril/src/ril_ble.c: In function 'ATRsp_QBTLEADDR_Hdlr':
+ril/src/ril_ble.c:1411:3: warning: 'return' with a value, in function returning void [enabled by default]
+ril/src/ril_ble.c:1417:5: warning: 'return' with a value, in function returning void [enabled by default]
+ril/src/ril_ble.c:1423:3: warning: 'return' with a value, in function returning void [enabled by default]
+ril/src/ril_ble.c:1428:3: warning: 'return' with a value, in function returning void [enabled by default]
+ril/src/ril_ble.c:1431:2: warning: 'return' with a value, in function returning void [enabled by default]
+ril/src/ril_ble.c: At top level:
+ril/src/ril_ble.c:53:12: warning: 'ATRsp_QBTGatsi_Hdlr' declared 'static' but never defined [-Wunused-function]
+ril/src/ril_bluetooth.c: In function 'OnURCHandler_BTDisconn':
+ril/src/ril_bluetooth.c:1531:10: warning: unused variable 'profileId' [-Wunused-variable]
+ril/src/ril_gps.c: In function 'RIL_GPS_Read':
+ril/src/ril_gps.c:145:5: warning: pointer targets in passing argument 1 of 'Ql_strlen' differ in signedness [-Wpointer-sign]
+In file included from ril/src/ril_gps.c:36:0:
+include/ql_stdlib.h:54:7: note: expected 'const char *' but argument is of type 'u8 *'
+ril/src/ril_gps.c:145:5: warning: pointer targets in passing argument 1 of 'Ql_strncmp' differ in signedness [-Wpointer-sign]
+In file included from ril/src/ril_gps.c:36:0:
+include/ql_stdlib.h:52:7: note: expected 'const char *' but argument is of type 'u8 *'
+ril/src/ril_gps.c:158:9: warning: pointer targets in passing argument 2 of 'Ql_strcpy' differ in signedness [-Wpointer-sign]
+In file included from ril/src/ril_gps.c:36:0:
+include/ql_stdlib.h:47:7: note: expected 'const char *' but argument is of type 'u8 *'
+ril/src/ril_gps.c: In function 'ATResponse_GPSRead_Hdlr':
+ril/src/ril_gps.c:169:7: warning: unused variable 'strTmp' [-Wunused-variable]
+ril/src/ril_gps.c:167:8: warning: unused variable 'p2' [-Wunused-variable]
+ril/src/ril_gps.c:166:8: warning: unused variable 'p1' [-Wunused-variable]
+ril/src/ril_gps.c: In function 'OnURCHandler_GPSCMD':
+ril/src/ril_gps.c:336:4: warning: passing argument 1 of 'callback_GPSCMD' discards 'const' qualifier from pointer target type [enabled by default]
+ril/src/ril_gps.c:336:4: note: expected 'char *' but argument is of type 'const char *'
+ril/src/ril_location.c: In function 'ATResponse_GetLocation_Ex_Handler':
+ril/src/ril_location.c:78:11: warning: unused variable 'p2' [-Wunused-variable]
+ril/src/ril_location.c:77:11: warning: unused variable 'p1' [-Wunused-variable]
+ril/src/ril_location.c: In function 'OnURCHandler_QCELLLocation':
+ril/src/ril_location.c:176:11: warning: assignment discards 'const' qualifier from pointer target type [enabled by default]
+ril/src/ril_location.c:177:9: warning: pointer targets in passing argument 1 of 'Ql_strstr' differ in signedness [-Wpointer-sign]
+In file included from ril/src/ril_location.c:38:0:
+include/ql_stdlib.h:55:7: note: expected 'const char *' but argument is of type 'u8 *'
+ril/src/ril_network.c: In function 'ATRsp_COPS_Handler':
+ril/src/ril_network.c:501:14: warning: unused variable 'str' [-Wunused-variable]
+ril/src/ril_ntp.c: In function 'OnURCHandler_NTPCMD':
+ril/src/ril_ntp.c:50:4: warning: passing argument 1 of 'callback_NTPCMD' discards 'const' qualifier from pointer target type [enabled by default]
+ril/src/ril_ntp.c:50:4: note: expected 'char *' but argument is of type 'const char *'
+custom/fota/src/fota_ftp.c: In function 'FTP_FotaMain':
+custom/fota/src/fota_ftp.c:44:9: warning: variable 'retValue' set but not used [-Wunused-but-set-variable]
+custom/fota/src/fota_ftp.c: In function 'FTP_Callback_OnDownload':
+custom/fota/src/fota_ftp.c:83:10: warning: variable 'retValue' set but not used [-Wunused-but-set-variable]
+custom/fota/src/fota_ftp.c:82:9: warning: variable 'ret' set but not used [-Wunused-but-set-variable]
+custom/fota/src/fota_ftp.c: In function 'FTP_Program':
+custom/fota/src/fota_ftp.c:124:10: warning: variable 'retValue' set but not used [-Wunused-but-set-variable]
+custom/fota/src/fota_ftp.c: In function 'FTP_Callback_OnDownload':
+custom/fota/src/fota_ftp.c:315:35: warning: 'retValue' may be used uninitialized in this function [-Wmaybe-uninitialized]
+custom/fota/src/fota_ftp.c:198:10: note: 'retValue' was declared here
+custom/fota/src/fota_main.c: In function 'Ql_FOTA_StartUpgrade':
+custom/fota/src/fota_main.c:33:10: warning: variable 'retValue' set but not used [-Wunused-but-set-variable]
+custom/gnss/src/callbacks.c: In function 'CallBack_UART_Hdlr':
+custom/gnss/src/callbacks.c:39:10: warning: unused variable 'totalBytes' [-Wunused-variable]
+In file included from custom/gnss/src/gnss_check_funcs.c:1:0:
+custom/gnss/inc/gnss_general.h:29:13: warning: 'm_RxBuf_Uart' defined but not used [-Wunused-variable]
+custom/gnss/inc/gnss_general.h:35:13: warning: 'DBG_BUFFER' defined but not used [-Wunused-variable]
 custom/gnss/src/gnss_main.c: In function 'proc_subtask1':
-custom/gnss/src/gnss_main.c:69:7: warning: variable 'event_send_check' set but not used [-Wunused-but-set-variable]
+custom/gnss/src/gnss_main.c:45:7: warning: variable 'event_send_check' set but not used [-Wunused-but-set-variable]
 In file included from custom/gnss/src/gnss_main.c:3:0:
 custom/gnss/src/gnss_main.c: At top level:
 custom/gnss/inc/gnss_general.h:29:13: warning: 'm_RxBuf_Uart' defined but not used [-Wunused-variable]
 custom/gnss/inc/gnss_general.h:35:13: warning: 'DBG_BUFFER' defined but not used [-Wunused-variable]
 custom/gnss/src/gnss_main.c: In function 'proc_subtask1':
-custom/gnss/src/gnss_main.c:95:31: warning: 'event_wait_status' is used uninitialized in this function [-Wuninitialized]
+custom/gnss/src/gnss_main.c:67:31: warning: 'event_wait_status' is used uninitialized in this function [-Wuninitialized]
+custom/gnss/src/timer.c: In function 'timer_GNSS_check_start':
+custom/gnss/src/timer.c:27:5: warning: implicit declaration of function 'Ql_Timer_Register' [-Wimplicit-function-declaration]
+custom/gnss/src/timer.c:34:5: warning: implicit declaration of function 'Ql_Timer_Start' [-Wimplicit-function-declaration]
+In file included from custom/gnss/src/timer.c:1:0:
+custom/gnss/src/timer.c: At top level:
+custom/gnss/inc/gnss_general.h:29:13: warning: 'm_RxBuf_Uart' defined but not used [-Wunused-variable]

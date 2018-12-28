@@ -575,6 +575,9 @@ Discarded input sections
  COMMON         0x00000000       0xc0 build\gcc\obj/custom/fota/src/fota_main.o
  .text          0x00000000        0x0 build\gcc\obj/custom/gnss/src/callbacks.o
  .data          0x00000000        0x0 build\gcc\obj/custom/gnss/src/callbacks.o
+ .text          0x00000000        0x0 build\gcc\obj/custom/gnss/src/gnss_check_funcs.o
+ .data          0x00000000        0x0 build\gcc\obj/custom/gnss/src/gnss_check_funcs.o
+ .bss           0x00000000        0x0 build\gcc\obj/custom/gnss/src/gnss_check_funcs.o
  .text          0x00000000        0x0 build\gcc\obj/custom/gnss/src/gnss_main.o
  .data          0x00000000        0x0 build\gcc\obj/custom/gnss/src/gnss_main.o
  .bss           0x00000000        0x0 build\gcc\obj/custom/gnss/src/gnss_main.o
@@ -1197,17 +1200,17 @@ text            0x102db070      0x420
                 0x102de72c       0x28 build\gcc\obj/custom/gnss/src/callbacks.o
                 0x102de72c                CallBack_UART_Hdlr
 
-.text.proc_main_task
-                0x102de754       0xb0
- .text.proc_main_task
-                0x102de754       0xb0 build\gcc\obj/custom/gnss/src/gnss_main.o
-                0x102de754                proc_main_task
-
 .text.gnss_events_processing
-                0x102de804       0x2c
+                0x102de754       0x2c
  .text.gnss_events_processing
-                0x102de804       0x2c build\gcc\obj/custom/gnss/src/gnss_main.o
-                0x102de804                gnss_events_processing
+                0x102de754       0x2c build\gcc\obj/custom/gnss/src/gnss_check_funcs.o
+                0x102de754                gnss_events_processing
+
+.text.proc_main_task
+                0x102de780       0xb0
+ .text.proc_main_task
+                0x102de780       0xb0 build\gcc\obj/custom/gnss/src/gnss_main.o
+                0x102de780                proc_main_task
 
 .text.proc_subtask1
                 0x102de830       0x6c
@@ -1635,6 +1638,7 @@ LOAD build\gcc\obj/custom/fota/src/fota_http.o
 LOAD build\gcc\obj/custom/fota/src/fota_http_code.o
 LOAD build\gcc\obj/custom/fota/src/fota_main.o
 LOAD build\gcc\obj/custom/gnss/src/callbacks.o
+LOAD build\gcc\obj/custom/gnss/src/gnss_check_funcs.o
 LOAD build\gcc\obj/custom/gnss/src/gnss_main.o
 LOAD build\gcc\obj/custom/gnss/src/timer.o
 LOAD libs/gcc/app_start.lib
@@ -1664,6 +1668,7 @@ OUTPUT(build\gcc/APPGS3MDM32A01.elf elf32-littlearm)
  .comment       0x00000000       0x31 build\gcc\obj/ril/src/ril_urc.o
  .comment       0x00000000       0x31 build\gcc\obj/ril/src/ril_util.o
  .comment       0x00000000       0x31 build\gcc\obj/custom/gnss/src/callbacks.o
+ .comment       0x00000000       0x31 build\gcc\obj/custom/gnss/src/gnss_check_funcs.o
  .comment       0x00000000       0x31 build\gcc\obj/custom/gnss/src/gnss_main.o
  .comment       0x00000000       0x31 build\gcc\obj/custom/gnss/src/timer.o
  .comment       0x00000000       0x31 libs/gcc/app_start.lib(memory.o)
@@ -1716,43 +1721,45 @@ OUTPUT(build\gcc/APPGS3MDM32A01.elf elf32-littlearm)
  .ARM.attributes
                 0x000002db       0x2b build\gcc\obj/custom/gnss/src/callbacks.o
  .ARM.attributes
-                0x00000306       0x2b build\gcc\obj/custom/gnss/src/gnss_main.o
+                0x00000306       0x2b build\gcc\obj/custom/gnss/src/gnss_check_funcs.o
  .ARM.attributes
-                0x00000331       0x2b build\gcc\obj/custom/gnss/src/timer.o
+                0x00000331       0x2b build\gcc\obj/custom/gnss/src/gnss_main.o
  .ARM.attributes
-                0x0000035c       0x2b libs/gcc/app_start.lib(memory.o)
+                0x0000035c       0x2b build\gcc\obj/custom/gnss/src/timer.o
  .ARM.attributes
-                0x00000387       0x2b libs/gcc/app_start.lib(ql_func.o)
+                0x00000387       0x2b libs/gcc/app_start.lib(memory.o)
  .ARM.attributes
-                0x000003b2       0x2b libs/gcc/app_start.lib(ql_main.o)
+                0x000003b2       0x2b libs/gcc/app_start.lib(ql_func.o)
  .ARM.attributes
-                0x000003dd       0x2b libs/gcc/app_start.lib(ril_aux.o)
+                0x000003dd       0x2b libs/gcc/app_start.lib(ql_main.o)
  .ARM.attributes
-                0x00000408       0x2b libs/gcc/app_start.lib(ril_main.o)
+                0x00000408       0x2b libs/gcc/app_start.lib(ril_aux.o)
  .ARM.attributes
-                0x00000433       0x2b libs/gcc/app_start.lib(stdlib_func.o)
+                0x00000433       0x2b libs/gcc/app_start.lib(ril_main.o)
  .ARM.attributes
-                0x0000045e       0x2b libs/gcc/app_start.lib(system.o)
+                0x0000045e       0x2b libs/gcc/app_start.lib(stdlib_func.o)
  .ARM.attributes
-                0x00000489       0x2b libs/gcc/app_start.lib(taskMngt.o)
+                0x00000489       0x2b libs/gcc/app_start.lib(system.o)
  .ARM.attributes
-                0x000004b4       0x2b libs/gcc/app_start.lib(timer.o)
+                0x000004b4       0x2b libs/gcc/app_start.lib(taskMngt.o)
  .ARM.attributes
-                0x000004df       0x2b libs/gcc/app_start.lib(uart.o)
+                0x000004df       0x2b libs/gcc/app_start.lib(timer.o)
  .ARM.attributes
-                0x0000050a       0x1d libs/gcc/app_start.lib(ocpu_init.o)
+                0x0000050a       0x2b libs/gcc/app_start.lib(uart.o)
  .ARM.attributes
-                0x00000527       0x30 C:\Program Files\CodeSourcery\Sourcery_CodeBench_Lite_for_ARM_EABI/arm-none-eabi/lib/thumb/libc.a(lib_a-memcpy.o)
+                0x00000535       0x1d libs/gcc/app_start.lib(ocpu_init.o)
  .ARM.attributes
-                0x00000557       0x30 C:\Program Files\CodeSourcery\Sourcery_CodeBench_Lite_for_ARM_EABI/arm-none-eabi/lib/thumb/libc.a(lib_a-memset.o)
+                0x00000552       0x30 C:\Program Files\CodeSourcery\Sourcery_CodeBench_Lite_for_ARM_EABI/arm-none-eabi/lib/thumb/libc.a(lib_a-memcpy.o)
  .ARM.attributes
-                0x00000587       0x18 C:\Program Files\CodeSourcery\Sourcery_CodeBench_Lite_for_ARM_EABI/lib/gcc/arm-none-eabi/4.7.2/thumb/libgcc.a(_udivsi3.o)
+                0x00000582       0x30 C:\Program Files\CodeSourcery\Sourcery_CodeBench_Lite_for_ARM_EABI/arm-none-eabi/lib/thumb/libc.a(lib_a-memset.o)
  .ARM.attributes
-                0x0000059f       0x16 C:\Program Files\CodeSourcery\Sourcery_CodeBench_Lite_for_ARM_EABI/lib/gcc/arm-none-eabi/4.7.2/thumb/libgcc.a(_dvmd_tls.o)
+                0x000005b2       0x18 C:\Program Files\CodeSourcery\Sourcery_CodeBench_Lite_for_ARM_EABI/lib/gcc/arm-none-eabi/4.7.2/thumb/libgcc.a(_udivsi3.o)
  .ARM.attributes
-                0x000005b5       0x18 C:\Program Files\CodeSourcery\Sourcery_CodeBench_Lite_for_ARM_EABI/lib/gcc/arm-none-eabi/4.7.2/thumb/libgcc.a(_arm_fixdfsi.o)
+                0x000005ca       0x16 C:\Program Files\CodeSourcery\Sourcery_CodeBench_Lite_for_ARM_EABI/lib/gcc/arm-none-eabi/4.7.2/thumb/libgcc.a(_dvmd_tls.o)
  .ARM.attributes
-                0x000005cd       0x18 C:\Program Files\CodeSourcery\Sourcery_CodeBench_Lite_for_ARM_EABI/lib/gcc/arm-none-eabi/4.7.2/thumb/libgcc.a(_arm_truncdfsf2.o)
+                0x000005e0       0x18 C:\Program Files\CodeSourcery\Sourcery_CodeBench_Lite_for_ARM_EABI/lib/gcc/arm-none-eabi/4.7.2/thumb/libgcc.a(_arm_fixdfsi.o)
+ .ARM.attributes
+                0x000005f8       0x18 C:\Program Files\CodeSourcery\Sourcery_CodeBench_Lite_for_ARM_EABI/lib/gcc/arm-none-eabi/4.7.2/thumb/libgcc.a(_arm_truncdfsf2.o)
 
 .debug_frame    0x00000000       0x84
  .debug_frame   0x00000000       0x38 C:\Program Files\CodeSourcery\Sourcery_CodeBench_Lite_for_ARM_EABI/arm-none-eabi/lib/thumb/libc.a(lib_a-memcpy.o)
