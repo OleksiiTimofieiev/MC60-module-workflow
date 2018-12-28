@@ -1,5 +1,0 @@
-custom/gnss/src/gnss_main.c: In function 'proc_subtask1':
-custom/gnss/src/gnss_main.c:59:7: warning: variable 'event_send_check' set but not used [-Wunused-but-set-variable]
-In file included from custom/gnss/src/gnss_main.c:3:0:
-custom/gnss/src/gnss_main.c: At top level:
-custom/gnss/inc/gnss_general.h:29:13: warning: 'm_RxBuf_Uart' defined but not used [-Wunused-variable]

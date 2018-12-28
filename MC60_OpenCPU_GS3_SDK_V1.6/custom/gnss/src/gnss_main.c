@@ -3,8 +3,8 @@
 #include "gnss_general.h"
 
 // typedef enum {
-// 	EVENT_FLAG0 = 0x00000001,
-// 	EVENT_FLAG1 = 0x00000002,
+// 	EVENT_FLAG0 = 0x00000001, <-> check;
+// 	EVENT_FLAG1 = 0x00000002, <-> start timer for the required interval (3 hour period check);
 // 	EVENT_FLAG2 = 0x00000004,
 // 	EVENT_FLAG3 = 0x00000008,
 // 	EVENT_FLAG4 = 0x00000010,
@@ -27,7 +27,7 @@ void    proc_main_task(s32 taskId)
 	Ql_UART_Register(UART_PORT2, CallBack_UART_Hdlr, NULL);
 	Ql_UART_Open(UART_PORT2, 115200, FC_NONE);
 
-	APP_DEBUG("\r\n<--OpenCPU: IIC TEST!-->\r\n");
+	// APP_DEBUG("\r\n<--OpenCPU: GNSS TEST!-->\r\n");
 
 	while (TRUE)
 	{
@@ -37,7 +37,7 @@ void    proc_main_task(s32 taskId)
 		{
 			case MSG_ID_RIL_READY:
 			{
-				APP_DEBUG("<-- RIL is ready -->\r\n");
+				// APP_DEBUG("<-- RIL is ready -->\r\n");
 				Ql_RIL_Initialize();
 
 				/* trigger the GNNS check task */
@@ -51,6 +51,8 @@ void    proc_main_task(s32 taskId)
 	}
 }
 
+// void	gnns_check_routines(void)
+
 void	proc_subtask1(s32 TaskId)
 {
     ST_MSG 	subtask1_msg;
@@ -58,7 +60,7 @@ void	proc_subtask1(s32 TaskId)
 	s32		event_wait_status;
 	s32		event_send_check;
 
-    APP_DEBUG("<--proc_subtask1-->\r\n");
+    // APP_DEBUG("<--proc_subtask1-->\r\n");
 
 	gnss_status = Ql_OS_CreateEvent("gnss_status\0");
 
@@ -81,14 +83,16 @@ void	proc_subtask1(s32 TaskId)
             default:
                 break;
         }
-
-        event_wait_status = Ql_OS_WaitEvent(gnss_status, EVENT_FLAG0);
-		if (event_wait_status == 0) /* '0' is success according to the Ql_OS_WaitEvent */
+		if (!(event_wait_status = Ql_OS_WaitEvent(gnss_status, EVENT_FLAG0)))
 		{
-			APP_DEBUG("Event detected\r\n");
-			APP_DEBUG("do -> Check GNSS\r\n");
+			event_send_check = Ql_OS_SetEvent(gnss_status, EVENT_FLAG1);
 		}
-    }    
+
+		if (!(event_wait_status = Ql_OS_WaitEvent(gnss_status, EVENT_FLAG1)))
+       	{
+       		timer_GNSS_check_start();
+       	}
+    }
 }
 
 #endif

@@ -1,4 +1,4 @@
-#include "gnss.h"
+#include "gnss_general.h"
 
 s32 	ReadSerialPort(Enum_SerialPort port, /*[out]*/u8* pBuffer, /*[in]*/u32 bufLen)
 {
