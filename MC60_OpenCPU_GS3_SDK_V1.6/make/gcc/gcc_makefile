@@ -15,6 +15,7 @@
 # Configure GCC installation path, and GCC version.
 # To execute "arm-none-eabi-gcc -v" in command line can get the current gcc version 
 #-------------------------------------------------------------------------------
+
 GCC_INSTALL_PATH=C:\Program Files\CodeSourcery\Sourcery_CodeBench_Lite_for_ARM_EABI
 GCC_VERSION=4.7.2
 
@@ -59,7 +60,7 @@ SRC_DIRS=custom     \
 		 custom\config     \
          custom\fota\src   \
 		 ril\src    \
-		 
+		 custom\gnss\src \
 		 #custom\iic\src \
 		 #custom\dual_sim\src \
 		 #example    \
@@ -73,7 +74,8 @@ SRC_SYS_RIL=$(wildcard ril/src/*.c)
 SRC_CUS=$(wildcard custom/*.c)
 SRC_FOTA=$(wildcard custom/fota/src/*.c)
 SRC_EXAMPLE=$(wildcard example/*.c)
-SRC_IIC=$(wildcard custom/iic/src/*.c)
+SRC_GNSS=$(wildcard custom/gnss/src/*.c)
+#SRC_IIC=$(wildcard custom/iic/src/*.c)
 #SRC_DUAL_SIM=$(wildcard custom/dual_sim/src/*.c)
 
 OBJS=\
@@ -82,7 +84,8 @@ OBJS=\
 	 $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_CUS))        \
 	 $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_FOTA))      \
 	 $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_DUAL_SIM))      \
-	 $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_IIC))      \
+	 $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_GNSS))      \
+	 #$(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_IIC))      \
 	 #$(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_EXAMPLE))    \
 
 ifeq ($(strip $(CLOUD_SOLUTION)),GITWIZS_SOLUTION)
