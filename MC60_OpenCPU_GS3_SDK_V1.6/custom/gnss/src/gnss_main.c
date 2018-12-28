@@ -3,8 +3,8 @@
 #include "gnss_general.h"
 
 // typedef enum {
-// 	EVENT_FLAG0 = 0x00000001, <-> check;
-// 	EVENT_FLAG1 = 0x00000002, <-> start timer for the required interval (3 hour period check);
+// 	EVENT_FLAG0 = 0x00000001, <-> start timer for the required interval;
+// 	EVENT_FLAG1 = 0x00000002, 
 // 	EVENT_FLAG2 = 0x00000004,
 // 	EVENT_FLAG3 = 0x00000008,
 // 	EVENT_FLAG4 = 0x00000010,
@@ -53,6 +53,14 @@ void    proc_main_task(s32 taskId)
 
 // void	gnns_check_routines(void)
 
+void	gnss_events_processing(u32	gnss_status, s32 event_wait_status)
+{
+	if (!(event_wait_status = Ql_OS_WaitEvent(gnss_status, EVENT_FLAG0)))
+   	{
+   		timer_GNSS_check_start();
+   	}
+}
+
 void	proc_subtask1(s32 TaskId)
 {
     ST_MSG 	subtask1_msg;
@@ -74,24 +82,13 @@ void	proc_subtask1(s32 TaskId)
             {
             	/* trigger GNNS check */
           		event_send_check = Ql_OS_SetEvent(gnss_status, EVENT_FLAG0);
-				// if (event_send_check == 0) /* '0' is success according to the Ql_OS_SetEvent */
-				// {
-				// 	APP_DEBUG("Ql_OS Check GNSS check was received successfully\r\n");
-				// }
 				break ;
           	}
             default:
                 break;
         }
-		if (!(event_wait_status = Ql_OS_WaitEvent(gnss_status, EVENT_FLAG0)))
-		{
-			event_send_check = Ql_OS_SetEvent(gnss_status, EVENT_FLAG1);
-		}
 
-		if (!(event_wait_status = Ql_OS_WaitEvent(gnss_status, EVENT_FLAG1)))
-       	{
-       		timer_GNSS_check_start();
-       	}
+        gnss_events_processing(gnss_status, event_wait_status);
     }
 }
 

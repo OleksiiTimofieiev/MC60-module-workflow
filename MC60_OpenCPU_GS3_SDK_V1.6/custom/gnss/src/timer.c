@@ -24,14 +24,14 @@ void    timer_GNSS_check_start(void)
 	s32		ret;
     u32 	repeat_interval = REPEAT /* set_repeat_period(HOURS, MINUTES) */;
     
-    ret = Ql_Timer_Register(GNSS_check_timer, repeat_interval, NULL);
+    ret = Ql_Timer_Register(GNSS_check_timer, gnss_check, NULL);
     if(ret < 0)
     {
         ;// APP_DEBUG("<--failed!!, Ql_Timer_Register: timer(%d) fail -->\r\n", GNSS_check_timer);
     }
     // APP_DEBUG("<--Register: timerId\r\n"); 
  
-    ret = Ql_Timer_Start(GNSS_check_timer, REPEAT, TRUE);
+    ret = Ql_Timer_Start(GNSS_check_timer, repeat_interval, TRUE);
     if(ret < 0)
     {
         ;// APP_DEBUG("<--failed!! gnss timer Ql_Timer_Start ret=%d-->\r\n",ret);        
