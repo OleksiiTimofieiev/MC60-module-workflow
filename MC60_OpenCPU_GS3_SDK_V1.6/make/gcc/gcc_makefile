@@ -23,7 +23,7 @@ GCC_VERSION=4.7.2
 #-------------------------------------------------------------------------------
 #GCC_INSTALL_PATH=C:\Program Files\CodeSourcery\Sourcery_CodeBench_Lite_for_ARM_EABI 
 
-C_PREDEF=-D __IIC_MAIN__
+C_PREDEF=-D __GNSS_MAIN__
 
 #-------------------------------------------------------------------------------
 # Configure the Cloud Solution
@@ -48,7 +48,8 @@ INCS += -I ./           \
         -I ril/inc      \
         -I custom/config   \
         -I custom/fota/inc \
-        -I custom/iic/inc \
+        -I custom/gnss/inc \
+        #-I custom/iic/inc \
         #-I custom/dual_sim/inc \
 
 #-------------------------------------------------------------------------------
@@ -58,7 +59,8 @@ SRC_DIRS=custom     \
 		 custom\config     \
          custom\fota\src   \
 		 ril\src    \
-		 custom\iic\src \
+		 
+		 #custom\iic\src \
 		 #custom\dual_sim\src \
 		 #example    \
 
