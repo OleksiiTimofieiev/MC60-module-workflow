@@ -8,11 +8,11 @@ void	activate_gnss(void)
 
 	if (ret == RIL_AT_SUCCESS)
 	{
-		APP_DEBUG("%s\r\n","gnss activated successfully");
+		APP_DEBUG("%s\r\n","gnss activated successfully\0");
 	}
 	else
 	{
-		APP_DEBUG("%s\r\n","gnss activation failure");
+		APP_DEBUG("%s\r\n","gnss activation failure\0");
 	}
 }
 
@@ -24,52 +24,33 @@ void	deactivate_gnss(void)
 
 	if (ret == RIL_AT_SUCCESS)
 	{
-		APP_DEBUG("%s\r\n","gnss deactivated successfull");
+		APP_DEBUG("%s\r\n","gnss deactivated successfull\0");
 	}
 	else
 	{
-		APP_DEBUG("%s\r\n","gnss deactivation failure");
+		APP_DEBUG("%s\r\n","gnss deactivation failure\0");
 	}
 }
 
-void	gnss_read(void)
+bool	gnss_read(void)
 {
-	// APP_DEBUG("%s\r\n", "In gnss_read 1");
 	s32	ret;
 	u8	rdBuff[1000];
     u8	item[10];
 
-	// APP_DEBUG("%s\r\n", "In gnss_read 2");
-
-
     Ql_memset(rdBuff, 0x0, sizeof(rdBuff));
-    Ql_sprintf(item, "%s", "RMC");
-
-	// APP_DEBUG("%s\r\n", "In gnss_read 3");
-
-    // APP_DEBUG("%s\r\n", item);
-
-    Ql_Sleep(1000); /* necessary to have the GNSS infrastructure fully activated */
+    Ql_sprintf(item, "%s", "RMC\0");
 
 	ret = RIL_GPS_Read(item, rdBuff);
 
-	// APP_DEBUG("ret -> %d\r\n", ret);
-	// APP_DEBUG("%s\r\n", "In gnss_read 4");
-
-	if (ret == RIL_AT_SUCCESS)
+	if (ret == QL_RET_OK)
 	{
-		// APP_DEBUG("%s\r\n", "gnss data received");
-
 		APP_DEBUG("GNSS data -> %s\r\n", rdBuff);
-
-		// APP_DEBUG("%s\r\n", "In gnss_read 5");
+		return (TRUE);
 	}
 	else
 	{
-		APP_DEBUG("%s\r\n", "gnss data failure");
-		// APP_DEBUG("%s\r\n", "In gnss_read 6");
-
+		APP_DEBUG("%s\r\n", "gnss data failure\0");
+		return (FALSE);
 	}
-		// APP_DEBUG("%s\r\n", "In gnss_read7");
-
 }

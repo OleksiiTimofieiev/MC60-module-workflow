@@ -37,33 +37,4 @@ void    proc_main_task(s32 taskId)
 	}
 }
 
-void	proc_subtask1(s32 TaskId) /* needs more memory ? */ //check in the end of the development
-{
-    ST_MSG 	subtask1_msg;
-    u32		gnss_status;
-
-    // APP_DEBUG("<--proc_subtask1-->\r\n");
-
-	gnss_status = Ql_OS_CreateEvent("gnss_status\0");
-
-    while (TRUE)
-    {    
-        Ql_OS_GetMessage(&subtask1_msg);
-
-        switch(subtask1_msg.message)
-        {
-            case GNSS_CHECK:
-            {
-            	/* trigger GNNS check */
-            	// APP_DEBUG("MESSAGE has been received\r\n");
-          		Ql_OS_SetEvent(gnss_status, EVENT_FLAG0);
-				break ;
-          	}
-            default:
-                break;
-        }
-        gnss_events_processing(gnss_status);
-    }
-}
-
 #endif
