@@ -57,12 +57,12 @@ INCS += -I ./           \
 # Configure source code dirctories
 #-------------------------------------------------------------------------------
 SRC_DIRS=custom     \
-		 custom\config     \
-         custom\fota\src   \
-		 ril\src    \
-		 custom\gnss\src \
-		 #custom\iic\src \
-		 #custom\dual_sim\src \
+		 custom/config     \
+         custom/fota/src   \
+		 ril/src    \
+		 custom/gnss/src \
+		 #custom/iic/src \
+		 #custom/dual_sim/src \
 		 #example    \
 
 #-------------------------------------------------------------------------------

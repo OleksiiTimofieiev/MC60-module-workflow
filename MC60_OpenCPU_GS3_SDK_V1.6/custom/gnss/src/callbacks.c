@@ -1,5 +1,8 @@
 #include "gnss_general.h"
 
+#define SERIAL_RX_BUFFER_LEN  2048
+static  u8  m_RxBuf_Uart[SERIAL_RX_BUFFER_LEN];
+
 s32 	ReadSerialPort(Enum_SerialPort port, /*[out]*/u8* pBuffer, /*[in]*/u32 bufLen)
 {
 	s32 rdLen = 0;
@@ -36,7 +39,7 @@ void 	CallBack_UART_Hdlr(Enum_SerialPort port, Enum_UARTEventType msg, bool leve
 	{
 	case EVENT_UART_READY_TO_READ:
 		{
-		   s32 totalBytes = ReadSerialPort(port, m_RxBuf_Uart, sizeof(m_RxBuf_Uart));
+		   /*s32 totalBytes = */ReadSerialPort(port, m_RxBuf_Uart, sizeof(m_RxBuf_Uart));
 		   break;
 		}
 	case EVENT_UART_READY_TO_WRITE:

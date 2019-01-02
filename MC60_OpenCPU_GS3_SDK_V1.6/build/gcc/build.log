@@ -88,22 +88,12 @@ custom/fota/src/fota_ftp.c:315:35: warning: 'retValue' may be used uninitialized
 custom/fota/src/fota_ftp.c:198:10: note: 'retValue' was declared here
 custom/fota/src/fota_main.c: In function 'Ql_FOTA_StartUpgrade':
 custom/fota/src/fota_main.c:33:10: warning: variable 'retValue' set but not used [-Wunused-but-set-variable]
-custom/gnss/src/callbacks.c: In function 'CallBack_UART_Hdlr':
-custom/gnss/src/callbacks.c:39:10: warning: unused variable 'totalBytes' [-Wunused-variable]
-In file included from custom/gnss/src/gnss_check_funcs.c:1:0:
-custom/gnss/inc/gnss_general.h:29:13: warning: 'm_RxBuf_Uart' defined but not used [-Wunused-variable]
-custom/gnss/inc/gnss_general.h:35:13: warning: 'DBG_BUFFER' defined but not used [-Wunused-variable]
-custom/gnss/src/gnss_main.c: In function 'proc_subtask1':
-custom/gnss/src/gnss_main.c:45:7: warning: variable 'event_send_check' set but not used [-Wunused-but-set-variable]
+In file included from custom/gnss/src/gnss_events_handling.c:1:0:
+custom/gnss/inc/gnss_general.h:38:13: warning: 'DBG_BUFFER' defined but not used [-Wunused-variable]
+custom/gnss/src/gnss_functions.c: In function 'gnss_read':
+custom/gnss/src/gnss_functions.c:46:5: warning: pointer targets in passing argument 1 of 'Ql_sprintf' differ in signedness [-Wpointer-sign]
+custom/gnss/src/gnss_functions.c:46:5: note: expected 'char *' but argument is of type 'u8 *'
 In file included from custom/gnss/src/gnss_main.c:3:0:
-custom/gnss/src/gnss_main.c: At top level:
-custom/gnss/inc/gnss_general.h:29:13: warning: 'm_RxBuf_Uart' defined but not used [-Wunused-variable]
-custom/gnss/inc/gnss_general.h:35:13: warning: 'DBG_BUFFER' defined but not used [-Wunused-variable]
-custom/gnss/src/gnss_main.c: In function 'proc_subtask1':
-custom/gnss/src/gnss_main.c:67:31: warning: 'event_wait_status' is used uninitialized in this function [-Wuninitialized]
-custom/gnss/src/timer.c: In function 'timer_GNSS_check_start':
-custom/gnss/src/timer.c:27:5: warning: implicit declaration of function 'Ql_Timer_Register' [-Wimplicit-function-declaration]
-custom/gnss/src/timer.c:34:5: warning: implicit declaration of function 'Ql_Timer_Start' [-Wimplicit-function-declaration]
+custom/gnss/inc/gnss_general.h:38:13: warning: 'DBG_BUFFER' defined but not used [-Wunused-variable]
 In file included from custom/gnss/src/timer.c:1:0:
-custom/gnss/src/timer.c: At top level:
-custom/gnss/inc/gnss_general.h:29:13: warning: 'm_RxBuf_Uart' defined but not used [-Wunused-variable]
+custom/gnss/inc/gnss_general.h:38:13: warning: 'DBG_BUFFER' defined but not used [-Wunused-variable]

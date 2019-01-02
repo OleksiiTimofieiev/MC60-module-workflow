@@ -1,7 +1,8 @@
 #include "gnss_general.h"
 
-#define	REPEAT          	1000 // conversion procedure;
+// #define	REPEAT          	1000 // conversion procedure;
 #define	GNSS_check_timer	0x105
+// #define GNSS_protocol_check 0x106
 
 #define	HOURS 				0
 #define	MINUTES 			1
@@ -16,13 +17,20 @@ u64		set_repeat_period(u8 hours, u8 minutes)
 
 void	gnss_check(u32 timerId, void* param)
 {
-	APP_DEBUG("Timer works\r\n");
+    if (timerId == GNSS_check_timer)
+    {
+	   // APP_DEBUG("Timer works\r\n");
+       activate_gnss();
+       
+       gnss_read();
+       // deactivate_gnss();
+    }
 }
 
 void    timer_GNSS_check_start(void)
 {
 	s32		ret;
-    u32 	repeat_interval = set_repeat_period(HOURS, MINUTES);
+    u32 	repeat_interval = 500 /* set_repeat_period(HOURS, MINUTES) */;
     
     ret = Ql_Timer_Register(GNSS_check_timer, gnss_check, NULL);
     if(ret < 0)

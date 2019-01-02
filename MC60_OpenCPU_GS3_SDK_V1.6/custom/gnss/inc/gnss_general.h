@@ -1,5 +1,5 @@
-#ifndef __GNSS_H__
-#define __GNSS_H__
+#ifndef __GNSS_GENERAL_H__
+#define __GNSS_GENERAL_H__
 
 /*
 ************************************************** libs ********************************************************
@@ -15,8 +15,14 @@
 #include "ril.h"
 #include "ril_util.h"
 #include "ql_system.h"
+#include "ril_gps.h"
 #include "ql_gnss.h"
 #include "nema_pro.h"
+#include "ql_timer.h"
+
+/*
+************************************************** GNSS ********************************************************
+*/
 
 #include "project.h"
 
@@ -25,9 +31,6 @@
 */
 
 /* input buffer params */
-#define SERIAL_RX_BUFFER_LEN  2048
-static  u8  m_RxBuf_Uart[SERIAL_RX_BUFFER_LEN];
-
 #define DEBUG_ENABLE 1
 #if DEBUG_ENABLE > 0
 #define DEBUG_PORT  UART_PORT1

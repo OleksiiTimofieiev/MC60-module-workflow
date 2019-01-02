@@ -14,10 +14,13 @@
 // 	EVENT_FLAG_END
 // }Enum_EventFlag;
 
-void	gnss_events_processing(u32	gnss_status, s32 event_wait_status)
+void	gnss_events_processing(u32	gnss_status)
 {
+	s32		event_wait_status;
+
 	if (!(event_wait_status = Ql_OS_WaitEvent(gnss_status, EVENT_FLAG0)))
    	{
+   		// APP_DEBUG("start timer\r\n");
    		timer_GNSS_check_start();
    	}
 }
