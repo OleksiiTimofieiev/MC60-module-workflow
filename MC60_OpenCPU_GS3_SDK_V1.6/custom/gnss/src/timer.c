@@ -1,70 +1,76 @@
-// #include "gnss_general.h"
+#include "gnss_general.h"
 
-// // #define	REPEAT          	1000 // conversion procedure;
-// #define	GNSS_check_timer	0x105
-// // #define GNSS_protocol_check 0x106
+static  bool gnss_activation;
 
-// #define	HOURS 				0
-// #define	MINUTES 			1
+void    timer_GNSS_check_data(u32 timerId, void *param)
+{
+    APP_DEBUG("%s\r\n", "data timer\0");
 
-// u64		set_repeat_period(u8 hours, u8 minutes)
-// {
-// 	u64		total_seconds = hours * 3600 + minutes * 60;
-// 	u64		milliseconds = total_seconds * 1000;
+    bool    check_result = FALSE;
 
-// 	return (milliseconds);
-// }
+    check_result = gnss_read();
 
-// void	gnss_check(u32 timerId, void* param)
-// {
-//     bool    check_result = FALSE;
+    if (check_result)
+    {
+        Ql_OS_SendMessage(subtask1_id, GNSS_TIMER_STOP, 0, 0);
 
-//     if (timerId == GNSS_check_timer)
-//     {
-//         activate_gnss();
+        gnss_activation = FALSE;
 
-//         while(!check_result) // separate timer;
-//         {
-//             check_result = gnss_read();
-//             Ql_Sleep(1000);
-//         }
-//         Ql_OS_SetEvent(*((u32 *)param), EVENT_FLAG1);
-//     }
-// }
+        Ql_Timer_Stop(GNSS_check_data);   
+    }
+}
 
-// void    timer_GNSS_check_start(u32  gnss_status)
-// {
-// 	s32		ret;
-//     u32 	repeat_interval = 1000 /* set_repeat_period(HOURS, MINUTES) */;
+void    timer_GNSS_check_general(u32 timerId, void *param)
+{
+    APP_DEBUG("%s\r\n", "general timer\0");
+
+    if (!gnss_activation)
+    {
+        activate_gnss();
+        gnss_activation = TRUE;
+    }
+
+    if (gnss_activation)
+    {
+        s32 ret;
+
+        ret = Ql_Timer_Start(GNSS_check_data, GNSS_check_data_repeat, TRUE);
+
+        if (ret < 0)
+        {
+            APP_DEBUG("%s\r\n", "GNSS_check_data start failure\0");
+        }
+        else
+        {
+            APP_DEBUG("%s\r\n", "GNSS_check_data start success\0");
+        }
+    }
+}
+
+void    timer_GNSS_register_timers(void)
+{
+    gnss_activation = FALSE;
+
+    s32 ret;
     
-//     ret = Ql_Timer_Register(GNSS_check_timer, gnss_check, &gnss_status);
-//     if(ret < 0)
-//     {
-//         ;// APP_DEBUG("<--failed!!, Ql_Timer_Register: timer(%d) fail -->\r\n", GNSS_check_timer);
-//     }
-//     // APP_DEBUG("<--Register: timerId\r\n"); 
- 
-//     ret = Ql_Timer_Start(GNSS_check_timer, repeat_interval, TRUE);
-//     if(ret < 0)
-//     {
-//         ;// APP_DEBUG("<--failed!! gnss timer Ql_Timer_Start ret=%d-->\r\n",ret);        
-//     }
-//     // APP_DEBUG("<--gnss timer start\r\n");
-// }
+    ret = Ql_Timer_Register(GNSS_check_general, timer_GNSS_check_general, NULL);
+    if (ret < 0)
+            APP_DEBUG("%s\r\n", "GNSS_check_general register failure");
+    APP_DEBUG("%s\r\n", "GNSS_check_general register success");
+    
+    ret = Ql_Timer_Register(GNSS_check_data, timer_GNSS_check_data, NULL);
+     if (ret < 0)
+            APP_DEBUG("%s\r\n", "GNSS_check_data register failure");
+    APP_DEBUG("%s\r\n", "GNSS_check_data register success");
 
-// void    timer_GNSS_check_stop(void)
+    Ql_Timer_Start(GNSS_check_general, GNSS_check_general_repeat, TRUE);
+}
+
+// void    timer_stop_data_check_timer(void)
 // {
-//     APP_DEBUG("%s\r\n", "stop timer\0");
-
-//     s32 ret;
-
-//     ret = Ql_Timer_Stop(GNSS_check_timer);
-
-//     if (ret < 0)
-//     {
-//         APP_DEBUG("\r\n<--failed!! stack timer Ql_Timer_Stop ret=%d-->\r\n",ret);           
-//     }
-//     APP_DEBUG("\r\n<--stack timer Ql_Timer_Stop(ID=%d,) ret=%d-->\r\n",GNSS_check_timer,ret);  
+//     Ql_Timer_Stop(GNSS_check_data);
 
 //     deactivate_gnss();
+
+//     gnss_activation = FALSE;
 // }

@@ -24,7 +24,7 @@ void	deactivate_gnss(void)
 
 	if (ret == RIL_AT_SUCCESS)
 	{
-		APP_DEBUG("%s\r\n","gnss deactivated successfull\0");
+		APP_DEBUG("%s\r\n","gnss deactivated successfully\0");
 	}
 	else
 	{
@@ -35,15 +35,26 @@ void	deactivate_gnss(void)
 bool	gnss_read(void)
 {
 	s32	ret;
-	u8	rdBuff[1000];
-    u8	item[10];
+	u8	rdBuff[1000] = {"\0"};
+    u8	item[10] = {"\0"};
 
-    Ql_memset(rdBuff, 0x0, sizeof(rdBuff));
-    Ql_sprintf(item, "%s", "RMC\0");
+    // Ql_memset(rdBuff,0,sizeof(rdBuff));
+    // Ql_strncpy(item,m_RxBuf_Uart+9,3);
+
+    // iRet = RIL_GPS_Read(item,rdBuff);
+    // if(RIL_AT_SUCCESS != iRet)
+
+    // Ql_memset(rdBuff, '\0', sizeof(rdBuff));
+    // Ql_memset(item, '\0', sizeof(item));
+
+    // Ql_sprintf(item, "%s", "RMC");
+    Ql_strncpy(item, "RMC", 3);
+
+    APP_DEBUG("item -> %s\r\n", item);
 
 	ret = RIL_GPS_Read(item, rdBuff);
 
-	if (ret == QL_RET_OK)
+	if (ret == RIL_AT_SUCCESS)
 	{
 		APP_DEBUG("GNSS data -> %s\r\n", rdBuff);
 		return (TRUE);
