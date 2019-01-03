@@ -1,0 +1,4 @@
+custom/gnss/src/timer.c: In function 'timer_GNSS_check_general':
+custom/gnss/src/timer.c:35:13: warning: variable 'ret' set but not used [-Wunused-but-set-variable]
+custom/gnss/src/timer.c: In function 'timer_GNSS_register_timers':
+custom/gnss/src/timer.c:54:9: warning: variable 'ret' set but not used [-Wunused-but-set-variable]
