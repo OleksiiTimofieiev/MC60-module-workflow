@@ -1,4 +1,5 @@
-custom/gnss/src/timer.c: In function 'timer_GNSS_check_general':
-custom/gnss/src/timer.c:35:13: warning: variable 'ret' set but not used [-Wunused-but-set-variable]
-custom/gnss/src/timer.c: In function 'timer_GNSS_register_timers':
-custom/gnss/src/timer.c:54:9: warning: variable 'ret' set but not used [-Wunused-but-set-variable]
+custom/gnss/src/gnss_functions.c: In function 'gnss_read':
+custom/gnss/src/gnss_functions.c:41:5: warning: pointer targets in passing argument 1 of 'Ql_strncpy' differ in signedness [-Wpointer-sign]
+In file included from custom/gnss/inc/gnss_general.h:9:0,
+                 from custom/gnss/src/gnss_functions.c:1:
+include/ql_stdlib.h:48:7: note: expected 'char *' but argument is of type 'u8 *'

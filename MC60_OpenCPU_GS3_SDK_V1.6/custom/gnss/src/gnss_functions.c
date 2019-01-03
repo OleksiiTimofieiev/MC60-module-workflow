@@ -6,14 +6,14 @@ void	activate_gnss(void)
 
 	ret = RIL_GPS_Open(1);
 
-	// if (ret == RIL_AT_SUCCESS)
-	// {
-	// 	APP_DEBUG("%s\r\n","gnss activated successfully\0");
-	// }
-	// else
-	// {
-	// 	APP_DEBUG("%s\r\n","gnss activation failure\0");
-	// }
+	if (ret == RIL_AT_SUCCESS)
+	{
+		APP_DEBUG("%s\r\n","gnss activated successfully\0");
+	}
+	else
+	{
+		APP_DEBUG("%s\r\n","gnss activation failure\0");
+	}
 }
 
 void	deactivate_gnss(void)
@@ -22,14 +22,14 @@ void	deactivate_gnss(void)
 
 	ret = RIL_GPS_Open(0);
 
-	// if (ret == RIL_AT_SUCCESS)
-	// {
-	// 	APP_DEBUG("%s\r\n","gnss deactivated successfully\0");
-	// }
-	// else
-	// {
-	// 	APP_DEBUG("%s\r\n","gnss deactivation failure\0");
-	// }
+	if (ret == RIL_AT_SUCCESS)
+	{
+		APP_DEBUG("%s\r\n","gnss deactivated successfully\0");
+	}
+	else
+	{
+		APP_DEBUG("%s\r\n","gnss deactivation failure\0");
+	}
 }
 
 bool	gnss_read(void)
@@ -44,7 +44,7 @@ bool	gnss_read(void)
 
 	if (ret == RIL_AT_SUCCESS)
 	{
-		// APP_DEBUG("GNSS data -> %s\r\n", rdBuff);
+		APP_DEBUG("GNSS data -> %s\r\n", rdBuff);
 		return (TRUE);
 	}
 	else
