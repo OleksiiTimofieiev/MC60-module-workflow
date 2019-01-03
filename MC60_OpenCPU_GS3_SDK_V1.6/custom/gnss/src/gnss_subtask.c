@@ -10,18 +10,11 @@ void	proc_subtask1(s32 TaskId)
 
         switch(subtask1_msg.message)
         {
-            case GNSS_CHECK:
-            {
-   				timer_GNSS_register_timers();
-				break ;
-          	}
-          	case GNSS_TIMER_STOP:
-          	{
-          		Ql_Sleep(1000);
-        		deactivate_gnss();
-          		APP_DEBUG("%s\r\n", "timer has been stopped\0");
-          		break ;
-          	}
+        	case INITIAL_GNSS:
+        	{
+        		init_gnss();
+        		break ;
+        	}
             default:
                 break;
         }
