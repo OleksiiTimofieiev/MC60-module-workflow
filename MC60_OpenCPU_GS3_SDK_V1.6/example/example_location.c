@@ -55,7 +55,7 @@
 /****************************************************************************
 * Definition for APN
 ****************************************************************************/
-#define APN      "CMNET\0"
+#define APN      "kyivstar"
 #define USERID   ""
 #define PASSWD   ""
 
@@ -204,7 +204,7 @@ static void Location_Program(void)
 	u8  pdpCntxtId;
 
 	u8 location_mode = 0;
-    u8 asynch = 0;
+    u8 asynch = 1; /* was '0' */
 	ST_CellInfo GetLocation;
 	GetLocation.cellId = 22243;
 	GetLocation.lac = 21764;

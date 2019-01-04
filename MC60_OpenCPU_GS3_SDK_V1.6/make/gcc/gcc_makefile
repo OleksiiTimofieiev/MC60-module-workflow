@@ -24,7 +24,7 @@ GCC_VERSION=4.7.2
 #-------------------------------------------------------------------------------
 #GCC_INSTALL_PATH=C:\Program Files\CodeSourcery\Sourcery_CodeBench_Lite_for_ARM_EABI 
 
-C_PREDEF=-D __GNSS_MAIN__
+C_PREDEF=-D __EXAMPLE_LOCATION__
 
 #-------------------------------------------------------------------------------
 # Configure the Cloud Solution
@@ -61,9 +61,9 @@ SRC_DIRS=custom     \
          custom/fota/src   \
 		 ril/src    \
 		 custom/gnss/src \
+		 example/    \
 		 #custom/iic/src \
 		 #custom/dual_sim/src \
-		 #example    \
 
 #-------------------------------------------------------------------------------
 # Configure source code files to compile in the source code directories
@@ -85,8 +85,8 @@ OBJS=\
 	 $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_FOTA))      \
 	 $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_DUAL_SIM))      \
 	 $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_GNSS))      \
+	 $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_EXAMPLE))    \
 	 #$(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_IIC))      \
-	 #$(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC_EXAMPLE))    \
 
 ifeq ($(strip $(CLOUD_SOLUTION)),GITWIZS_SOLUTION)
      INCS +=-I cloud/entity/gitwizs/inc

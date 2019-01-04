@@ -99,7 +99,28 @@ custom/gnss/src/gnss_functions.c:72:3: warning: pointer targets in passing argum
 In file included from custom/gnss/inc/gnss_general.h:9:0,
                  from custom/gnss/src/gnss_functions.c:1:
 include/ql_stdlib.h:55:7: note: expected 'const char *' but argument is of type 'u8 *'
-In file included from custom/gnss/src/gnss_main.c:3:0:
-custom/gnss/inc/gnss_general.h:38:13: warning: 'DBG_BUFFER' defined but not used [-Wunused-variable]
 In file included from custom/gnss/src/gnss_subtask.c:1:0:
 custom/gnss/inc/gnss_general.h:38:13: warning: 'DBG_BUFFER' defined but not used [-Wunused-variable]
+example/nema_pro.c: In function 'read_gps_I2C_buffer':
+example/nema_pro.c:172:9: warning: unused variable 'realwrlen' [-Wunused-variable]
+example/nema_pro.c: In function 'extract_nmea':
+example/nema_pro.c:192:5: warning: unused variable 'nmea_buf' [-Wunused-variable]
+example/nema_pro.c:191:9: warning: unused variable 'realwrlen' [-Wunused-variable]
+example/nema_pro.c: In function 'iop_inst_avail':
+example/nema_pro.c:285:21: warning: operation on 'id_que_tail' may be undefined [-Wsequence-point]
+example/nema_pro.c: In function 'iop_get_inst':
+example/nema_pro.c:323:13: warning: operation on 'idx' may be undefined [-Wsequence-point]
+example/nema_pro.c: In function 'iop_pcrx_nmea':
+example/nema_pro.c:355:25: warning: operation on 'id_que_head' may be undefined [-Wsequence-point]
+example/nema_pro.c:360:29: warning: operation on 'id_que_tail' may be undefined [-Wsequence-point]
+example/nema_pro.c:381:29: warning: operation on 'rx_que_head' may be undefined [-Wsequence-point]
+example/nema_pro.c:387:29: warning: operation on 'rx_que_head' may be undefined [-Wsequence-point]
+example/nema_pro.c:407:25: warning: operation on 'rx_que_head' may be undefined [-Wsequence-point]
+example/utility.c: In function 'Check_Separator':
+example/utility.c:45:5: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+example/utility.c:52:5: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+example/utility.c:59:5: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+example/utility.c:42:11: warning: unused variable 'pChar2' [-Wunused-variable]
+example/utility.c: In function 'Analyse_Command':
+example/utility.c:103:5: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+example/utility.c:120:17: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
