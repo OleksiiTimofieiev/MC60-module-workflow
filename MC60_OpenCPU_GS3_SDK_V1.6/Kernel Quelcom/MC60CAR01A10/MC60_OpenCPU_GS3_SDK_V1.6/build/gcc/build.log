@@ -1,0 +1,90 @@
+example/example_gps.c:72:0: warning: "MAX_NMEA_LEN" redefined [enabled by default]
+In file included from example/example_gps.c:40:0:
+include/ql_gnss.h:40:0: note: this is the location of the previous definition
+example/example_gps.c: In function 'Callback_UART_Hdlr_VR':
+example/example_gps.c:135:19: warning: unused variable 'p' [-Wunused-variable]
+example/example_gps.c:129:9: warning: unused variable 'iRet' [-Wunused-variable]
+example/example_gps.c: In function 'Callback_UART_Hdlr':
+example/example_gps.c:504:13: warning: pointer targets in passing argument 1 of 'Ql_strstr' differ in signedness [-Wpointer-sign]
+In file included from example/example_gps.c:37:0:
+include/ql_stdlib.h:55:7: note: expected 'const char *' but argument is of type 'u8 *'
+example/example_gps.c:525:13: warning: pointer targets in passing argument 1 of 'Ql_strstr' differ in signedness [-Wpointer-sign]
+In file included from example/example_gps.c:37:0:
+include/ql_stdlib.h:55:7: note: expected 'const char *' but argument is of type 'u8 *'
+example/example_gps.c:544:13: warning: pointer targets in passing argument 1 of 'Ql_strstr' differ in signedness [-Wpointer-sign]
+In file included from example/example_gps.c:37:0:
+include/ql_stdlib.h:55:7: note: expected 'const char *' but argument is of type 'u8 *'
+example/example_gps.c:551:17: warning: pointer targets in passing argument 1 of 'Ql_strncpy' differ in signedness [-Wpointer-sign]
+In file included from example/example_gps.c:37:0:
+include/ql_stdlib.h:48:7: note: expected 'char *' but argument is of type 'u8 *'
+example/example_gps.c:551:17: warning: pointer targets in passing argument 2 of 'Ql_strncpy' differ in signedness [-Wpointer-sign]
+In file included from example/example_gps.c:37:0:
+include/ql_stdlib.h:48:7: note: expected 'const char *' but argument is of type 'u8 *'
+example/example_gps.c:564:13: warning: pointer targets in passing argument 1 of 'Ql_strstr' differ in signedness [-Wpointer-sign]
+In file included from example/example_gps.c:37:0:
+include/ql_stdlib.h:55:7: note: expected 'const char *' but argument is of type 'u8 *'
+example/example_gps.c:574:17: warning: pointer targets in passing argument 1 of 'Ql_atoi' differ in signedness [-Wpointer-sign]
+In file included from example/example_gps.c:37:0:
+include/ql_stdlib.h:41:8: note: expected 'const char *' but argument is of type 'u8 *'
+example/example_gps.c:589:13: warning: pointer targets in passing argument 1 of 'Ql_strstr' differ in signedness [-Wpointer-sign]
+In file included from example/example_gps.c:37:0:
+include/ql_stdlib.h:55:7: note: expected 'const char *' but argument is of type 'u8 *'
+example/example_gps.c:606:13: warning: pointer targets in passing argument 1 of 'Ql_strstr' differ in signedness [-Wpointer-sign]
+In file included from example/example_gps.c:37:0:
+include/ql_stdlib.h:55:7: note: expected 'const char *' but argument is of type 'u8 *'
+example/example_gps.c:617:17: warning: pointer targets in passing argument 1 of 'Ql_atoi' differ in signedness [-Wpointer-sign]
+In file included from example/example_gps.c:37:0:
+include/ql_stdlib.h:41:8: note: expected 'const char *' but argument is of type 'u8 *'
+example/example_gps.c:628:17: warning: pointer targets in passing argument 1 of 'Ql_sprintf' differ in signedness [-Wpointer-sign]
+example/example_gps.c:628:17: note: expected 'char *' but argument is of type 'u8 *'
+example/example_gps.c:629:17: warning: pointer targets in passing argument 1 of 'Ql_strlen' differ in signedness [-Wpointer-sign]
+In file included from example/example_gps.c:37:0:
+include/ql_stdlib.h:54:7: note: expected 'const char *' but argument is of type 'u8 *'
+example/example_gps.c:637:13: warning: pointer targets in passing argument 1 of 'Ql_strstr' differ in signedness [-Wpointer-sign]
+In file included from example/example_gps.c:37:0:
+include/ql_stdlib.h:55:7: note: expected 'const char *' but argument is of type 'u8 *'
+example/example_gps.c:643:17: warning: implicit declaration of function 'RIL_NW_GetGSMState' [-Wimplicit-function-declaration]
+example/example_gps.c:644:17: warning: implicit declaration of function 'RIL_NW_GetGPRSState' [-Wimplicit-function-declaration]
+example/example_gps.c:658:13: warning: pointer targets in passing argument 1 of 'Ql_strstr' differ in signedness [-Wpointer-sign]
+In file included from example/example_gps.c:37:0:
+include/ql_stdlib.h:55:7: note: expected 'const char *' but argument is of type 'u8 *'
+example/example_gps.c:685:5: warning: pointer targets in passing argument 1 of 'Ql_strstr' differ in signedness [-Wpointer-sign]
+In file included from example/example_gps.c:37:0:
+include/ql_stdlib.h:55:7: note: expected 'const char *' but argument is of type 'u8 *'
+example/example_gps.c: At top level:
+example/example_gps.c:186:6: warning: 'Callback_GPS_CMD_Hdlr' defined but not used [-Wunused-function]
+example/nema_pro.c: In function 'read_gps_I2C_buffer':
+example/nema_pro.c:172:9: warning: unused variable 'realwrlen' [-Wunused-variable]
+example/nema_pro.c: In function 'extract_nmea':
+example/nema_pro.c:192:5: warning: unused variable 'nmea_buf' [-Wunused-variable]
+example/nema_pro.c:191:9: warning: unused variable 'realwrlen' [-Wunused-variable]
+example/nema_pro.c: In function 'iop_inst_avail':
+example/nema_pro.c:285:21: warning: operation on 'id_que_tail' may be undefined [-Wsequence-point]
+example/nema_pro.c: In function 'iop_get_inst':
+example/nema_pro.c:323:13: warning: operation on 'idx' may be undefined [-Wsequence-point]
+example/nema_pro.c: In function 'iop_pcrx_nmea':
+example/nema_pro.c:355:25: warning: operation on 'id_que_head' may be undefined [-Wsequence-point]
+example/nema_pro.c:360:29: warning: operation on 'id_que_tail' may be undefined [-Wsequence-point]
+example/nema_pro.c:381:29: warning: operation on 'rx_que_head' may be undefined [-Wsequence-point]
+example/nema_pro.c:387:29: warning: operation on 'rx_que_head' may be undefined [-Wsequence-point]
+example/nema_pro.c:407:25: warning: operation on 'rx_que_head' may be undefined [-Wsequence-point]
+example/utility.c: In function 'Check_Separator':
+example/utility.c:45:5: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+example/utility.c:52:5: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+example/utility.c:59:5: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+example/utility.c:42:11: warning: unused variable 'pChar2' [-Wunused-variable]
+example/utility.c: In function 'Analyse_Command':
+example/utility.c:103:5: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+example/utility.c:120:17: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+custom/fota/src/fota_ftp.c: In function 'FTP_FotaMain':
+custom/fota/src/fota_ftp.c:44:9: warning: variable 'retValue' set but not used [-Wunused-but-set-variable]
+custom/fota/src/fota_ftp.c: In function 'FTP_Callback_OnDownload':
+custom/fota/src/fota_ftp.c:83:10: warning: variable 'retValue' set but not used [-Wunused-but-set-variable]
+custom/fota/src/fota_ftp.c:82:9: warning: variable 'ret' set but not used [-Wunused-but-set-variable]
+custom/fota/src/fota_ftp.c: In function 'FTP_Program':
+custom/fota/src/fota_ftp.c:124:10: warning: variable 'retValue' set but not used [-Wunused-but-set-variable]
+custom/fota/src/fota_ftp.c: In function 'FTP_Callback_OnDownload':
+custom/fota/src/fota_ftp.c:315:35: warning: 'retValue' may be used uninitialized in this function [-Wmaybe-uninitialized]
+custom/fota/src/fota_ftp.c:198:10: note: 'retValue' was declared here
+custom/fota/src/fota_main.c: In function 'Ql_FOTA_StartUpgrade':
+custom/fota/src/fota_main.c:33:10: warning: variable 'retValue' set but not used [-Wunused-but-set-variable]
